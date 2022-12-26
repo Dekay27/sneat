@@ -1,17 +1,56 @@
+<?php
+
+function test_input($data): string
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    return htmlspecialchars($data);
+}
+
+include '../logon.php';
+
+$sql = "SELECT email, password FROM logins WHERE id = 1";
+$result = $conn->query($sql);
+
+$email = "";
+$password = "";
+
+/*
+if ($result->num_rows > 0) {
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+        $email = $row['email'];
+        $password = $row['password'];
+    }
+}
+*/
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $email = test_input($_POST["email"]);
+    $password = test_input($_POST["password"]);
+
+    $sql = "SELECT email, password FROM logins 
+                       WHERE email = '$email' 
+                         AND password = '$password'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows == 0) {
+
+        echo "No username/password combination found";
+
+    } else {
+        header("Location: /sneat/html/index.html");
+        exit();
+    }
+}
+
+//echo test_input($email);
+//echo test_input($password);
+
+?>
+
 <!DOCTYPE html>
-
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
-
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
-
-=========================================================
- -->
-<!-- beautify ignore:start -->
 <html
         lang="en"
         class="light-style customizer-hide"
@@ -27,7 +66,7 @@
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Login Basic - ISMS</title>
 
     <meta name="description" content=""/>
 
@@ -63,65 +102,8 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
 </head>
-
-<?php
-
-include '../logon.php';
-include './logon.php';
-
-$email = "";
-$password = "";
-$emailError = "";
-$passwordError = "";
-
-// FUNCTIONS
-function test_input($data): string
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    return htmlspecialchars($data);
-}
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $email = test_input($_POST["email"]);
-    $password = test_input($_POST["password"]);
-
-    $email2 = "";
-    $password2 = "";
-
-    $sql = "SELECT email, password FROM logins WHERE id=1";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
-            $email2 = $row['email'];
-            $password2 = $row['password'];
-        }
-    } else {
-        echo "0 results";
-    }
-    if (($email != "") && ($password != "")) {
-        header("Location: /sneat/html/index.html");
-        exit();
-    } else if (empty($email)) {
-
-        $emailError = "Please enter a valid email address";
-
-    } else if (empty($password)) {
-
-        $passwordError = "Please enter a password";
-
-    }
-
-    $conn->close();
-}
-
-?>
-
 <body>
+
 <!-- Content -->
 
 <div class="container-xxl">
@@ -194,7 +176,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h4 class="mb-2">Welcome to ISMS! 👋</h4>
                     <p class="mb-4">Please sign-in to your institutional account</p>
 
-                    <!-- <form id="formAuthentication" class="mb-3" action="auth-login-basic.php" method="POST">  -->
+
+                    <!-- FORM -->
                     <form id="formAuthentication" class="mb-3"
                           action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                         <div class="mb-3">
@@ -203,13 +186,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     type="text"
                                     class="form-control"
                                     id="email"
-                                    name="email-username"
-                                    placeholder="Enter your email or username"
-                                    autofocus
+                                    name="email"
+                                    placeholder=<?php echo $email; ?>
                             />
-                            <span class="error">* <?php echo $emailError; ?></span>
-                            <span class="error">* <?php echo $email; ?></span>
                         </div>
+
                         <div class="mb-3 form-password-toggle">
                             <div class="d-flex justify-content-between">
                                 <label class="form-label" for="password">Password</label>
@@ -217,68 +198,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <small>Forgot Password?</small>
                                 </a>
                             </div>
-                            <div class="input-group input-group-merge">
+                            <div class="input-group input-group-merge mb-3">
                                 <input
                                         type="password"
                                         id="password"
                                         class="form-control"
                                         name="password"
-                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password"
+                                        placeholder=<?php echo $password; ?>
                                 />
-                                <span class="error">* <?php echo $passwordError; ?></span>
-                                <span class="error">* <?php echo $password; ?></span>
-                                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="remember-me"/>
-                                <label class="form-check-label" for="remember-me"> Remember Me </label>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                             <input name="save" type="submit" id="save" value=" Submit "
                                    class="btn btn-primary d-grid w-100"/>
                         </div>
+
                     </form>
 
-                    <p class="text-center">
-                        <span>New on our platform?</span>
-                        <a href="auth-register-basic.html">
-                            <span>Create an account</span>
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <!-- /Register -->
-        </div>
-    </div>
-</div>
+                    <!-- Core JS -->
+                    <!-- build:js assets/vendor/js/core.js -->
+                    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+                    <script src="../assets/vendor/libs/popper/popper.js"></script>
+                    <script src="../assets/vendor/js/bootstrap.js"></script>
+                    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-<!-- / Content -->
+                    <script src="../assets/vendor/js/menu.js"></script>
+                    <!-- endbuild -->
 
+                    <!-- Vendors JS -->
 
-<!-- Core JS -->
-<!-- build:js assets/vendor/js/core.js -->
-<script src="../assets/vendor/libs/jquery/jquery.js"></script>
-<script src="../assets/vendor/libs/popper/popper.js"></script>
-<script src="../assets/vendor/js/bootstrap.js"></script>
-<script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+                    <!-- Main JS -->
+                    <script src="../assets/js/main.js"></script>
 
-<script src="../assets/vendor/js/menu.js"></script>
-<!-- endbuild -->
+                    <!-- Page JS -->
 
-<!-- Vendors JS -->
-
-<!-- Main JS -->
-<script src="../assets/js/main.js"></script>
-
-<!-- Page JS -->
-
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+                    <!-- Place this tag in your head or just before your close body tag. -->
+                    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 
 </html>
