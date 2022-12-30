@@ -5,7 +5,7 @@ $alert = $email = $password = "";
 function authenticate($username, $password)
 {
     // Connect to the database
-    $db = new PDO('mysql:host=localhost;dbname=phpgrid', 'root', '');
+    $db = new PDO('mysql:host=localhost;dbname=kuceportal', 'root', '');
 
     // Escape the username and password to prevent SQL injection attacks
     $username = $db->quote($username);

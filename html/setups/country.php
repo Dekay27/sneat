@@ -4,7 +4,7 @@ $countryID = "";
 $countryDescription = "";
 
 // Connect to the database
-$db = new PDO('mysql:host=localhost;dbname=phpgrid', 'root', '');
+$db = new PDO('mysql:host=localhost;dbname=kuceportal', 'root', '');
 
 // Query the database
 $result = $db->query('SELECT * FROM country');
@@ -102,6 +102,8 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 </div>
+
+
 <!-- Layout wrapper -->
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">

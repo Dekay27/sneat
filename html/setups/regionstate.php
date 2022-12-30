@@ -4,16 +4,15 @@ $countryID = "";
 $countryDescription = "";
 
 // Connect to the database
-$db = new PDO('mysql:host=localhost;dbname=phpgrid', 'root', '');
+$db = new PDO('mysql:host=localhost;dbname=kuceportal', 'root', '');
 
 // Query the database
-$result = $db->query('SELECT * FROM country');
+$result = $db->query('SELECT * FROM regionstate');
 
 // Fetch the data as an associative array
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
 
 <html
         lang="en"
@@ -30,275 +29,148 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Region/State - Setup | ISMS - Integrated School Management System</title>
+    <title>Template | ISMS - Integrated School Management System</title>
 
     <meta name="description" content=""/>
 
-    <script>
-        function includeHTMLSnippet() {
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico"/>
 
-            // Traverse the collection of
-            // all HTML elements
-            const id = document.getElementsByTagName("*");
-            let element;
-            let xmlRequest;
-            let file;
-            for (let i = 0; i < id.length; i++) {
-                element = id[i];
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet"
+    />
 
-                // Search for elements with
-                // specific attributes
-                file = element.getAttribute(
-                    "GFG-include-html-snippet");
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css"/>
 
-                if (file) {
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../../assets/vendor/css/core.css" class="template-customizer-core-css"/>
+    <link rel="stylesheet" href="../../assets/vendor/css/theme-default.css" class="template-customizer-theme-css"/>
+    <link rel="stylesheet" href="../../assets/css/demo.css"/>
 
-                    // Create an HTTP request with the
-                    // attribute value as the file name
-                    xmlRequest = new XMLHttpRequest();
-                    xmlRequest.onreadystatechange = function () {
-                        if (this.readyState === 4) {
-                            if (this.status === 200) {
-                                element.innerHTML = this.responseText;
-                            }
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
 
-                            if (this.status === 404) {
-                                element.innerHTML = "Page not found.";
-                            }
+    <!-- Page CSS -->
 
-                            // Delete the attribute and
-                            // call this function again
-                            element.removeAttribute(
-                                "GFG-include-html-snippet");
+    <!-- Helpers -->
+    <script src="../../assets/vendor/js/helpers.js"></script>
 
-                            includeHTMLSnippet();
-                        }
-                    }
-                    xmlRequest.open("GET", file, true);
-                    xmlRequest.send();
-                    return; // Exit function.
-                }
-            }
-        }
-    </script>
-
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../../assets/js/config.js"></script>
 </head>
+
 
 <body>
 
-<div class="content-wrapper">
-    <!-- Content -->
-    <div class="layout-wrapper layout-content-navbar">
-        <div GFG-include-html-snippet="nav.html">
+<?php include_once '../modals/editmodal.php' ?>
+<!-- Beginning of Body Content -->
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
 
-            <!-- Layout Nav Bar -->
-            <div class="layout-page">
-                <!-- Navbar -->
+        <!-- Beginning of Sidebar Content -->
+        <?php include_once '../modals/sidebar.php' ?>
+        <!-- / End of Sidebar Content -->
 
-                <nav
-                        class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-                        id="layout-navbar"
-                >
-                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-                        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-                            <i class="bx bx-menu bx-sm"></i>
-                        </a>
-                    </div>
+        <!-- Beginning of Internal Content -->
+        <div class="layout-page">
+            <!-- Navbar -->
+            <?php include_once '../modals/navigationbar.php' ?>
+            <!-- / Navbar -->
 
-                    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                        <!-- Search -->
-                        <div class="navbar-nav align-items-center">
-                            <div class="nav-item d-flex align-items-center">
-                                <i class="bx bx-search fs-4 lh-0"></i>
-                                <input
-                                        type="text"
-                                        class="form-control border-0 shadow-none"
-                                        placeholder="Search..."
-                                        aria-label="Search..."
-                                />
-                            </div>
-                        </div>
-                        <!-- /Search -->
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                <!-- Content -->
 
-                        <ul class="navbar-nav flex-row align-items-center ms-auto">
-                            <!-- Place this tag where you want the button to render. -->
-                            <li class="nav-item lh-1 me-3">
-                                <a
-                                        class="github-button"
-                                        href="https://github.com/themeselection/sneat-html-admin-template-free"
-                                        data-icon="octicon-star"
-                                        data-size="large"
-                                        data-show-count="true"
-                                        aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
-                                >Star</a
-                                >
-                            </li>
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Basic Tables</h4>
 
-                            <!-- User -->
-                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
-                                   data-bs-toggle="dropdown">
-                                    <div class="avatar avatar-online">
-                                        <img src="../../assets/img/avatars/1.png" alt
-                                             class="w-px-40 h-auto rounded-circle"/>
-                                    </div>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <div class="d-flex">
-                                                <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar avatar-online">
-                                                        <img src="../../assets/img/avatars/1.png" alt
-                                                             class="w-px-40 h-auto rounded-circle"/>
-                                                    </div>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block">John Doe</span>
-                                                    <small class="text-muted">Admin</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="dropdown-divider"></div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="bx bx-user me-2"></i>
-                                            <span class="align-middle">My Profile</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="bx bx-cog me-2"></i>
-                                            <span class="align-middle">Settings</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                        <span class="d-flex align-items-center align-middle">
-                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                          <span class="flex-grow-1 align-middle">Billing</span>
-                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                        </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="dropdown-divider"></div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="../auth-login-basic.html">
-                                            <i class="bx bx-power-off me-2"></i>
-                                            <span class="align-middle">Log Out</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--/ User -->
-                        </ul>
-                    </div>
-                </nav>
-
-                <!-- / Navbar -->
-
-                <!-- Overlay -->
-                <div class="layout-overlay layout-menu-toggle"></div>
-            </div>
-            <!-- / Layout Nav Bar -->
-
-
-            <div class="container-xxl flex-grow-1 container-p-y">
-                <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> Region/State Setup</h4>
-
-                <!-- Basic Bootstrap Table -->
-                <div class="card">
-                    <h5 class="card-header">List of Countries</h5>
-                    <div class="table-responsive text-nowrap">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>Country ID</th>
-                                <th>Country Description</th>
-                                <th>Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody class="table-border-bottom-0">
-                            <?php foreach ($rows as $row) { ?>
+                    <!-- Basic Bootstrap Table -->
+                    <div class="card">
+                        <h5 class="card-header">List of Regions</h5>
+                        <div class="table-responsive text-nowrap">
+                            <table class="table">
+                                <thead>
                                 <tr>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
-                                            <?php echo $row['CountryID']; ?></strong></td>
-                                    <td><?php echo $row['CountryDescription']; ?></td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                    data-bs-toggle="dropdown">
-                                                <i class="bx bx-dots-vertical-rounded"></i>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item edit-button"
-                                                ><i class="bx bx-edit-alt me-1"></i> Edit</a>
-
-                                                <a class="dropdown-item delete-button"
-                                                ><i class="bx bx-trash delete-button"></i> Delete</a>
-
-                                            </div>
-                                        </div>
-                                    </td>
+                                    <th>Region ID</th>
+                                    <th>Region Description</th>
+                                    <th>Country ID</th>
+                                    <th>Actions</th>
                                 </tr>
-                            <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                                </thead>
+                                <tbody class="table-border-bottom-0">
+                                <?php foreach ($rows as $row) { ?>
+                                    <tr>
+                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
+                                                <?php echo $row['RegionID']; ?></strong></td>
+                                        <td><?php echo $row['RegionDescription']; ?></td>
+                                        <td><?php echo $row['CountryID']; ?></td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                                        data-bs-toggle="dropdown">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item edit-button"
+                                                    ><i class="bx bx-edit-alt me-1"></i> Edit</a>
 
+                                                    <a class="dropdown-item delete-button"
+                                                    ><i class="bx bx-trash delete-button"></i> Delete</a>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- / Basic Bootstrap Table -->
+
+                </div>
+                <!-- / Content -->
 
                 <!-- Footer -->
-                <footer class="content-footer footer bg-footer-theme">
-                    <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                        <div class="mb-2 mb-md-0">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
-                            , made with ❤️ by
-                            <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Hightel
-                                Consults</a>
-                        </div>
-                        <div>
-                            <a href="https://themeselection.com/license/" class="footer-link me-4"
-                               target="_blank">License</a>
-
-                            <a
-                                    href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                                    target="_blank"
-                                    class="footer-link me-4"
-                            >Documentation</a>
-
-                            <a
-                                    href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                                    target="_blank"
-                                    class="footer-link me-4"
-                            >Support</a>
-                        </div>
-                    </div>
-                </footer>
+                <?php include_once '../modals/footer.php' ?>
                 <!-- / Footer -->
 
                 <div class="content-backdrop fade"></div>
             </div>
-
+            <!-- Content wrapper -->
         </div>
+        <!-- End of Internal Content -->
+
     </div>
-    <!-- Content wrapper -->
 </div>
+<!-- / End of Body Content -->
+
+
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+<script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+<script src="../../assets/vendor/libs/popper/popper.js"></script>
+<script src="../../assets/vendor/js/bootstrap.js"></script>
+<script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+<script src="../../assets/vendor/js/menu.js"></script>
+<!-- endbuild -->
+
+<!-- Vendors JS -->
+
+<!-- Main JS -->
+<script src="../../assets/js/main.js"></script>
 
 <!-- Page JS -->
-<!-- #3 Include Script -->
-<script>
-    includeHTMLSnippet();
-</script>
+<script src="../../js/actions.js"></script>
 
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
-
 </html>

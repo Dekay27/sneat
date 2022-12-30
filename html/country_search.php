@@ -4,7 +4,7 @@
         <option value="all">All Countries</option>
         <?php
         // Connect to the database
-        $db = new PDO('mysql:host=localhost;dbname=phpgrid', 'root', '');
+        $db = new PDO('mysql:host=localhost;dbname=kuceportal', 'root', '');
 
         // Query the database for categories
         $result = $db->query('SELECT * FROM country');
@@ -23,7 +23,7 @@
 
 <?php
 // Connect to the database
-$db = new PDO('mysql:host=localhost;dbname=phpgrid', 'root', '');
+$db = new PDO('mysql:host=localhost;dbname=kuceportal', 'root', '');
 
 // Get the item ID from the query string
 $itemId = $_GET['itemId'];

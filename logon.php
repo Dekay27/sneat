@@ -1,7 +1,7 @@
 <?php
 
 
-$conn = mysqli_connect('localhost', 'root', '', 'phpgrid');
+$conn = mysqli_connect('localhost', 'root', '', 'kuceportal');
 
 /*
  *

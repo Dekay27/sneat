@@ -4,7 +4,7 @@ $countryID = "";
 $countryDescription = "";
 
 // Connect to the database
-$db = new PDO('mysql:host=localhost;dbname=phpgrid', 'root', '');
+$db = new PDO('mysql:host=localhost;dbname=kuceportal', 'root', '');
 
 // Query the database
 $result = $db->query('SELECT * FROM regionstate');
