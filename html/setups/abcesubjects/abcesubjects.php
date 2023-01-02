@@ -120,12 +120,151 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                                     <i class="bx bx-dots-vertical-rounded"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
+                                                    <button
+                                                            type="button"
+                                                            class="btn btn-primary dropdown-item"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#modalCenter"
+                                                    >
+                                                        Launch modal
+                                                    </button>
                                                     <a class="dropdown-item edit-button"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#basicModal"
                                                     ><i class="bx bx-edit-alt me-1"></i> Edit</a>
 
                                                     <a class="dropdown-item delete-button"
                                                     ><i class="bx bx-trash delete-button"></i> Delete</a>
 
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="basicModal" tabindex="-1"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel1">
+                                                                        Modal title</h5>
+                                                                    <button
+                                                                            type="button"
+                                                                            class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"
+                                                                    ></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col mb-3">
+                                                                            <label for="course-code" class="form-label">Course
+                                                                                Code</label>
+                                                                            <input type="text" id="course-code"
+                                                                                   class="form-control"
+                                                                                   placeholder=""/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col mb-3">
+                                                                            <label for="course-name" class="form-label">Course
+                                                                                Name</label>
+                                                                            <input type="text" id="course-name"
+                                                                                   class="form-control"
+                                                                                   placeholder="Fundamentals"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row g-2">
+                                                                        <div class="col mb-0">
+                                                                            <label for="option" class="form-label">Option</label>
+                                                                            <input type="text" id="option"
+                                                                                   class="form-control"
+                                                                                   placeholder="Core / Elective"/>
+                                                                        </div>
+                                                                        <div class="col mb-0">
+                                                                            <label for="certificate-type"
+                                                                                   class="form-label">Certificate
+                                                                                Type</label>
+                                                                            <input type="text" id="certificate-type"
+                                                                                   class="form-control"
+                                                                                   placeholder="WASSCE"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button"
+                                                                            class="btn btn-outline-secondary"
+                                                                            data-bs-dismiss="modal">
+                                                                        Close
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-primary">Save
+                                                                        changes
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Modal Center-->
+                                                    <div class="modal fade" id="modalCenter" tabindex="-1"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="modalCenterTitle">Modal
+                                                                        title</h5>
+                                                                    <button
+                                                                            type="button"
+                                                                            class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"
+                                                                    ></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col mb-3">
+                                                                            <label for="nameWithTitle"
+                                                                                   class="form-label">Name</label>
+                                                                            <input
+                                                                                    type="text"
+                                                                                    id="nameWithTitle"
+                                                                                    class="form-control"
+                                                                                    placeholder="Enter Name"
+                                                                            />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row g-2">
+                                                                        <div class="col mb-0">
+                                                                            <label for="emailWithTitle"
+                                                                                   class="form-label">Email</label>
+                                                                            <input
+                                                                                    type="text"
+                                                                                    id="emailWithTitle"
+                                                                                    class="form-control"
+                                                                                    placeholder="xxxx@xxx.xx"
+                                                                            />
+                                                                        </div>
+                                                                        <div class="col mb-0">
+                                                                            <label for="dobWithTitle"
+                                                                                   class="form-label">DOB</label>
+                                                                            <input
+                                                                                    type="text"
+                                                                                    id="dobWithTitle"
+                                                                                    class="form-control"
+                                                                                    placeholder="DD / MM / YY"
+                                                                            />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button"
+                                                                            class="btn btn-outline-secondary"
+                                                                            data-bs-dismiss="modal">
+                                                                        Close
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-primary">Save
+                                                                        changes
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </td>
@@ -171,46 +310,6 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 <script src="../../../assets/js/main.js"></script>
 
 <!-- Page JS -->
-<script>
-    $(document).ready(function () {
-        $('.edit-button').on('click', function () {
-
-            $('#editmodal').modal('show');
-
-            $tr = $(this).closest('tr');
-
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title_id').val(data[0]);
-            $('#title').val(data[1]);
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function () {
-
-        $('.delete-button').on('click', function () {
-
-            $('#deletemodal').modal('show');
-
-            $tr = $(this).closest('tr');
-
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title').val(data[0]);
-
-        });
-    });
-</script>
 
 
 <!-- Place this tag in your head or just before your close body tag. -->
