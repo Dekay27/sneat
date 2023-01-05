@@ -12,6 +12,7 @@ $result = $db->query('SELECT * FROM country');
 // Fetch the data as an associative array
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
+
 ?>
 
 <html

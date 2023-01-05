@@ -7,7 +7,7 @@ $countryDescription = "";
 $db = new PDO('mysql:host=localhost;dbname=kuceportal', 'root', '');
 
 // Query the database
-$result = $db->query('SELECT * FROM title');
+$result = $db->query('SELECT * FROM country');
 
 // Fetch the data as an associative array
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -29,7 +29,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Template | ISMS - Integrated School Management System</title>
+    <title>Country Setup | ISMS - Integrated School Management System</title>
 
     <meta name="description" content=""/>
 
@@ -90,16 +90,16 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                 <!-- Content -->
 
                 <div class="container-xxl flex-grow-1 container-p-y">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> Title</h4>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> Country</h4>
 
                     <div class="card">
-                        <h5 class="card-header">List of Titles</h5>
+                        <h5 class="card-header">List of Countries</h5>
                         <div class="table-responsive text-nowrap">
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Title ID</th>
-                                    <th>Title</th>
+                                    <th>Country ID</th>
+                                    <th>Country Description</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -107,8 +107,8 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                 <?php foreach ($rows as $row) { ?>
                                     <tr>
                                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
-                                                <?php echo $row['TitleID']; ?></strong></td>
-                                        <td><?php echo $row['Title']; ?></td>
+                                                <?php echo $row['CountryID']; ?></strong></td>
+                                        <td><?php echo $row['CountryDescription']; ?></td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
