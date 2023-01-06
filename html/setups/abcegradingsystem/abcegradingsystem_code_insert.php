@@ -1,20 +1,19 @@
 <?php
 
-$connection = mysqli_connect("localhost", "root", "");
-$db = mysqli_select_db($connection, 'phpcrud');
+require_once('../../../logon.php');
 
 if (isset($_POST['insertdata'])) {
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $course = $_POST['course'];
-    $contact = $_POST['contact'];
 
-    $query = "INSERT INTO student (`fname`,`lname`,`course`,`contact`) VALUES ('$fname','$lname','$course','$contact')";
+    // $id = $_POST['updateID'];
+    $grade = $_POST['insertGrade'];
+    $numericGrade = $_POST['insertNumericGrade'];
+
+    $query = "INSERT INTO abcegradingsystem (`Grade`,`NumericGrade`) VALUES ('$grade','$numericGrade')";
     $query_run = mysqli_query($connection, $query);
 
     if ($query_run) {
         echo '<script> alert("Data Saved"); </script>';
-        header('Location: index.php');
+        header('Location: abcegradingsystem.php');
     } else {
         echo '<script> alert("Data Not Saved"); </script>';
     }

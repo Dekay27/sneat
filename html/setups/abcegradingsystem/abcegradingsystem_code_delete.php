@@ -1,16 +1,18 @@
 <?php
-$connection = mysqli_connect("localhost", "root", "");
-$db = mysqli_select_db($connection, 'phpcrud');
+
+require_once('../../../logon.php');
+
 
 if (isset($_POST['deletedata'])) {
-    $id = $_POST['delete_id'];
 
-    $query = "DELETE FROM student WHERE id='$id'";
+    $id = $_POST['deleteID'];
+
+    $query = "DELETE FROM abcegradingsystem WHERE RecordKey='$id'";
     $query_run = mysqli_query($connection, $query);
 
     if ($query_run) {
         echo '<script> alert("Data Deleted"); </script>';
-        header("Location:index.php");
+        header("Location:abcegradingsystem.php");
     } else {
         echo '<script> alert("Data Not Deleted"); </script>';
     }

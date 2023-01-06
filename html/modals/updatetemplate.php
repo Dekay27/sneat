@@ -2,7 +2,8 @@
 //$connection = mysqli_connect("localhost", "root", "");
 //$db = mysqli_select_db($connection, 'phpcrud');
 
-$connection = mysqli_connect("127.0.0.1", "root", "12341234","test");
+$connection = mysqli_connect("127.0.0.1", "root", "12341234", "test");
+require_once('logon.php');
 
 if (isset($_POST['updatedata'])) {
     $id = $_POST['idWithTitle'];

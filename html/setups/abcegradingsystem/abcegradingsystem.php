@@ -54,6 +54,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css"/>
 
     <!-- Page CSS -->
 
@@ -68,8 +69,6 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
 
-<!-- Edit Modal -->
-<?php include_once 'title_modal_edit.php' ?>
 
 <!-- Beginning of Body Content -->
 <div class="layout-wrapper layout-content-navbar">
@@ -82,7 +81,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
         <!-- Beginning of Internal Content -->
         <div class="layout-page">
             <!-- Navbar -->
-            <?php include_once '../../modals/navigationbar.php' ?>
+            <?php // include_once '../../modals/navigationbar.php' ?>
             <!-- / Navbar -->
 
             <!-- Content wrapper -->
@@ -93,10 +92,242 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> ABCE Grading System
                     </h4>
 
+                    <!-- Vertically Centered Modals -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="mt-3">
+
+                            <!-- Insert Modal -->
+                            <div class="modal fade" id="modalInsert" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+
+                                        <form action="abcegradingsystem_code_insert.php" method="POST">
+
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalInsertTitle">Insert Data</h5>
+                                                <button
+                                                        type="button"
+                                                        class="btn-close"
+                                                        data-bs-dismiss="modal"
+                                                        aria-label="Close"
+                                                ></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row g-2">
+                                                    <div class="col mb-3">
+                                                        <label for="insertGrade" class="form-label">Grade</label>
+                                                        <input
+                                                                type="text"
+                                                                id="insertGrade"
+                                                                name="insertGrade"
+                                                                class="form-control"
+                                                                placeholder="Enter Grade"
+                                                        />
+                                                    </div>
+
+                                                    <div class="col mb-3">
+                                                        <label for="insertNumericGrade" class="form-label">Numeric
+                                                            Grade</label>
+                                                        <input
+                                                                type="text"
+                                                                id="insertNumericGrade"
+                                                                name="insertNumericGrade"
+                                                                class="form-control"
+                                                                placeholder="Enter Numeric Grade"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                        data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" name="insertdata" class="btn btn-primary">Save
+                                                    data
+                                                </button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Edit Modal -->
+                            <div class="modal fade" id="modalUpdate" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+
+                                        <form action="abcegradingsystem_code_update.php" method="POST">
+
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalUpdateTitle">Update Data</h5>
+                                                <button
+                                                        type="button"
+                                                        class="btn-close"
+                                                        data-bs-dismiss="modal"
+                                                        aria-label="Close"
+                                                ></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col mb-3">
+                                                        <label for="updateID" class="form-label">ID</label>
+                                                        <input
+                                                                type="text"
+                                                                name="updateID"
+                                                                id="updateID"
+                                                                class="form-control"
+                                                                readonly
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2">
+                                                    <div class="col mb-0">
+                                                        <label for="updateGrade" class="form-label">Grade</label>
+                                                        <input
+                                                                type="text"
+                                                                name="updateGrade"
+                                                                id="updateGrade"
+                                                                class="form-control"
+                                                                placeholder="A"
+                                                        />
+                                                    </div>
+                                                    <div class="col mb-0">
+                                                        <label for="updateNumericGrade" class="form-label">Numeric
+                                                            Grade</label>
+                                                        <input
+                                                                type="text"
+                                                                name="updateNumericGrade"
+                                                                id="updateNumericGrade"
+                                                                class="form-control"
+                                                                placeholder="1"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                        data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" name="updatedata" class="btn btn-primary" href="">
+                                                    Save changes
+                                                </button>
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Delete Modal -->
+                            <div class="modal fade" id="modalDelete" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+
+                                        <form action="abcegradingsystem_code_delete.php" method="POST">
+
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalDeleteTitle">Delete Data</h5>
+                                                <button
+                                                        type="button"
+                                                        class="btn-close"
+                                                        data-bs-dismiss="modal"
+                                                        aria-label="Close"
+                                                ></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col mb-1">
+                                                        <label for="deleteID" class="form-label">ID</label>
+                                                        <input
+                                                                type="text"
+                                                                name="deleteID"
+                                                                id="deleteID"
+                                                                class="form-control"
+                                                                width="30px"
+                                                        />
+                                                    </div>
+
+                                                </div>
+
+                                                <hr class="my-3"/>
+
+                                                <div class="row align-content-center">
+                                                    <div class="col mb-6 align-content-center">
+                                                        <h6>Are you sure you want to delete
+                                                            all data related to this
+                                                            ID?</h6>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                        data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" name="deletedata" class="btn btn-warning">
+                                                    Yes, delete entry
+                                                </button>
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
                     <div class="card">
+
+                        <!--/ Insert Data Button -->
+                        <div class="card-body">
+                            <div class="row demo-vertical-spacing">
+                                <div class="mb-3"
+                                     data-bs-toggle="modal"
+                                     data-bs-target="#modalInsert">
+                                    <button type="button" class="btn btn-outline-primary text-nowrap">
+                                        <span class="tf-icons bx bx-add-to-queue"></span>&nbsp; Add Data
+                                    </button>
+                                </div>
+
+                                <div class="mb-3">
+                                    <small class="form-label fw-bold d-block">Add Bulk Data</small>
+                                    <div class="input-group">
+                                        <input
+                                                type="file"
+                                                class="form-control"
+                                                id="inputGroupFile04"
+                                                aria-describedby="inputGroupFileAddon04"
+                                                aria-label="Upload"
+                                        />
+                                        <button class="btn btn-outline-primary" type="button"
+                                                id="inputGroupFileAddon04">
+                                            Download Sample Excel
+                                        </button>
+                                        <button class="btn btn-outline-primary" type="button"
+                                                id="inputGroupFileAddon04">
+                                            Upload
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--/ Insert Data Button -->
+
+                        <hr class="my-3"/>
+
                         <h5 class="card-header">List of ABCE Grading</h5>
                         <div class="table-responsive text-nowrap">
-                            <table class="table">
+                            <table id="datatableid" class="table">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -165,6 +396,8 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 <!-- endbuild -->
 
 <!-- Vendors JS -->
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 
 <!-- Main JS -->
 <script src="../../../assets/js/main.js"></script>
@@ -174,7 +407,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
     $(document).ready(function () {
         $('.edit-button').on('click', function () {
 
-            $('#editmodal').modal('show');
+            $('#modalUpdate').modal('show');
 
             $tr = $(this).closest('tr');
 
@@ -184,18 +417,18 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
             console.log(data);
 
-            $('#title_id').val(data[0]);
-            $('#title').val(data[1]);
+            $('#updateID').val(data[0]);
+            $('#updateGrade').val(data[1]);
+            $('#updateNumericGrade').val(data[2]);
         });
     });
 </script>
 
 <script>
     $(document).ready(function () {
-
         $('.delete-button').on('click', function () {
 
-            $('#deletemodal').modal('show');
+            $('#modalDelete').modal('show');
 
             $tr = $(this).closest('tr');
 
@@ -205,9 +438,14 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
             console.log(data);
 
-            $('#title').val(data[0]);
-
+            $('#deleteID').val(data[0]);
         });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#datatableid').DataTable();
     });
 </script>
 
