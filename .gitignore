@@ -58,7 +58,7 @@ gulpfile.tmp.*
 /html-demo
 /html-starter-demo
 # Project exclude paths
-/assets/vendor/
+
 
 ## Environment Variables
 .env
