@@ -75,13 +75,13 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
     <div class="layout-container">
 
         <!-- Beginning of Sidebar Content -->
-        <?php include_once '../../modals/sidebar.php' ?>
+        <?php include_once '../../modals/sidebar_isms.php' ?>
         <!-- / End of Sidebar Content -->
 
         <!-- Beginning of Internal Content -->
         <div class="layout-page">
             <!-- Navbar -->
-            <?php // include_once '../../modals/navigationbar.php' ?>
+            <?php include_once '../../modals/navigationbar_isms.php' ?>
             <!-- / Navbar -->
 
             <!-- Content wrapper -->
