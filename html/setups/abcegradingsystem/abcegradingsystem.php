@@ -143,7 +143,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                                         data-bs-dismiss="modal">
                                                     Close
                                                 </button>
-                                                <button type="submit" name="insertdata" class="btn btn-primary">Save
+                                                <button type="submit" name="insertdata" class="btn btn-dark">Save
                                                     data
                                                 </button>
                                             </div>
@@ -366,6 +366,68 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                     </div>
 
+                    <!-- Responsive Table -->
+                    <div class="card">
+                        <h5 class="card-header">Responsive Table</h5>
+                        <div class="table-responsive text-nowrap">
+                            <table class="table">
+                                <thead>
+                                <tr class="text-nowrap">
+                                    <th>#</th>
+                                    <th>Table heading</th>
+                                    <th>Table heading</th>
+                                    <th>Table heading</th>
+                                    <th>Table heading</th>
+                                    <th>Table heading</th>
+                                    <th>Table heading</th>
+                                    <th>Table heading</th>
+                                    <th>Table heading</th>
+                                    <th>Table heading</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--/ Responsive Table -->
+
 
                 </div>
                 <!-- / Content -->
@@ -453,4 +515,5 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
+
 </html>
