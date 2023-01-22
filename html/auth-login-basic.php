@@ -1,3 +1,74 @@
+<?php
+ob_start();
+session_start();
+
+include("logon.php");
+
+// it will never let you open index(login) page if session is set
+//if (isset($_SESSION['loggedin'])!="" ) {
+if (isset($_SESSION['userid'])) {
+    header("Location: users.php");
+    exit;
+}
+
+$error = false;
+
+if (isset($_POST['login'])) {
+
+    // prevent sql injections/ clear user invalid inputs
+    $username = trim($_POST['username']);
+    $username = strip_tags($username);
+    $username = htmlspecialchars($username);
+
+    $password = trim($_POST['password']);
+    $password = strip_tags($password);
+    $password = htmlspecialchars($password);
+    // prevent sql injections / clear user invalid inputs
+
+    if (empty($username)) {
+        $error = true;
+        $usernameError = "Please enter your username address.";
+    } else if (!filter_var($username, FILTER_VALIDATE_username)) {
+        $error = false;
+        //$usernameError = "Please enter valid username address.";
+    }
+
+    if (empty($password)) {
+        $error = true;
+        $passError = "Please enter your password.";
+    }
+
+    // if there's no error, continue to login
+    if (!$error) {
+        $password = md5($password);
+        $sqll = "SELECT * FROM logins WHERE email='$username' AND password='$password'";
+        $res = mysqli_query($conn, $sqll);
+
+        $row = mysqli_fetch_array($res);
+        $count = mysqli_num_rows($res);
+
+        if ($count == 1 && $row['password'] == $password) {
+            $_SESSION['userid'] = $row['userid'];
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['userright'] = $row['rights'];
+            $_SESSION['loggedin'] = $row['username'];
+            $_SESSION['fullname'] = $row['fullname'];
+            //echo 123;
+
+            //$_SESSION['access'] = "yes";
+
+            header("Location: switchmenu.php");
+
+            ///header("Location: personaldetails.php");
+
+        } else {
+            $errMSG = "Incorrect Credentials, Try again...";
+        }
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -65,59 +136,60 @@
 </head>
 
 <?php
-
-include '../logon.php';
-include './logon.php';
-
-$email = "";
-$password = "";
-$emailError = "";
-$passwordError = "";
-
-// FUNCTIONS
-function test_input($data): string
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    return htmlspecialchars($data);
-}
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $email = test_input($_POST["email"]);
-    $password = test_input($_POST["password"]);
-
-    $email2 = "";
-    $password2 = "";
-
-    $sql = "SELECT email, password FROM logins WHERE id=1";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
-            $email2 = $row['email'];
-            $password2 = $row['password'];
-        }
-    } else {
-        echo "0 results";
-    }
-    if (($email != "") && ($password != "")) {
-        header("Location: /sneat/html/index.html");
-        exit();
-    } else if (empty($email)) {
-
-        $emailError = "Please enter a valid email address";
-
-    } else if (empty($password)) {
-
-        $passwordError = "Please enter a password";
-
-    }
-
-    $conn->close();
-}
+/**
+ * include '../logon.php';
+ * include './logon.php';
+ *
+ * $email = "";
+ * $password = "";
+ * $emailError = "";
+ * $passwordError = "";
+ *
+ * // FUNCTIONS
+ * function test_input($data): string
+ * {
+ * $data = trim($data);
+ * $data = stripslashes($data);
+ * return htmlspecialchars($data);
+ * }
+ *
+ *
+ * if ($_SERVER["REQUEST_METHOD"] == "POST") {
+ *
+ * $email = test_input($_POST["email"]);
+ * $password = test_input($_POST["password"]);
+ *
+ * $email2 = "";
+ * $password2 = "";
+ *
+ * $sql = "SELECT email, password FROM logins WHERE id=1";
+ * $result = $conn->query($sql);
+ *
+ * if ($result->num_rows > 0) {
+ * // output data of each row
+ * while ($row = $result->fetch_assoc()) {
+ * $email2 = $row['email'];
+ * $password2 = $row['password'];
+ * }
+ * } else {
+ * echo "0 results";
+ * }
+ * if (($email != "") && ($password != "")) {
+ * header("Location: /sneat/html/index.html");
+ * exit();
+ * } else if (empty($email)) {
+ *
+ * $emailError = "Please enter a valid email address";
+ *
+ * } else if (empty($password)) {
+ *
+ * $passwordError = "Please enter a password";
+ *
+ * }
+ *
+ * $conn->close();
+ * }
+ **/
 
 ?>
 
@@ -191,8 +263,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </a>
                     </div>
                     <!-- /Logo -->
-                    <h4 class="mb-2">Welcome to ISMS! 👋</h4>
-                    <p class="mb-4">Please sign-in to your institutional account</p>
+                    <h4 class="mb-2">Welcome to ISMS Online ePortal</h4>
+                    <p class="mb-4">Please sign-in with your institutional account</p>
 
                     <!-- <form id="formAuthentication" class="mb-3" action="auth-login-basic.php" method="POST">  -->
                     <form id="formAuthentication" class="mb-3"
@@ -207,8 +279,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     placeholder="Enter your email or username"
                                     autofocus
                             />
-                            <span class="error">* <?php echo $emailError; ?></span>
-                            <span class="error">* <?php echo $email; ?></span>
                         </div>
                         <div class="mb-3 form-password-toggle">
                             <div class="d-flex justify-content-between">
@@ -226,8 +296,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                         aria-describedby="password"
                                 />
-                                <span class="error">* <?php echo $passwordError; ?></span>
-                                <span class="error">* <?php echo $password; ?></span>
                                 <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                             </div>
                         </div>
