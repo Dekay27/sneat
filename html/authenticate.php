@@ -1,18 +1,22 @@
 <?php
 
-$alert = $email = $password = "";
+//$alert = $email = $password = "";
+
+session_start();
+require 'credentials.php';
 
 function authenticate($username, $password)
 {
     // Connect to the database
-    $db = new PDO('mysql:host=localhost;dbname=kuceportal', 'root', '');
+    //$conn = new PDO('mysql:host=localhost;dbname=kuceportal', $username, $password);
 
     // Escape the username and password to prevent SQL injection attacks
-    $username = $db->quote($username);
-    $password = $db->quote($password);
+    $username = $conn->quote($username);
+    $password = $conn->quote($password);
+    $username = $conn->quote($username);
 
     // Query the database for a matching username and password
-    $result = $db->query("SELECT * FROM logins WHERE email = $username AND password = $password");
+    $result = $conn->query("SELECT * FROM users WHERE username = $username AND password = $password");
     $user = $result->fetch();
 
     // Return the user if the login is successful, or false if it fails
@@ -23,20 +27,20 @@ function authenticate($username, $password)
     }
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-
-    $login = authenticate($email, $password);
-    if ($login) {
-        header("Location: /sneat/html/index.html");
-        exit();
-    } else {
-        $alert = "No username/password combination found";
-    }
-
-}
+//if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//
+//    $username = $_POST["username"];
+//    $password = $_POST["password"];
+//
+//    $login = authenticate($username, $password);
+//    if ($login) {
+//        header("Location: /sneat/html/index.html");
+//        exit();
+//    } else {
+//        $alert = "No username/password combination found";
+//    }
+//
+//}
 
 ?>
 
@@ -168,19 +172,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                     <!-- FORM -->
-                    <form id="formAuthentication" class="mb-3"
-                          action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                    <form id="formAuthentication" class="mb-3" action="auth_process.php" method="POST">
+<!--                          action="--><?php //echo htmlspecialchars($_SERVER["PHP_SELF"]); ?><!--" method="POST">-->
+
                         <div class="mb-3">
                             <a>
-                                <small><?php echo $alert; ?></small>
+                                <small><?php echo " "; ?></small>
                             </a>
-                            <label for="email" class="form-label">Email or Username</label>
+                            <label for="username" class="form-label">Email or Username</label>
                             <input
                                     type="text"
                                     class="form-control"
-                                    id="email"
-                                    name="email"
-                                    placeholder=<?php echo $email; ?>
+                                    id="username"
+                                    name="username"
+                                    placeholder='Username'
                             />
                         </div>
 
@@ -197,7 +202,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         id="password"
                                         class="form-control"
                                         name="password"
-                                        placeholder=<?php echo $password; ?>
+                                        placeholder="Password"
                                 />
                             </div>
                         </div>

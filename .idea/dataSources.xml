@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@21" uuid="a1c08947-76de-47df-b93c-3cd973a2c91e">
-      <driver-ref>mariadb</driver-ref>
+    <data-source source="LOCAL" name="sneat-database" uuid="e5857ed2-dc40-42a1-895e-f2c611af6ca0">
+      <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://127.0.0.1:3306</jdbc-url>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://tuholski.iad1-mysql-e2-1a.dreamhost.com:3306/sneat</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
