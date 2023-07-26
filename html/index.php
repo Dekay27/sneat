@@ -235,7 +235,7 @@
                       </li>
                   </ul>
               </li>
-
+              
               <!-- Course Management -->
               <li class="menu-item">
                   <a href="javascript:void(0);" class="menu-link menu-toggle">
