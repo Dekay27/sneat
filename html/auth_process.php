@@ -18,11 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
 
         // Create user session
-        $_SESSION['username']   =   $row['username'];
-        $_SESSION['password']   =   $row['password'];
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['password'] = $row['password'];
 
         // User authenticated, redirect to a dashboard or homepage
-        header("Location: /html/index.html");
+        header("Location: /html/index.php");
         exit();
     } else {
         // Invalid credentials, show an error message
