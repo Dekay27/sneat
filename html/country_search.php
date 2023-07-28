@@ -4,7 +4,7 @@
         <option value="all">All Countries</option>
         <?php
         // Connect to the database
-        $db = new PDO('mysql:host=localhost;dbname=kuceportal', 'root', '');
+        $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
         // Query the database for categories
         $result = $db->query('SELECT * FROM country');
@@ -23,7 +23,7 @@
 
 <?php
 // Connect to the database
-$db = new PDO('mysql:host=localhost;dbname=kuceportal', 'root', '');
+$db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
 // Get the item ID from the query string
 $itemId = $_GET['itemId'];

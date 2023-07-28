@@ -58,41 +58,6 @@
 
 <body>
 
-<!-- EDIT POP UP FORM (Bootstrap MODAL) -->
-<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> Edit Country Data </h5>
-            </div>
-
-            <form action="updatecode.php" method="POST">
-
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <label> Country ID </label>
-                        <input type="text" name="country_id" id="country_id" class="form-control"
-                               placeholder="Enter Country ID">
-                    </div>
-
-                    <div class="form-group">
-                        <label> Country Description </label>
-                        <input type="text" name="country_description" id="country_description" class="form-control"
-                               placeholder="Enter Country Description">
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" name="updatedata" class="btn btn-primary">Update Data</button>
-                </div>
-            </form>
-
-        </div>
-    </div>
-</div>
-
 
 <!-- Layout wrapper -->
 <div class="layout-wrapper layout-content-navbar">
@@ -858,48 +823,6 @@
 
     <!-- Main JS -->
     <script src="../../assets/js/main.js"></script>
-
-    <!-- Page JS -->
-    <script>
-        $(document).ready(function () {
-            $('.edit-button').on('click', function () {
-
-                $('#editmodal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function () {
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#country_id').val(data[0]);
-                $('#country_description').val(data[1]);
-            });
-        });
-    </script>
-
-    <script>
-        $(document).ready(function () {
-
-            $('.delete-button').on('click', function () {
-
-                $('#deletemodal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function () {
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#country_id').val(data[0]);
-
-            });
-        });
-    </script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

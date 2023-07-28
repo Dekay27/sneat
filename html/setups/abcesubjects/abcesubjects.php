@@ -4,7 +4,7 @@ $countryID = "";
 $countryDescription = "";
 
 // Connect to the database
-$db = new PDO('mysql:host=localhost;dbname=kuceportal', 'root', '');
+$db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
 // Query the database
 $result = $db->query('SELECT * FROM abcesubjects');
@@ -69,7 +69,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 <body>
 
 <!-- Edit Modal -->
-<?php include_once 'title_modal_edit.php' ?>
+<?php include_once 'abcesubjects_modal_edit.php' ?>
 
 <!-- Beginning of Body Content -->
 <div class="layout-wrapper layout-content-navbar">
