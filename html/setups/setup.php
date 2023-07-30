@@ -1,7 +1,6 @@
 <?php
 
 
-
 ?>
 
 <html
@@ -543,14 +542,22 @@
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="exam_malpractice.html">1. Exam Malpractice</a></li>
-                                                <li class="list-group-item"><a href="upsa_grading_setup.html">2. UPSA Grading Setup</a></li>
-                                                <li class="list-group-item"><a href="knust_grading_system.html">3. KNUST Grading System</a></li>
-                                                <li class="list-group-item"><a href="gimpa_grading_system.html">4. GIMPA Grading System</a></li>
-                                                <li class="list-group-item"><a href="uds_bns_grading_system.html">5. UDS-BNS Grading System</a></li>
-                                                <li class="list-group-item"><a href="uds_grading_system.html">6. UDS Grading System</a></li>
-                                                <li class="list-group-item"><a href="uhas_grading_system.html">7. UHAS Grading System</a></li>
-                                                <li class="list-group-item"><a href="graduation_class_setup.html">8. Graduation Class Setup</a></li>
+                                                <li class="list-group-item"><a href="exam_malpractice.html">1. Exam
+                                                        Malpractice</a></li>
+                                                <li class="list-group-item"><a href="upsa_grading_setup.html">2. UPSA
+                                                        Grading Setup</a></li>
+                                                <li class="list-group-item"><a href="knust_grading_system.html">3. KNUST
+                                                        Grading System</a></li>
+                                                <li class="list-group-item"><a href="gimpa_grading_system.html">4. GIMPA
+                                                        Grading System</a></li>
+                                                <li class="list-group-item"><a href="uds_bns_grading_system.html">5.
+                                                        UDS-BNS Grading System</a></li>
+                                                <li class="list-group-item"><a href="uds_grading_system.html">6. UDS
+                                                        Grading System</a></li>
+                                                <li class="list-group-item"><a href="uhas_grading_system.html">7. UHAS
+                                                        Grading System</a></li>
+                                                <li class="list-group-item"><a href="graduation_class_setup.html">8.
+                                                        Graduation Class Setup</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -576,15 +583,24 @@
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="abe_subject_setup.html">1. ABE Subject Setup</a></li>
-                                                <li class="list-group-item"><a href="wassce_subject_table.html">2. WASSCE/SSSCE Subject Table</a></li>
-                                                <li class="list-group-item"><a href="gbce_subjects_table.html">3. GBCE Subjects</a></li>
-                                                <li class="list-group-item"><a href="olevels_subjects_table.html">4. O-Levels Subjects</a></li>
-                                                <li class="list-group-item"><a href="dbs_subjects_table.html">5. DBS Subjects</a></li>
-                                                <li class="list-group-item"><a href="other_certificates_table.html">6. Other Certificates</a></li>
-                                                <li class="list-group-item"><a href="hnd_subjects_table.html">7. HND Subjects</a></li>
-                                                <li class="list-group-item"><a href="abce_subjects_table.html">8. ABCE Subjects</a></li>
-                                                <li class="list-group-item"><a href="alevels_subjects_table.html">9. A-Levels Subjects</a></li>
+                                                <li class="list-group-item"><a href="abe_subject_setup.html">1. ABE
+                                                        Subject Setup</a></li>
+                                                <li class="list-group-item"><a href="wassce_subject_table.html">2.
+                                                        WASSCE/SSSCE Subject Table</a></li>
+                                                <li class="list-group-item"><a href="gbce_subjects_table.html">3. GBCE
+                                                        Subjects</a></li>
+                                                <li class="list-group-item"><a href="olevels_subjects_table.html">4.
+                                                        O-Levels Subjects</a></li>
+                                                <li class="list-group-item"><a href="dbs_subjects_table.html">5. DBS
+                                                        Subjects</a></li>
+                                                <li class="list-group-item"><a href="other_certificates_table.html">6.
+                                                        Other Certificates</a></li>
+                                                <li class="list-group-item"><a href="hnd_subjects_table.html">7. HND
+                                                        Subjects</a></li>
+                                                <li class="list-group-item"><a href="abce_subjects_table.html">8. ABCE
+                                                        Subjects</a></li>
+                                                <li class="list-group-item"><a href="alevels_subjects_table.html">9.
+                                                        A-Levels Subjects</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -601,7 +617,7 @@
                                                 type="button"
                                                 class="accordion-button"
                                                 data-bs-toggle="collapse"
-                                                data-bs-target="#accordionOne2"
+                                                data-bs-target="#generalTable"
                                                 aria-expanded="true"
                                                 aria-controls="accordionOne2"
                                         >
@@ -610,19 +626,26 @@
                                     </h2>
 
                                     <div
-                                            id="accordionOne2"
+                                            id="generalTable"
                                             class="accordion-collapse collapse show"
                                             data-bs-parent="#accordionExample2"
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="country_table.html">1. Country Table</a></li>
-                                                <li class="list-group-item"><a href="region_table.html">2. Region/State Table</a></li>
-                                                <li class="list-group-item"><a href="title_table.html">3. Title Table</a></li>
-                                                <li class="list-group-item"><a href="employment_nature_table.html">4. Nature of Employment</a></li>
-                                                <li class="list-group-item"><a href="application_mode_table.html">5. Mode of Application</a></li>
-                                                <li class="list-group-item"><a href="result_deadline_table.html">6. Result Deadline</a></li>
-                                                <li class="list-group-item"><a href="medical_setup_table.html">7. Medical Setup</a></li>
+                                                <li class="list-group-item"><a href="country_table.html">1. Country
+                                                        Table</a></li>
+                                                <li class="list-group-item"><a href="region_table.html">2. Region/State
+                                                        Table</a></li>
+                                                <li class="list-group-item"><a href="title_table.html">3. Title
+                                                        Table</a></li>
+                                                <li class="list-group-item"><a href="employment_nature_table.html">4.
+                                                        Nature of Employment</a></li>
+                                                <li class="list-group-item"><a href="application_mode_table.html">5.
+                                                        Mode of Application</a></li>
+                                                <li class="list-group-item"><a href="result_deadline_table.html">6.
+                                                        Result Deadline</a></li>
+                                                <li class="list-group-item"><a href="medical_setup_table.html">7.
+                                                        Medical Setup</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -633,7 +656,7 @@
                                                 type="button"
                                                 class="accordion-button collapsed"
                                                 data-bs-toggle="collapse"
-                                                data-bs-target="#accordionTwo2"
+                                                data-bs-target="#courseSetup"
                                                 aria-expanded="false"
                                                 aria-controls="accordionTwo2"
                                         >
@@ -641,23 +664,33 @@
                                         </button>
                                     </h2>
                                     <div
-                                            id="accordionTwo2"
+                                            id="courseSetup"
                                             class="accordion-collapse collapse"
                                             aria-labelledby="headingTwo2"
-                                            data-bs-parent="#accordionExample"
+                                            data-bs-parent="#accordionExample2"
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="school_table.html">1. School Table</a></li>
-                                                <li class="list-group-item"><a href="faculty_table.html">2. Faculty Table</a></li>
-                                                <li class="list-group-item"><a href="department_table.html">3. Department Table</a></li>
-                                                <li class="list-group-item"><a href="quality_assurance_setup.html">Quality Assurance Setup</a></li>
-                                                <li class="list-group-item"><a href="programme_table.html">4. Programme Table</a></li>
-                                                <li class="list-group-item"><a href="level_table.html">5. Level Table</a></li>
-                                                <li class="list-group-item"><a href="session_table.html">6. Session Table</a></li>
-                                                <li class="list-group-item"><a href="course_setup.html">7. Course Setup</a></li>
-                                                <li class="list-group-item"><a href="course_assignment.html">8. Course Assignment</a></li>
-                                                <li class="list-group-item"><a href="academic_year_table.html">9. Academic Year Table</a></li>
+                                                <li class="list-group-item"><a href="school_table.html">1. School
+                                                        Table</a></li>
+                                                <li class="list-group-item"><a href="faculty_table.html">2. Faculty
+                                                        Table</a></li>
+                                                <li class="list-group-item"><a href="department_table.html">3.
+                                                        Department Table</a></li>
+                                                <li class="list-group-item"><a href="quality_assurance_setup.html">Quality
+                                                        Assurance Setup</a></li>
+                                                <li class="list-group-item"><a href="programme_table.html">4. Programme
+                                                        Table</a></li>
+                                                <li class="list-group-item"><a href="level_table.html">5. Level
+                                                        Table</a></li>
+                                                <li class="list-group-item"><a href="session_table.html">6. Session
+                                                        Table</a></li>
+                                                <li class="list-group-item"><a href="course_setup.html">7. Course
+                                                        Setup</a></li>
+                                                <li class="list-group-item"><a href="course_assignment.html">8. Course
+                                                        Assignment</a></li>
+                                                <li class="list-group-item"><a href="academic_year_table.html">9.
+                                                        Academic Year Table</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -667,14 +700,14 @@
 
                         <!-- Column 3 -->
                         <div class="col-md mb-4 mb-md-0">
-                            <div class="accordion mt-3" id="accordionExample">
+                            <div class="accordion mt-3" id="accordionExample3">
                                 <div class="card accordion-item active">
                                     <h2 class="accordion-header" id="headingOne">
                                         <button
                                                 type="button"
                                                 class="accordion-button"
                                                 data-bs-toggle="collapse"
-                                                data-bs-target="#accordionOne"
+                                                data-bs-target="#gradingSystems"
                                                 aria-expanded="true"
                                                 aria-controls="accordionOne"
                                         >
@@ -683,19 +716,26 @@
                                     </h2>
 
                                     <div
-                                            id="accordionOne"
+                                            id="gradingSystems"
                                             class="accordion-collapse collapse show"
-                                            data-bs-parent="#accordionExample"
+                                            data-bs-parent="#accordionExample3"
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="abce_grading_system.html">1. ABCE Grading System</a></li>
-                                                <li class="list-group-item"><a href="o_levels_grading_system.html">2. O-Levels Grading System</a></li>
-                                                <li class="list-group-item"><a href="a_levels_grading_system.html">3. A-Levels Grading System</a></li>
-                                                <li class="list-group-item"><a href="hnd_grading_system.html">4. HND Grading System</a></li>
-                                                <li class="list-group-item"><a href="dbs_grading_system.html">5. DBS Grading System</a></li>
-                                                <li class="list-group-item"><a href="gbce_grading_system.html">6. GBCE Grading System</a></li>
-                                                <li class="list-group-item"><a href="wassce_sssce_grading_system.html">7. WASSCE/SSSCE Grading System</a></li>
+                                                <li class="list-group-item"><a href="abce_grading_system.html">1. ABCE
+                                                        Grading System</a></li>
+                                                <li class="list-group-item"><a href="o_levels_grading_system.html">2.
+                                                        O-Levels Grading System</a></li>
+                                                <li class="list-group-item"><a href="a_levels_grading_system.html">3.
+                                                        A-Levels Grading System</a></li>
+                                                <li class="list-group-item"><a href="hnd_grading_system.html">4. HND
+                                                        Grading System</a></li>
+                                                <li class="list-group-item"><a href="dbs_grading_system.html">5. DBS
+                                                        Grading System</a></li>
+                                                <li class="list-group-item"><a href="gbce_grading_system.html">6. GBCE
+                                                        Grading System</a></li>
+                                                <li class="list-group-item"><a href="wassce_sssce_grading_system.html">7.
+                                                        WASSCE/SSSCE Grading System</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -706,7 +746,7 @@
                                                 type="button"
                                                 class="accordion-button collapsed"
                                                 data-bs-toggle="collapse"
-                                                data-bs-target="#accordionTwo"
+                                                data-bs-target="#rightsAndPrivileges"
                                                 aria-expanded="false"
                                                 aria-controls="accordionTwo"
                                         >
@@ -714,15 +754,17 @@
                                         </button>
                                     </h2>
                                     <div
-                                            id="accordionTwo"
+                                            id="rightsAndPrivileges"
                                             class="accordion-collapse collapse"
                                             aria-labelledby="headingTwo"
-                                            data-bs-parent="#accordionExample"
+                                            data-bs-parent="#accordionExample3"
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="user_setup.html">1. User Setup</a></li>
-                                                <li class="list-group-item"><a href="system_setup.html">2. System Setup</a></li>
+                                                <li class="list-group-item"><a href="user_setup.html">1. User Setup</a>
+                                                </li>
+                                                <li class="list-group-item"><a href="system_setup.html">2. System
+                                                        Setup</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -733,7 +775,7 @@
                                                 type="button"
                                                 class="accordion-button collapsed"
                                                 data-bs-toggle="collapse"
-                                                data-bs-target="#accordionThree"
+                                                data-bs-target="#qualityAssurance"
                                                 aria-expanded="false"
                                                 aria-controls="accordionThree"
                                         >
@@ -741,15 +783,17 @@
                                         </button>
                                     </h2>
                                     <div
-                                            id="accordionThree"
+                                            id="qualityAssurance"
                                             class="accordion-collapse collapse"
                                             aria-labelledby="headingThree"
-                                            data-bs-parent="#accordionExample"
+                                            data-bs-parent="#accordionExample3"
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="table_a_setup.html">1. Table A Setup</a></li>
-                                                <li class="list-group-item"><a href="table_b_setup.html">2. Table B Setup</a></li>
+                                                <li class="list-group-item"><a href="table_a_setup.html">1. Table A
+                                                        Setup</a></li>
+                                                <li class="list-group-item"><a href="table_b_setup.html">2. Table B
+                                                        Setup</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -776,7 +820,8 @@
                         </div>
                         <div>
                             <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                            <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
+                            <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More
+                                Themes</a>
 
                             <a
                                     href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"

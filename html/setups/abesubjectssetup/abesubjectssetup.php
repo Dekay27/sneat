@@ -7,7 +7,7 @@ $countryDescription = "";
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
 // Query the database
-$result = $db->query('SELECT * FROM title');
+$result = $db->query('SELECT * FROM abesubjects');
 
 // Fetch the data as an associative array
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -107,8 +107,10 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                 <?php foreach ($rows as $row) { ?>
                                     <tr>
                                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
-                                                <?php echo $row['TitleID']; ?></strong></td>
-                                        <td><?php echo $row['Title']; ?></td>
+                                                <?php echo $row['CourseCode']; ?></strong></td>
+                                        <td><?php echo $row['CourseName']; ?></td>
+                                        <td><?php echo $row['Optional']; ?></td>
+                                        <td><?php echo $row['CertificateType']; ?></td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

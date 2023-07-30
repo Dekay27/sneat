@@ -74,7 +74,7 @@
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
-                                        <img src="../../assets/img/avatars/1.png" alt
+                                        <img src="../../../assets/img/avatars/5.png" alt
                                              class="w-px-40 h-auto rounded-circle"/>
                                     </div>
                                 </div>

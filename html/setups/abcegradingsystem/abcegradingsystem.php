@@ -326,104 +326,52 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                         <hr class="my-3"/>
 
                         <h5 class="card-header">List of ABCE Grading</h5>
-                        <div class="table-responsive text-nowrap">
-                            <table id="datatableid" class="table">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Grade</th>
-                                    <th>Numeric Grade</th>
-                                    <th>Actions</th>
-                                </tr>
-                                </thead>
-                                <tbody class="table-border-bottom-0">
-                                <?php foreach ($rows as $row) { ?>
+                        <div class="col">
+                            <div class="table-responsive text-nowrap px-12 py-8">
+                                <table id="datatableid" class="table">
+                                    <thead>
                                     <tr>
-                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
-                                                <?php echo $row['RecordKey']; ?></strong></td>
-                                        <td><?php echo $row['Grade']; ?></td>
-                                        <td><?php echo $row['NumericGrade']; ?></td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                        data-bs-toggle="dropdown">
-                                                    <i class="bx bx-dots-vertical-rounded"></i>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item edit-button"
-                                                    ><i class="bx bx-edit-alt me-1"></i> Edit</a>
-
-                                                    <a class="dropdown-item delete-button"
-                                                    ><i class="bx bx-trash delete-button"></i> Delete</a>
-
-                                                </div>
-                                            </div>
-                                        </td>
+                                        <th>ID</th>
+                                        <th>Grade</th>
+                                        <th>Numeric Grade</th>
+                                        <th>Actions</th>
                                     </tr>
-                                <?php } ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0">
+                                    <?php foreach ($rows as $row) { ?>
+                                        <tr>
+                                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
+                                                    <?php echo $row['RecordKey']; ?></strong></td>
+                                            <td><?php echo $row['Grade']; ?></td>
+                                            <td><?php echo $row['NumericGrade']; ?></td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                                            data-bs-toggle="dropdown">
+                                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item edit-button"
+                                                        ><i class="bx bx-edit-alt me-1"></i> Edit</a>
+
+                                                        <a class="dropdown-item delete-button"
+                                                        ><i class="bx bx-trash delete-button"></i> Delete</a>
+
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Responsive Table -->
                     <div class="card">
-                        <h5 class="card-header">Responsive Table</h5>
+                        <h5 class="card-header"></h5>
                         <div class="table-responsive text-nowrap">
-                            <table class="table">
-                                <thead>
-                                <tr class="text-nowrap">
-                                    <th>#</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                    <th>Table heading</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                    <td>Table cell</td>
-                                </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                     <!--/ Responsive Table -->

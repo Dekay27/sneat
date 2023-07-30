@@ -4,7 +4,8 @@ $countryID = "";
 $countryDescription = "";
 
 // Connect to the database
-$db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
+$db = new PDO('mysql:host=localhost;dbname=kuceportal', 'root', '');
+//$db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
 // Query the database
 $result = $db->query('SELECT * FROM alevelsubjects');

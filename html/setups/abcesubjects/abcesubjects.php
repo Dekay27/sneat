@@ -92,6 +92,198 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> ABCE Subjects</h4>
 
+                    <!-- Vertically Centered Modals -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="mt-3">
+
+                            <!-- Insert Modal -->
+                            <div class="modal fade" id="modalInsert" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+
+                                        <form action="abcesubjects_code_insert.php" method="POST">
+
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalInsertTitle">Insert Data</h5>
+                                                <button
+                                                        type="button"
+                                                        class="btn-close"
+                                                        data-bs-dismiss="modal"
+                                                        aria-label="Close"
+                                                ></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row g-2">
+                                                    <div class="col mb-3">
+                                                        <label for="insertGrade" class="form-label">Grade</label>
+                                                        <input
+                                                                type="text"
+                                                                id="insertGrade"
+                                                                name="insertGrade"
+                                                                class="form-control"
+                                                                placeholder="Enter Grade"
+                                                        />
+                                                    </div>
+
+                                                    <div class="col mb-3">
+                                                        <label for="insertNumericGrade" class="form-label">Numeric
+                                                            Grade</label>
+                                                        <input
+                                                                type="text"
+                                                                id="insertNumericGrade"
+                                                                name="insertNumericGrade"
+                                                                class="form-control"
+                                                                placeholder="Enter Numeric Grade"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                        data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" name="insertdata" class="btn btn-dark">Save
+                                                    data
+                                                </button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Edit Modal -->
+                            <div class="modal fade" id="modalUpdate" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+
+                                        <form action="abcesubjects_code_update.php" method="POST">
+
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalUpdateTitle">Update Data</h5>
+                                                <button
+                                                        type="button"
+                                                        class="btn-close"
+                                                        data-bs-dismiss="modal"
+                                                        aria-label="Close"
+                                                ></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col mb-3">
+                                                        <label for="updateID" class="form-label">ID</label>
+                                                        <input
+                                                                type="text"
+                                                                name="updateID"
+                                                                id="updateID"
+                                                                class="form-control"
+                                                                readonly
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2">
+                                                    <div class="col mb-0">
+                                                        <label for="updateGrade" class="form-label">Grade</label>
+                                                        <input
+                                                                type="text"
+                                                                name="updateGrade"
+                                                                id="updateGrade"
+                                                                class="form-control"
+                                                                placeholder="A"
+                                                        />
+                                                    </div>
+                                                    <div class="col mb-0">
+                                                        <label for="updateNumericGrade" class="form-label">Numeric
+                                                            Grade</label>
+                                                        <input
+                                                                type="text"
+                                                                name="updateNumericGrade"
+                                                                id="updateNumericGrade"
+                                                                class="form-control"
+                                                                placeholder="1"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                        data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" name="updatedata" class="btn btn-primary" href="">
+                                                    Save changes
+                                                </button>
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Delete Modal -->
+                            <div class="modal fade" id="modalDelete" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+
+                                        <form action="abcesubjects_code_delete.php" method="POST">
+
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalDeleteTitle">Delete Data</h5>
+                                                <button
+                                                        type="button"
+                                                        class="btn-close"
+                                                        data-bs-dismiss="modal"
+                                                        aria-label="Close"
+                                                ></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col mb-1">
+                                                        <label for="deleteID" class="form-label">ID</label>
+                                                        <input
+                                                                type="text"
+                                                                name="deleteID"
+                                                                id="deleteID"
+                                                                class="form-control"
+                                                                width="30px"
+                                                        />
+                                                    </div>
+
+                                                </div>
+
+                                                <hr class="my-3"/>
+
+                                                <div class="row align-content-center">
+                                                    <div class="col mb-6 align-content-center">
+                                                        <h6>Are you sure you want to delete
+                                                            all data related to this
+                                                            ID?</h6>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                        data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" name="deletedata" class="btn btn-warning">
+                                                    Yes, delete entry
+                                                </button>
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
                     <div class="card">
                         <h5 class="card-header">List of Subjects</h5>
                         <div class="table-responsive text-nowrap">

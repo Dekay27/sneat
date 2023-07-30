@@ -7,7 +7,7 @@ $countryDescription = "";
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
 // Query the database
-$result = $db->query('SELECT * FROM title');
+$result = $db->query('SELECT * FROM classtable');
 
 // Fetch the data as an associative array
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -90,25 +90,30 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                 <!-- Content -->
 
                 <div class="container-xxl flex-grow-1 container-p-y">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> Title</h4>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> Class</h4>
 
                     <div class="card">
-                        <h5 class="card-header">List of Titles</h5>
+                        <h5 class="card-header">List of Classes</h5>
                         <div class="table-responsive text-nowrap">
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Title ID</th>
-                                    <th>Title</th>
-                                    <th>Actions</th>
+                                    <th>Record Key</th>
+                                    <th>Minimum Score</th>
+                                    <th>Maximum Score</th>
+                                    <th>Class</th>
+                                    <th>Grading System</th>
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
                                 <?php foreach ($rows as $row) { ?>
                                     <tr>
                                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
-                                                <?php echo $row['TitleID']; ?></strong></td>
-                                        <td><?php echo $row['Title']; ?></td>
+                                                <?php echo $row['RecordKey']; ?></strong></td>
+                                        <td><?php echo $row['MinScore']; ?></td>
+                                        <td><?php echo $row['MaxScore']; ?></td>
+                                        <td><?php echo $row['Class']; ?></td>
+                                        <td><?php echo $row['GradingSystem']; ?></td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

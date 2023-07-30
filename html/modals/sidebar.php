@@ -46,327 +46,279 @@
     </div>
 
     <ul class="menu-inner py-1">
-        <!-- Dashboard -->
-        <li class="menu-item">
-            <a href="../index.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
-            </a>
-        </li>
-
-        <!-- Layouts -->
+        <!-- Application Management -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Layouts</div>
+                <div data-i18n="Application Management">Application Management</div>
             </a>
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="../layouts-without-menu.html" class="menu-link">
-                        <div data-i18n="Without menu">Without menu</div>
+                    <a href="application-form.html" class="menu-link">
+                        <div data-i18n="Application Form">Application Form</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../layouts-without-navbar.html" class="menu-link">
-                        <div data-i18n="Without navbar">Without navbar</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../layouts-container.html" class="menu-link">
-                        <div data-i18n="Container">Container</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../layouts-fluid.html" class="menu-link">
-                        <div data-i18n="Fluid">Fluid</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../layouts-blank.html" class="menu-link">
-                        <div data-i18n="Blank">Blank</div>
+                    <a href="applicants.html" class="menu-link">
+                        <div data-i18n="Applicants">Applicants</div>
                     </a>
                 </li>
             </ul>
         </li>
 
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Pages</span>
-        </li>
+        <!-- Student Management -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">Account Settings</div>
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Student Management">Student Management</div>
             </a>
+
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="../pages-account-settings-account.html" class="menu-link">
-                        <div data-i18n="Account">Account</div>
+                    <a href="students-form.html" class="menu-link">
+                        <div data-i18n="Students Form">Students Form</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../pages-account-settings-notifications.html" class="menu-link">
-                        <div data-i18n="Notifications">Notifications</div>
+                    <a href="students-records.html" class="menu-link">
+                        <div data-i18n="Students Records">Students Records</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../pages-account-settings-connections.html" class="menu-link">
-                        <div data-i18n="Connections">Connections</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                <div data-i18n="Authentications">Authentications</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="../auth-login-basic.html" class="menu-link" target="_blank">
-                        <div data-i18n="Basic">Login</div>
+                    <a href="students-promotion.html" class="menu-link">
+                        <div data-i18n="Students Promotion">Students Promotion</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../auth-register-basic.html" class="menu-link" target="_blank">
-                        <div data-i18n="Basic">Register</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                        <div data-i18n="Basic">Forgot Password</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">Misc</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="../pages-misc-error.html" class="menu-link">
-                        <div data-i18n="Error">Error</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../pages-misc-under-maintenance.html" class="menu-link">
-                        <div data-i18n="Under Maintenance">Under Maintenance</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <!-- Components -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
-        <!-- Cards -->
-        <li class="menu-item">
-            <a href="../cards-basic.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Cards</div>
-            </a>
-        </li>
-        <!-- User interface -->
-        <li class="menu-item">
-            <a href="javascript:void(0)" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-box"></i>
-                <div data-i18n="User interface">User interface</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="../ui-accordion.html" class="menu-link">
-                        <div data-i18n="Accordion">Accordion</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-alerts.html" class="menu-link">
-                        <div data-i18n="Alerts">Alerts</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-badges.html" class="menu-link">
-                        <div data-i18n="Badges">Badges</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-buttons.html" class="menu-link">
-                        <div data-i18n="Buttons">Buttons</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-carousel.html" class="menu-link">
-                        <div data-i18n="Carousel">Carousel</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-collapse.html" class="menu-link">
-                        <div data-i18n="Collapse">Collapse</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-dropdowns.html" class="menu-link">
-                        <div data-i18n="Dropdowns">Dropdowns</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-footer.html" class="menu-link">
-                        <div data-i18n="Footer">Footer</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-list-groups.html" class="menu-link">
-                        <div data-i18n="List Groups">List groups</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-modals.html" class="menu-link">
-                        <div data-i18n="Modals">Modals</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-navbar.html" class="menu-link">
-                        <div data-i18n="Navbar">Navbar</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-offcanvas.html" class="menu-link">
-                        <div data-i18n="Offcanvas">Offcanvas</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-pagination-breadcrumbs.html" class="menu-link">
-                        <div data-i18n="Pagination &amp; Breadcrumbs">Pagination &amp; Breadcrumbs</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-progress.html" class="menu-link">
-                        <div data-i18n="Progress">Progress</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-spinners.html" class="menu-link">
-                        <div data-i18n="Spinners">Spinners</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-tabs-pills.html" class="menu-link">
-                        <div data-i18n="Tabs &amp; Pills">Tabs &amp; Pills</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-toasts.html" class="menu-link">
-                        <div data-i18n="Toasts">Toasts</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-tooltips-popovers.html" class="menu-link">
-                        <div data-i18n="Tooltips & Popovers">Tooltips &amp; popovers</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../ui-typography.html" class="menu-link">
-                        <div data-i18n="Typography">Typography</div>
+                    <a href="registered-students.html" class="menu-link">
+                        <div data-i18n="Registered Students">Registered Students</div>
                     </a>
                 </li>
             </ul>
         </li>
 
-        <!-- Extended components -->
+        <!-- Course Management -->
         <li class="menu-item">
-            <a href="javascript:void(0)" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-copy"></i>
-                <div data-i18n="Extended UI">Extended UI</div>
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-book"></i>
+                <div data-i18n="Course Management">Course Management</div>
             </a>
+
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="../extended-ui-perfect-scrollbar.html" class="menu-link">
-                        <div data-i18n="Perfect Scrollbar">Perfect scrollbar</div>
+                    <a href="course-registration.html" class="menu-link">
+                        <div data-i18n="Course Registration">Course Registration</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../extended-ui-text-divider.html" class="menu-link">
-                        <div data-i18n="Text Divider">Text Divider</div>
+                    <a href="internal-course-registration.html" class="menu-link">
+                        <div data-i18n="Internal Course Registration">Internal Course Registration</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="edit-reg-course-info.html" class="menu-link">
+                        <div data-i18n="Edit Reg Course Info">Edit Reg Course Info</div>
                     </a>
                 </li>
             </ul>
         </li>
 
+        <!-- Assessments and Scores -->
         <li class="menu-item">
-            <a href="../icons-boxicons.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-crown"></i>
-                <div data-i18n="Boxicons">Boxicons</div>
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-clipboard"></i>
+                <div data-i18n="Assessment and Scores">Assessment and Scores</div>
             </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="scores-dashboard.html" class="menu-link">
+                        <div data-i18n="Scores Dashboard">Scores Dashboard</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="resit-registration.html" class="menu-link">
+                        <div data-i18n="Resit Registration">Resit Registration</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="resit-scores-dashboard.html" class="menu-link">
+                        <div data-i18n="Resit Scores Dashboard">Resit Scores Dashboard</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="exam-results.html" class="menu-link">
+                        <div data-i18n="Exam Results">Exam Results</div>
+                    </a>
+                </li>
+            </ul>
         </li>
 
-        <!-- Forms & Tables -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span>
-        </li>
-        <!-- Forms -->
+        <!-- Academic Reports -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Form Elements">Form Elements</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="../forms-basic-inputs.html" class="menu-link">
-                        <div data-i18n="Basic Inputs">Basic Inputs</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../forms-input-groups.html" class="menu-link">
-                        <div data-i18n="Input groups">Input groups</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Form Layouts">Form Layouts</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="../form-layouts-vertical.html" class="menu-link">
-                        <div data-i18n="Vertical Form">Vertical Form</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="../form-layouts-horizontal.html" class="menu-link">
-                        <div data-i18n="Horizontal Form">Horizontal Form</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <!-- Tables -->
-        <li class="menu-item active">
-            <a href="../tables-basic.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-table"></i>
-                <div data-i18n="Tables">Tables</div>
-            </a>
-        </li>
-        <!-- Misc -->
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
-        <li class="menu-item">
-            <a
-                    href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                    target="_blank"
-                    class="menu-link"
-            >
-                <i class="menu-icon tf-icons bx bx-support"></i>
-                <div data-i18n="Support">Support</div>
-            </a>
-        </li>
-        <li class="menu-item">
-            <a
-                    href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                    target="_blank"
-                    class="menu-link"
-            >
                 <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Documentation">Documentation</div>
+                <div data-i18n="Academic Reports">Academic Reports</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="students-reports.html" class="menu-link">
+                        <div data-i18n="Students Reports">Students Reports</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="transcript-score-sheet.html" class="menu-link">
+                        <div data-i18n="Transcript Score Sheet">Transcript Score Sheet</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="broadsheet.html" class="menu-link">
+                        <div data-i18n="Broadsheet">Broadsheet</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="transcript.html" class="menu-link">
+                        <div data-i18n="Transcript">Transcript</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="statistical-reports.html" class="menu-link">
+                        <div data-i18n="Statistical Reports">Statistical Reports</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Financial Managements -->
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dollar"></i>
+                <div data-i18n="Financial Management">Financial Management</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="financials.html" class="menu-link">
+                        <div data-i18n="Financials">Financials</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Faculty and Evaluation -->
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-group"></i>
+                <div data-i18n="Faculty and Evaluation">Faculty and Evaluation</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="lecturer-eval-form.html" class="menu-link">
+                        <div data-i18n="Lecturer Eval. Form">Lecturer Eval. Form</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="lecturer-eval-report.html" class="menu-link">
+                        <div data-i18n="Lecturer Eval. Report">Lecturer Eval. Report</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Data Import/Export -->
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-import"></i>
+                <div data-i18n="Data Import/Export">Data Import/Export</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="import-from-excel.html" class="menu-link">
+                        <div data-i18n="Import from Excel">Import from Excel</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="upload-to-transcript.html" class="menu-link">
+                        <div data-i18n="Upload to Transcript">Upload to Transcript</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="upload-to-archives.html" class="menu-link">
+                        <div data-i18n="Upload to Archives">Upload to Archives</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="upload-to-students.html" class="menu-link">
+                        <div data-i18n="Upload to Students">Upload to Students</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Security and Settings -->
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-lock"></i>
+                <div data-i18n="Security and Settings">Security and Settings</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="password-manager.html" class="menu-link">
+                        <div data-i18n="Password Manager">Password Manager</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="change-password.html" class="menu-link">
+                        <div data-i18n="Change Password">Change Password</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="pin-management.html" class="menu-link">
+                        <div data-i18n="Pin Management">Pin Management</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- System Configuration -->
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-cog"></i>
+                <div data-i18n="System Configuration">System Configuration</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="specialization.html" class="menu-link">
+                        <div data-i18n="Specialization">Specialization</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../setup.php" class="menu-link">
+                        <div data-i18n="Setup Tables">Setup Tables</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="audit-trail.html" class="menu-link">
+                        <div data-i18n="Audit Trail">Audit Trail</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Logout -->
+        <li class="menu-item">
+            <a href="logout.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-log-out"></i>
+                <div data-i18n="Logout">Logout</div>
             </a>
         </li>
+
     </ul>
 
 </aside>
