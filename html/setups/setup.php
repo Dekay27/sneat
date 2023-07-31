@@ -597,7 +597,7 @@
                                                         Other Certificates</a></li>
                                                 <li class="list-group-item"><a href="hnd_subjects_table.html">7. HND
                                                         Subjects</a></li>
-                                                <li class="list-group-item"><a href="abce_subjects_table.html">8. ABCE
+                                                <li class="list-group-item"><a href="abcesubjects/abcesubjects.php">8. ABCE
                                                         Subjects</a></li>
                                                 <li class="list-group-item"><a href="alevels_subjects_table.html">9.
                                                         A-Levels Subjects</a></li>
@@ -722,7 +722,7 @@
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="abce_grading_system.html">1. ABCE
+                                                <li class="list-group-item"><a href="abcegradingsystem/abcegradingsystem.php">1. ABCE
                                                         Grading System</a></li>
                                                 <li class="list-group-item"><a href="o_levels_grading_system.html">2.
                                                         O-Levels Grading System</a></li>
