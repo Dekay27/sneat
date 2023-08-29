@@ -1,6 +1,7 @@
 <?php
-$connection = mysqli_connect("localhost", "root", "");
-$db = mysqli_select_db($connection, 'phpcrud');
+
+$connection = mysqli_connect("mysql.hightelconsult.com", "hightelconsult", "Zozo_999_Kwame");
+$db = mysqli_select_db($connection, 'kuceportalonliner');
 
 if (isset($_POST['updatedata'])) {
 
@@ -15,7 +16,13 @@ if (isset($_POST['updatedata'])) {
         echo '<script> alert("Data Updated"); </script>';
         header("Location:title.php");
     } else {
-        echo '<script> alert("Data Not Updated"); </script>';
+        echo '<script>
+                    alert("Data Not Updated");
+                    setTimeout(function() {
+                        window.location.href = "title.php";
+                    }, 500); // 500 milliseconds (half a second)
+               </script>';
+
     }
 }
 ?>

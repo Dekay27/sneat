@@ -1,8 +1,5 @@
 <?php
 
-$countryID = "";
-$countryDescription = "";
-
 // Connect to the database
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
@@ -29,7 +26,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Template | ISMS - Integrated School Management System</title>
+    <title>Title Setup | ISMS - Integrated School Management System</title>
 
     <meta name="description" content=""/>
 
@@ -68,8 +65,111 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
 
-<!-- Edit Modal -->
-<?php include_once 'title_modal_edit.php' ?>
+<div class="col-lg-4 col-md-6">
+    <div class="mt-3">
+
+        <!-- Modal HTML structure -->
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Modal content goes here -->
+                        This is your modal content.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Modal Structure -->
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> Edit Title Data </h5>
+                    </div>
+
+                    <form action="../title/title_code_update.php" method="POST">
+
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label> Title ID </label>
+                                        <input type="text" name="title_id" id="title_id"
+                                               class="form-control text-center"
+                                               readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label> Title Description </label>
+                                        <input type="text" name="title" id="title" class="form-control"
+                                               placeholder="Enter Title ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" name="updatedata" class="btn btn-primary">Edit Data</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Modal Structure -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"> Delete Title Data </h5>
+                    </div>
+
+                    <form action="../title/title_code_delete.php" method="POST">
+
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label> Title ID </label>
+                                        <input type="text" name="title_id" id="title_id_delete"
+                                               class="form-control text-center"
+                                               readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label> Title Description </label>
+                                        <input type="text" name="title" id="title_delete" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" name="deletedata" class="btn btn-primary">Delete Data</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
 <!-- Beginning of Body Content -->
 <div class="layout-wrapper layout-content-navbar">
@@ -106,24 +206,21 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                 <tbody class="table-border-bottom-0">
                                 <?php foreach ($rows as $row) { ?>
                                     <tr>
-                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
-                                                <?php echo $row['TitleID']; ?></strong></td>
+                                        <td><strong><?php echo $row['TitleID']; ?></strong></td>
                                         <td><?php echo $row['Title']; ?></td>
                                         <td>
-                                            <div class="dropdown">
-                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                        data-bs-toggle="dropdown">
-                                                    <i class="bx bx-dots-vertical-rounded"></i>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item edit-button"
-                                                    ><i class="bx bx-edit-alt me-1"></i> Edit</a>
-
-                                                    <a class="dropdown-item delete-button"
-                                                    ><i class="bx bx-trash delete-button"></i> Delete</a>
-
-                                                </div>
-                                            </div>
+                                            <svg class="edit-icon" id="editIcon" xmlns="http://www.w3.org/2000/svg"
+                                                 width="24" height="24"
+                                                 viewBox="0 0 24 24"
+                                                 style="fill: rgb(85,166,63);transform: ;msFilter:;">
+                                                <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zM8.999 14.999H7V13l5.53-5.522 1.998 1.999-5.529 5.522zm6.472-6.464-1.999-1.999 1.524-1.523 1.999 1.999-1.524 1.523z"></path>
+                                            </svg>
+                                            <svg class="delete-icon" id="deleteIcon" xmlns="http://www.w3.org/2000/svg"
+                                                 width="24" height="24"
+                                                 viewBox="0 0 24 24"
+                                                 style="fill: rgb(211,62,62);transform: ;msFilter:;">
+                                                <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zm-3.293 11.293-1.414 1.414L12 11.414l-3.293 3.293-1.414-1.414L10.586 10 7.293 6.707l1.414-1.414L12 8.586l3.293-3.293 1.414 1.414L13.414 10l3.293 3.293z"></path>
+                                            </svg>
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -139,8 +236,6 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                 <!-- Footer -->
                 <?php include_once '../../modals/footer.php' ?>
                 <!-- / Footer -->
-
-                <div class="content-backdrop fade"></div>
             </div>
             <!-- Content wrapper -->
         </div>
@@ -168,42 +263,43 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Page JS -->
 <script>
-    $(document).ready(function () {
-        $('.edit-button').on('click', function () {
+    document.querySelectorAll(".edit-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            var row = icon.closest("tr");
 
-            $('#editmodal').modal('show');
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            var titleId = row.cells[0].textContent; // Replace with the appropriate index
+            var titleDescription = row.cells[1].textContent; // Replace with the appropriate index
 
-            $tr = $(this).closest('tr');
+            // Populate the form fields in the modal with extracted data
+            document.getElementById("title_id").value = titleId;
+            document.getElementById("title").value = titleDescription;
 
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title_id').val(data[0]);
-            $('#title').val(data[1]);
+            // Show the modal
+            var editModal = new bootstrap.Modal(document.getElementById("editModal"));
+            editModal.show();
         });
     });
 </script>
 
 <script>
-    $(document).ready(function () {
+    document.querySelectorAll(".delete-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            var row = icon.closest("tr");
 
-        $('.delete-button').on('click', function () {
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            var titleId = row.cells[0].textContent; // Replace with the appropriate index
+            var titleDescription = row.cells[1].textContent; // Replace with the appropriate index
 
-            $('#deletemodal').modal('show');
+            // Populate the form fields in the modal with extracted data
+            document.getElementById("title_id_delete").value = titleId;
+            document.getElementById("title_delete").value = titleDescription;
 
-            $tr = $(this).closest('tr');
-
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title').val(data[0]);
-
+            // Show the modal
+            var deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+            deleteModal.show();
         });
     });
 </script>

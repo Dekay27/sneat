@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://tuholski.iad1-mysql-e2-1a.dreamhost.com:3306/sneat</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="kuceportalonline@mysql.hightelconsult.com" uuid="c0ce25c1-54c5-4b78-924b-01a40b62b8e1">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://mysql.hightelconsult.com:3306/kuceportalonline</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

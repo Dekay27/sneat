@@ -65,8 +65,6 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
 
-<!-- Edit Modal -->
-<?php include_once 'title_modal_edit.php' ?>
 
 <!-- Beginning of Body Content -->
 <div class="layout-wrapper layout-content-navbar">
@@ -108,20 +106,18 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                                 <?php echo $row['RecordKey']; ?></strong></td>
                                         <td><?php echo $row['NatureofEmployment']; ?></td>
                                         <td>
-                                            <div class="dropdown">
-                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                        data-bs-toggle="dropdown">
-                                                    <i class="bx bx-dots-vertical-rounded"></i>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item edit-button"
-                                                    ><i class="bx bx-edit-alt me-1"></i> Edit</a>
-
-                                                    <a class="dropdown-item delete-button"
-                                                    ><i class="bx bx-trash delete-button"></i> Delete</a>
-
-                                                </div>
-                                            </div>
+                                            <svg class="edit-icon" id="editIcon" xmlns="http://www.w3.org/2000/svg"
+                                                 width="24" height="24"
+                                                 viewBox="0 0 24 24"
+                                                 style="fill: rgb(85,166,63);transform: ;msFilter:;">
+                                                <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zM8.999 14.999H7V13l5.53-5.522 1.998 1.999-5.529 5.522zm6.472-6.464-1.999-1.999 1.524-1.523 1.999 1.999-1.524 1.523z"></path>
+                                            </svg>
+                                            <svg class="delete-icon" id="deleteIcon" xmlns="http://www.w3.org/2000/svg"
+                                                 width="24" height="24"
+                                                 viewBox="0 0 24 24"
+                                                 style="fill: rgb(211,62,62);transform: ;msFilter:;">
+                                                <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zm-3.293 11.293-1.414 1.414L12 11.414l-3.293 3.293-1.414-1.414L10.586 10 7.293 6.707l1.414-1.414L12 8.586l3.293-3.293 1.414 1.414L13.414 10l3.293 3.293z"></path>
+                                            </svg>
                                         </td>
                                     </tr>
                                 <?php } ?>

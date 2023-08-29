@@ -93,8 +93,6 @@ foreach ($rows as $row) {
 
 <body>
 
-<!-- Edit Modal -->
-<?php include_once 'title_modal_edit.php' ?>
 
 <!-- Beginning of Body Content -->
 <div class="layout-wrapper layout-content-navbar">
