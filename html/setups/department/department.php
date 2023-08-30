@@ -7,7 +7,7 @@ $countryDescription = "";
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
 // Query the database
-$result = $db->query('SELECT * FROM title');
+$result = $db->query('SELECT * FROM department');
 
 // Fetch the data as an associative array
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -29,7 +29,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Template | ISMS - Integrated School Management System</title>
+    <title>Department Setup | ISMS - Integrated School Management System</title>
 
     <meta name="description" content=""/>
 
@@ -67,6 +67,326 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 
 <body>
+<!-- Vertically Centered Modals -->
+<div class="col-lg-4 col-md-6">
+    <div class="mt-3">
+
+        <!-- Insert Modal -->
+        <div class="modal fade" id="modalInsert" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="department_code_insert.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalInsertTitle">Insert Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2">
+                                <div class="col mb-3">
+                                    <label for="insertDeptID" class="form-label">Department ID</label>
+                                    <input
+                                            type="text"
+                                            id="insertDeptID"
+                                            name="insertDeptID"
+                                            class="form-control"
+                                            placeholder="Enter Course Name"
+                                    />
+                                </div>
+                                <div class="col mb-3">
+                                    <label for="insertDeptName" class="form-label">Department Name</label>
+                                    <input
+                                            type="text"
+                                            id="insertDeptName"
+                                            name="insertDeptName"
+                                            class="form-control"
+                                            placeholder="Enter Course Name"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col mb-3">
+                                    <label for="insertHeadName" class="form-label">Head Name</label>
+                                    <input
+                                            type="text"
+                                            id="insertHeadName"
+                                            name="insertHeadName"
+                                            class="form-control"
+                                            placeholder="Enter DeptName"
+                                    />
+                                </div>
+
+                                <div class="col mb-3">
+                                    <label for="insertRank" class="form-label">Rank</label>
+                                    <input
+                                            type="text"
+                                            id="insertRank"
+                                            name="insertRank"
+                                            class="form-control"
+                                            placeholder="Enter Certificate Type"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col mb-3">
+                                    <label for="insertFacultyID" class="form-label">Faculty ID</label>
+                                    <input
+                                            type="text"
+                                            id="insertFacultyID"
+                                            name="insertFacultyID"
+                                            class="form-control"
+                                            placeholder="Enter DeptName"
+                                    />
+                                </div>
+
+                                <div class="col mb-3">
+                                    <label for="insertProgrammeID" class="form-label">Programme ID</label>
+                                    <input
+                                            type="text"
+                                            id="insertProgrammeID"
+                                            name="insertProgrammeID"
+                                            class="form-control"
+                                            placeholder="Enter Certificate Type"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="insertdata" class="btn btn-dark">Save
+                                data
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div class="modal fade" id="modalUpdate" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="department_code_update.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalUpdate">Update Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2 mb-3">
+                                <div class="col mb-0">
+                                    <label for="updateDeptID" class="form-label">Department ID</label>
+                                    <input
+                                            type="text"
+                                            name="updateDeptID"
+                                            id="updateDeptID"
+                                            class="form-control"
+                                            placeholder="A"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="updateDeptName" class="form-label">Department Name</label>
+                                    <input
+                                            type="text"
+                                            name="updateDeptName"
+                                            id="updateDeptName"
+                                            class="form-control"
+                                            placeholder="1"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row g-2 mb-3">
+                                <div class="col mb-0">
+                                    <label for="updateHeadName" class="form-label">Head Name</label>
+                                    <input
+                                            type="text"
+                                            name="updateHeadName"
+                                            id="updateHeadName"
+                                            class="form-control"
+                                            placeholder="A"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="updateRank" class="form-label">Rank</label>
+                                    <input
+                                            type="text"
+                                            name="updateRank"
+                                            id="updateRank"
+                                            class="form-control"
+                                            placeholder="1"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row g-2 mb-3">
+                                <div class="col mb-0">
+                                    <label for="updateFacultyID" class="form-label">Faculty ID</label>
+                                    <input
+                                            type="text"
+                                            name="updateFacultyID"
+                                            id="updateFacultyID"
+                                            class="form-control"
+                                            placeholder="A"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="updateProgrammeID" class="form-label">Programme ID</label>
+                                    <input
+                                            type="text"
+                                            name="updateProgrammeID"
+                                            id="updateProgrammeID"
+                                            class="form-control"
+                                            placeholder="1"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="updatedata" class="btn btn-primary" href="">
+                                Save changes
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Modal -->
+        <div class="modal fade" id="modalDelete" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="department_code_delete.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalDelete">Delete Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2 mb-3">
+                                <div class="col mb-0">
+                                    <label for="deleteDeptID" class="form-label">Department ID</label>
+                                    <input
+                                            type="text"
+                                            name="deleteDeptID"
+                                            id="deleteDeptID"
+                                            class="form-control"
+                                            placeholder="A"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="deleteDeptName" class="form-label">Department Name</label>
+                                    <input
+                                            type="text"
+                                            name="deleteDeptName"
+                                            id="deleteDeptName"
+                                            class="form-control"
+                                            placeholder="1"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row g-2 mb-3">
+                                <div class="col mb-0">
+                                    <label for="deleteHeadName" class="form-label">Head Name</label>
+                                    <input
+                                            type="text"
+                                            name="deleteHeadName"
+                                            id="deleteHeadName"
+                                            class="form-control"
+                                            placeholder="A"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="deleteRank" class="form-label">Rank</label>
+                                    <input
+                                            type="text"
+                                            name="deleteRank"
+                                            id="deleteRank"
+                                            class="form-control"
+                                            placeholder="1"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row g-2 mb-3">
+                                <div class="col mb-0">
+                                    <label for="deleteFacultyID" class="form-label">Faculty ID</label>
+                                    <input
+                                            type="text"
+                                            name="deleteFacultyID"
+                                            id="deleteFacultyID"
+                                            class="form-control"
+                                            placeholder="A"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="deleteProgrammeID" class="form-label">Programme ID</label>
+                                    <input
+                                            type="text"
+                                            name="deleteProgrammeID"
+                                            id="deleteProgrammeID"
+                                            class="form-control"
+                                            placeholder="1"
+                                    />
+                                </div>
+                            </div>
+
+                            <hr class="my-3"/>
+
+                            <div class="row align-content-center">
+                                <div class="col align-content-center">
+                                    <h6>Are you sure you want to delete
+                                        all data related to this
+                                        ID?</h6>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="deletedata" class="btn btn-danger">
+                                Yes, delete entry
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 
 <!-- Beginning of Body Content -->
@@ -88,25 +408,34 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                 <!-- Content -->
 
                 <div class="container-xxl flex-grow-1 container-p-y">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> Title</h4>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> Department Setup</h4>
 
                     <div class="card">
-                        <h5 class="card-header">List of Titles</h5>
+                        <h5 class="card-header">List of Departments</h5>
                         <div class="table-responsive text-nowrap">
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Title ID</th>
-                                    <th>Title</th>
+                                    <th>ID</th>
+                                    <th>Department ID</th>
+                                    <th>Department Name</th>
+                                    <th>Head Name</th>
+                                    <th>Rank</th>
+                                    <th>Faculty ID</th>
+                                    <th>Programme ID</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
                                 <?php foreach ($rows as $row) { ?>
                                     <tr>
-                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
-                                                <?php echo $row['TitleID']; ?></strong></td>
-                                        <td><?php echo $row['Title']; ?></td>
+                                        <td><strong><?php echo $row['RecordKey']; ?></strong></td>
+                                        <td><?php echo $row['DeptID']; ?></td>
+                                        <td><?php echo $row['DeptName']; ?></td>
+                                        <td><?php echo $row['HeadName']; ?></td>
+                                        <td><?php echo $row['Rank']; ?></td>
+                                        <td><?php echo $row['FacultyID']; ?></td>
+                                        <td><?php echo $row['ProgrammeID']; ?></td>
                                         <td>
                                             <svg class="edit-icon" id="editIcon" xmlns="http://www.w3.org/2000/svg"
                                                  width="24" height="24"
@@ -164,42 +493,63 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Page JS -->
 <script>
-    $(document).ready(function () {
-        $('.edit-button').on('click', function () {
+    document.querySelectorAll(".edit-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            let row = icon.closest("tr");
 
-            $('#editmodal').modal('show');
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            // let updateRecordKey = row.cells[0].textContent; // Replace with the appropriate index
+            let updateDeptID = row.cells[1].textContent; // Replace with the appropriate index
+            let updateDeptName = row.cells[2].textContent; // Replace with the appropriate index
+            let updateHeadName = row.cells[3].textContent; // Replace with the appropriate index
+            let updateRank = row.cells[4].textContent; // Replace with the appropriate index
+            let updateFacultyID = row.cells[5].textContent; // Replace with the appropriate index
+            let updateProgrammeID = row.cells[6].textContent; // Replace with the appropriate index
 
-            $tr = $(this).closest('tr');
+            // Populate the form fields in the modal with extracted data
+            // document.getElementById("updateRecordKey").value = updateRecordKey;
+            document.getElementById("updateDeptID").value = updateDeptID;
+            document.getElementById("updateDeptName").value = updateDeptName;
+            document.getElementById("updateHeadName").value = updateHeadName;
+            document.getElementById("updateRank").value = updateRank;
+            document.getElementById("updateFacultyID").value = updateFacultyID;
+            document.getElementById("updateProgrammeID").value = updateProgrammeID;
 
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title_id').val(data[0]);
-            $('#title').val(data[1]);
+            // Show the modal
+            let editModal = new bootstrap.Modal(document.getElementById("modalUpdate"));
+            editModal.show();
         });
     });
 </script>
 
 <script>
-    $(document).ready(function () {
+    document.querySelectorAll(".delete-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            let row = icon.closest("tr");
 
-        $('.delete-button').on('click', function () {
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            // let deleteRecordKey = row.cells[0].textContent; // Replace with the appropriate index
+            let deleteDeptID = row.cells[1].textContent; // Replace with the appropriate index
+            let deleteDeptName = row.cells[2].textContent; // Replace with the appropriate index
+            let deleteHeadName = row.cells[3].textContent; // Replace with the appropriate index
+            let deleteRank = row.cells[4].textContent; // Replace with the appropriate index
+            let deleteFacultyID = row.cells[5].textContent; // Replace with the appropriate index
+            let deleteProgrammeID = row.cells[6].textContent; // Replace with the appropriate index
 
-            $('#deletemodal').modal('show');
+            // Populate the form fields in the modal with extracted data
+            // document.getElementById("deleteRecordKey").value = deleteRecordKey;
+            document.getElementById("deleteDeptID").value = deleteDeptID;
+            document.getElementById("deleteDeptName").value = deleteDeptName;
+            document.getElementById("deleteHeadName").value = deleteHeadName;
+            document.getElementById("deleteRank").value = deleteRank;
+            document.getElementById("deleteFacultyID").value = deleteFacultyID;
+            document.getElementById("deleteProgrammeID").value = deleteProgrammeID;
 
-            $tr = $(this).closest('tr');
-
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title').val(data[0]);
-
+            // Show the modal
+            let deleteModal = new bootstrap.Modal(document.getElementById("modalDelete"));
+            deleteModal.show();
         });
     });
 </script>

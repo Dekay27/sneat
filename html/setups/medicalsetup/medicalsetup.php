@@ -104,8 +104,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                 <tbody class="table-border-bottom-0">
                                 <?php foreach ($rows as $row) { ?>
                                     <tr>
-                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
-                                                <?php echo $row['TitleID']; ?></strong></td>
+                                        <td><strong><?php echo $row['TitleID']; ?></strong></td>
                                         <td><?php echo $row['Title']; ?></td>
                                         <td>
                                             <svg class="edit-icon" id="editIcon" xmlns="http://www.w3.org/2000/svg"

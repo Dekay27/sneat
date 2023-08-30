@@ -7,7 +7,7 @@ $countryDescription = "";
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
 // Query the database
-$result = $db->query('SELECT * FROM title');
+$result = $db->query('SELECT * FROM gbcegradingsystem');
 
 // Fetch the data as an associative array
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -29,7 +29,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Template | ISMS - Integrated School Management System</title>
+    <title>GBCE Grading Setup | ISMS - Integrated School Management System</title>
 
     <meta name="description" content=""/>
 
@@ -67,6 +67,197 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 
 <body>
+<!-- Vertically Centered Modals -->
+<div class="col-lg-4 col-md-6">
+    <div class="mt-3">
+
+        <!-- Insert Modal -->
+        <div class="modal fade" id="modalInsert" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="gbcegradingsystem_code_insert.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalInsertTitle">Insert Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2">
+                                <div class="col mb-3">
+                                    <label for="insertGrade" class="form-label">Grade</label>
+                                    <input
+                                            type="text"
+                                            id="insertGrade"
+                                            name="insertGrade"
+                                            class="form-control"
+                                            placeholder="Enter Grade"
+                                    />
+                                </div>
+
+                                <div class="col mb-3">
+                                    <label for="insertNumericGrade" class="form-label">Numeric
+                                        Grade</label>
+                                    <input
+                                            type="text"
+                                            id="insertNumericGrade"
+                                            name="insertNumericGrade"
+                                            class="form-control"
+                                            placeholder="Enter Numeric Grade"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="insertdata" class="btn btn-dark">Save
+                                data
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div class="modal fade" id="modalUpdate" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="gbcegradingsystem_code_update.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalUpdateTitle">Update Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col mb-3">
+                                    <label for="updateID" class="form-label">ID</label>
+                                    <input
+                                            type="text"
+                                            name="updateID"
+                                            id="updateID"
+                                            class="form-control text-center"
+                                            readonly
+                                    />
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col mb-0">
+                                    <label for="updateGrade" class="form-label">Grade</label>
+                                    <input
+                                            type="text"
+                                            name="updateGrade"
+                                            id="updateGrade"
+                                            class="form-control"
+                                            placeholder="A"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="updateNumericGrade" class="form-label">Numeric
+                                        Grade</label>
+                                    <input
+                                            type="text"
+                                            name="updateNumericGrade"
+                                            id="updateNumericGrade"
+                                            class="form-control"
+                                            placeholder="1"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="updatedata" class="btn btn-primary" href="">
+                                Save changes
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Modal -->
+        <div class="modal fade" id="modalDelete" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="gbcegradingsystem_code_delete.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalDeleteTitle">Delete Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col mb-1">
+                                    <label for="deleteID" class="form-label">ID</label>
+                                    <input
+                                            type="text"
+                                            name="deleteID"
+                                            id="deleteID"
+                                            class="form-control text-center"
+                                            width="30px"
+                                    />
+                                </div>
+
+                            </div>
+
+                            <hr class="my-3"/>
+
+                            <div class="row align-content-center">
+                                <div class="col mb-6 align-content-center">
+                                    <h6>Are you sure you want to delete
+                                        all data related to this
+                                        ID?</h6>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="deletedata" class="btn btn-danger">
+                                Yes, delete entry
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
 
 
 <!-- Beginning of Body Content -->
@@ -88,25 +279,27 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                 <!-- Content -->
 
                 <div class="container-xxl flex-grow-1 container-p-y">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> Title</h4>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> GBCE Grading Setup
+                    </h4>
 
                     <div class="card">
-                        <h5 class="card-header">List of Titles</h5>
+                        <h5 class="card-header">List of GBCE Grading</h5>
                         <div class="table-responsive text-nowrap">
-                            <table class="table">
+                            <table id="datatableid" class="table">
                                 <thead>
                                 <tr>
-                                    <th>Title ID</th>
-                                    <th>Title</th>
+                                    <th>ID</th>
+                                    <th>Grade</th>
+                                    <th>Numeric Grade</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
                                 <?php foreach ($rows as $row) { ?>
                                     <tr>
-                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
-                                                <?php echo $row['TitleID']; ?></strong></td>
-                                        <td><?php echo $row['Title']; ?></td>
+                                        <td><strong><?php echo $row['RecordKey']; ?></strong></td>
+                                        <td><?php echo $row['Grade']; ?></td>
+                                        <td><?php echo $row['NumericGrade']; ?></td>
                                         <td>
                                             <svg class="edit-icon" id="editIcon" xmlns="http://www.w3.org/2000/svg"
                                                  width="24" height="24"
@@ -114,7 +307,8 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                                  style="fill: rgb(85,166,63);transform: ;msFilter:;">
                                                 <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zM8.999 14.999H7V13l5.53-5.522 1.998 1.999-5.529 5.522zm6.472-6.464-1.999-1.999 1.524-1.523 1.999 1.999-1.524 1.523z"></path>
                                             </svg>
-                                            <svg class="delete-icon" id="deleteIcon" xmlns="http://www.w3.org/2000/svg"
+                                            <svg class="delete-icon" id="deleteIcon"
+                                                 xmlns="http://www.w3.org/2000/svg"
                                                  width="24" height="24"
                                                  viewBox="0 0 24 24"
                                                  style="fill: rgb(211,62,62);transform: ;msFilter:;">
@@ -164,42 +358,43 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Page JS -->
 <script>
-    $(document).ready(function () {
-        $('.edit-button').on('click', function () {
+    document.querySelectorAll(".edit-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            let row = icon.closest("tr");
 
-            $('#editmodal').modal('show');
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            let updateID = row.cells[0].textContent; // Replace with the appropriate index
+            let updateGrade = row.cells[1].textContent; // Replace with the appropriate index
+            let updateNumericGrade = row.cells[2].textContent; // Replace with the appropriate index
 
-            $tr = $(this).closest('tr');
+            // Populate the form fields in the modal with extracted data
+            document.getElementById("updateID").value = updateID;
+            document.getElementById("updateGrade").value = updateGrade;
+            document.getElementById("updateNumericGrade").value = updateNumericGrade;
 
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title_id').val(data[0]);
-            $('#title').val(data[1]);
+            // Show the modal
+            let editModal = new bootstrap.Modal(document.getElementById("modalUpdate"));
+            editModal.show();
         });
     });
 </script>
 
 <script>
-    $(document).ready(function () {
+    document.querySelectorAll(".delete-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            let row = icon.closest("tr");
 
-        $('.delete-button').on('click', function () {
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            let deleteID = row.cells[0].textContent; // Replace with the appropriate index
 
-            $('#deletemodal').modal('show');
+            // Populate the form fields in the modal with extracted data
+            document.getElementById("deleteID").value = deleteID;
 
-            $tr = $(this).closest('tr');
-
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title').val(data[0]);
-
+            // Show the modal
+            let deleteModal = new bootstrap.Modal(document.getElementById("modalDelete"));
+            deleteModal.show();
         });
     });
 </script>

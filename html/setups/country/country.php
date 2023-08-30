@@ -68,8 +68,156 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
 
-<!-- Edit Modal -->
-<?php include_once 'country_modal_edit.php' ?>
+<div class="col-lg-4 col-md-6">
+    <div class="mt-3">
+
+        <!-- Modal HTML structure -->
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Modal content goes here -->
+                        This is your modal content.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div class="modal fade" id="modalUpdate" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="country_code_update.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalUpdate">Update Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2 mb-3">
+                                <div class="col mb-0">
+                                    <label for="updateCountryID" class="form-label">Country ID</label>
+                                    <input
+                                            type="text"
+                                            name="updateCountryID"
+                                            id="updateCountryID"
+                                            class="form-control"
+                                            placeholder="A"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="updateCountryDescription" class="form-label">Country Description</label>
+                                    <input
+                                            type="text"
+                                            name="updateCountryDescription"
+                                            id="updateCountryDescription"
+                                            class="form-control"
+                                            placeholder="1"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="updatedata" class="btn btn-primary" href="">
+                                Save changes
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Modal -->
+        <div class="modal fade" id="modalDelete" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="country_code_delete.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalDelete">Delete Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2 mb-3">
+                                <div class="col mb-0">
+                                    <label for="deleteCountryID" class="form-label">Country ID</label>
+                                    <input
+                                            type="text"
+                                            name="deleteCountryID"
+                                            id="deleteCountryID"
+                                            class="form-control"
+                                            placeholder="A"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="deleteCountryDescription" class="form-label">Country Description</label>
+                                    <input
+                                            type="text"
+                                            name="deleteCountryDescription"
+                                            id="deleteCountryDescription"
+                                            class="form-control"
+                                            placeholder="1"
+                                    />
+                                </div>
+                            </div>
+
+                            <hr class="my-3"/>
+
+                            <div class="row align-content-center">
+                                <div class="col align-content-center">
+                                    <h6>Are you sure you want to delete
+                                        all data related to this
+                                        ID?</h6>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="deletedata" class="btn btn-danger">
+                                Yes, delete entry
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
 <!-- Beginning of Body Content -->
 <div class="layout-wrapper layout-content-navbar">
@@ -106,8 +254,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                 <tbody class="table-border-bottom-0">
                                 <?php foreach ($rows as $row) { ?>
                                     <tr>
-                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
-                                                <?php echo $row['CountryID']; ?></strong></td>
+                                        <td><strong><?php echo $row['CountryID']; ?></strong></td>
                                         <td><?php echo $row['CountryDescription']; ?></td>
                                         <td>
                                             <svg class="edit-icon" id="editIcon" xmlns="http://www.w3.org/2000/svg"
@@ -166,42 +313,43 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Page JS -->
 <script>
-    $(document).ready(function () {
-        $('.edit-button').on('click', function () {
+    document.querySelectorAll(".edit-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            let row = icon.closest("tr");
 
-            $('#editmodal').modal('show');
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            let updateCountryID = row.cells[0].textContent; // Replace with the appropriate index
+            let updateCountryDescription = row.cells[1].textContent;
 
-            $tr = $(this).closest('tr');
+            // Populate the form fields in the modal with extracted data
+            document.getElementById("updateCountryID").value = updateCountryID;
+            document.getElementById("updateCountryDescription").value = updateCountryDescription;
 
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title_id').val(data[0]);
-            $('#title').val(data[1]);
+            // Show the modal
+            let editModal = new bootstrap.Modal(document.getElementById("modalUpdate"));
+            editModal.show();
         });
     });
 </script>
 
 <script>
-    $(document).ready(function () {
+    document.querySelectorAll(".delete-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            let row = icon.closest("tr");
 
-        $('.delete-button').on('click', function () {
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            let deleteCountryID = row.cells[0].textContent; // Replace with the appropriate index
+            let deleteCountryDescription = row.cells[1].textContent;
 
-            $('#deletemodal').modal('show');
+            // Populate the form fields in the modal with extracted data
+            document.getElementById("deleteCountryID").value = deleteCountryID;
+            document.getElementById("deleteCountryDescription").value = deleteCountryDescription;
 
-            $tr = $(this).closest('tr');
-
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title').val(data[0]);
-
+            // Show the modal
+            let deleteModal = new bootstrap.Modal(document.getElementById("modalDelete"));
+            deleteModal.show();
         });
     });
 </script>

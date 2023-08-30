@@ -29,7 +29,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Template | ISMS - Integrated School Management System</title>
+    <title>Class Setup | ISMS - Integrated School Management System</title>
 
     <meta name="description" content=""/>
 
@@ -67,9 +67,265 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 
 <body>
+<!-- Vertically Centered Modals -->
+<div class="col-lg-4 col-md-6">
+    <div class="mt-3">
 
-<!-- Edit Modal -->
-<?php include_once 'classtable_modal_edit.php' ?>
+        <!-- Insert Modal -->
+        <div class="modal fade" id="modalInsert" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="classtable_code_insert.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalInsertTitle">Insert Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2">
+                                <div class="col mb-3">
+                                    <label for="insertCourseCode" class="form-label">Course Code</label>
+                                    <input
+                                            type="text"
+                                            id="insertCourseCode"
+                                            name="insertCourseCode"
+                                            class="form-control"
+                                            placeholder="Enter Course Code"
+                                    />
+                                </div>
+
+                                <div class="col mb-3">
+                                    <label for="insertCourseName" class="form-label">Course Name</label>
+                                    <input
+                                            type="text"
+                                            id="insertCourseName"
+                                            name="insertCourseName"
+                                            class="form-control"
+                                            placeholder="Enter Course Name"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col mb-3">
+                                    <label for="insertOption" class="form-label">Option</label>
+                                    <input
+                                            type="text"
+                                            id="insertOption"
+                                            name="insertOption"
+                                            class="form-control"
+                                            placeholder="Enter Option"
+                                    />
+                                </div>
+
+                                <div class="col mb-3">
+                                    <label for="insertCertificateType" class="form-label">Certificate type</label>
+                                    <input
+                                            type="text"
+                                            id="insertCertificateType"
+                                            name="insertCertificateType"
+                                            class="form-control"
+                                            placeholder="Enter Certificate Type"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="insertdata" class="btn btn-dark">Save
+                                data
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div class="modal fade" id="modalUpdate" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="classtable_code_update.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalUpdate">Update Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2 mb-3">
+                                <div class="col mb-0">
+                                    <label for="updateRecordKey" class="form-label">Record Key</label>
+                                    <input
+                                            type="text"
+                                            name="updateCourseCode"
+                                            id="updateCourseCode"
+                                            class="form-control"
+                                            readonly
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="updateMinimumScore" class="form-label">Minimum Score</label>
+                                    <input
+                                            type="text"
+                                            name="updateCourseName"
+                                            id="updateCourseName"
+                                            class="form-control"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="updateMaximumScore" class="form-label">Maximum Score</label>
+                                    <input
+                                            type="text"
+                                            name="updateCourseName"
+                                            id="updateCourseName"
+                                            class="form-control"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row g-2 mb-3">
+                                <div class="col mb-0">
+                                    <label for="updateClass" class="form-label">Class</label>
+                                    <input
+                                            type="text"
+                                            name="updateClass"
+                                            id="updateClass"
+                                            class="form-control"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="updateGradingSystem" class="form-label">Grading System</label>
+                                    <input
+                                            type="text"
+                                            name="updateGradingSystem"
+                                            id="updateGradingSystem"
+                                            class="form-control"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="updatedata" class="btn btn-primary" href="">
+                                Save changes
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Modal -->
+        <div class="modal fade" id="modalDelete" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="classtable_code_delete.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalDelete">Delete Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2 mb-3">
+                                <div class="col mb-0">
+                                    <label for="deleteMinimumScore" class="form-label">Minimum Score</label>
+                                    <input
+                                            type="text"
+                                            name="deleteMinimumScore"
+                                            id="deleteMinimumScore"
+                                            class="form-control"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="deleteMaximumScore" class="form-label">Maximum Score</label>
+                                    <input
+                                            type="text"
+                                            name="deleteMaximumScore"
+                                            id="deleteMaximumScore"
+                                            class="form-control"
+                                            placeholder="1"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row g-2 mb-3">
+                                <div class="col mb-0">
+                                    <label for="deleteClass" class="form-label">Class</label>
+                                    <input
+                                            type="text"
+                                            name="deleteClass"
+                                            id="deleteClass"
+                                            class="form-control"
+                                            placeholder="A"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="deleteGradingSystem" class="form-label">Grading System</label>
+                                    <input
+                                            type="text"
+                                            name="deleteGradingSystem"
+                                            id="deleteGradingSystem"
+                                            class="form-control"
+                                            placeholder="1"
+                                    />
+                                </div>
+                            </div>
+
+                            <hr class="my-3"/>
+
+                            <div class="row align-content-center">
+                                <div class="col align-content-center">
+                                    <h6>Are you sure you want to delete
+                                        all data related to this
+                                        ID?</h6>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="deletedata" class="btn btn-danger">
+                                Yes, delete entry
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 <!-- Beginning of Body Content -->
 <div class="layout-wrapper layout-content-navbar">
@@ -103,13 +359,13 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                     <th>Maximum Score</th>
                                     <th>Class</th>
                                     <th>Grading System</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
                                 <?php foreach ($rows as $row) { ?>
                                     <tr>
-                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
-                                                <?php echo $row['RecordKey']; ?></strong></td>
+                                        <td><strong><?php echo $row['RecordKey']; ?></strong></td>
                                         <td><?php echo $row['MinScore']; ?></td>
                                         <td><?php echo $row['MaxScore']; ?></td>
                                         <td><?php echo $row['Class']; ?></td>
@@ -171,42 +427,55 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Page JS -->
 <script>
-    $(document).ready(function () {
-        $('.edit-button').on('click', function () {
+    document.querySelectorAll(".edit-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            let row = icon.closest("tr");
 
-            $('#editmodal').modal('show');
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            let updateRecordKey = row.cells[0].textContent; // Replace with the appropriate index
+            let updateMinimumScore = row.cells[1].textContent; // Replace with the appropriate index
+            let updateMaximumScore = row.cells[2].textContent; // Replace with the appropriate index
+            let updateClass = row.cells[3].textContent;
+            let updateGradingSystem = row.cells[4].textContent;
 
-            $tr = $(this).closest('tr');
+            // Populate the form fields in the modal with extracted data
+            document.getElementById("updateRecordKey").value = updateRecordKey;
+            document.getElementById("updateMinimumScore").value = updateMinimumScore;
+            document.getElementById("updateMaximumScore").value = updateMaximumScore;
+            document.getElementById("updateClass").value = updateClass;
+            document.getElementById("updateGradingSystem").value = updateGradingSystem;
 
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title_id').val(data[0]);
-            $('#title').val(data[1]);
+            // Show the modal
+            let editModal = new bootstrap.Modal(document.getElementById("modalUpdate"));
+            editModal.show();
         });
     });
 </script>
 
 <script>
-    $(document).ready(function () {
+    document.querySelectorAll(".delete-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            let row = icon.closest("tr");
 
-        $('.delete-button').on('click', function () {
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            let deleteRecordKey = row.cells[0].textContent; // Replace with the appropriate index
+            let deleteMinimumScore = row.cells[1].textContent; // Replace with the appropriate index
+            let deleteMaximumScore = row.cells[2].textContent; // Replace with the appropriate index
+            let deleteClass = row.cells[3].textContent;
+            let deleteGradingSystem = row.cells[4].textContent;
 
-            $('#deletemodal').modal('show');
+            // Populate the form fields in the modal with extracted data
+            document.getElementById("deleteRecordKey").value = deleteRecordKey;
+            document.getElementById("deleteMinimumScore").value = deleteMinimumScore;
+            document.getElementById("deleteMaximumScore").value = deleteMaximumScore;
+            document.getElementById("deleteClass").value = deleteClass;
+            document.getElementById("deleteGradingSystem").value = deleteGradingSystem;
 
-            $tr = $(this).closest('tr');
-
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title').val(data[0]);
-
+            // Show the modal
+            let deleteModal = new bootstrap.Modal(document.getElementById("modalDelete"));
+            deleteModal.show();
         });
     });
 </script>
