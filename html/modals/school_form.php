@@ -1,7 +1,5 @@
 <?php
 
-$countryID = "";
-$countryDescription = "";
 
 // Connect to the database
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');

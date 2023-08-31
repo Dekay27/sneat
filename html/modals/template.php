@@ -1,7 +1,5 @@
 <?php
 
-$countryID = "";
-$countryDescription = "";
 
 // Connect to the database
 // $db = new PDO('mysql:host=hightelconsultscom.ipowermysql.com;dbname=isms', 'hightelconsult', 'Pay@2022');
@@ -108,84 +106,6 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                         <form action="updatetemplate.php" method="POST">
 
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="modalCenterTitle">Modal title</h5>
-                                            <button
-                                                    type="button"
-                                                    class="btn-close"
-                                                    data-bs-dismiss="modal"
-                                                    aria-label="Close"
-                                            ></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col mb-3" >
-                                                    <label for="idWithTitle" class="form-label">Name</label>
-                                                    <input
-                                                            type="text"
-                                                            name="idWithTitle"
-                                                            id="idWithTitle"
-                                                            class="form-control"
-                                                            placeholder="Enter Name"
-                                                            width="30px"
-                                                    />
-                                                </div>
-                                                <div class="col mb-3" >
-                                                    <label for="nameWithTitle" class="form-label">Name</label>
-                                                    <input
-                                                            type="text"
-                                                            name="nameWithTitle"
-                                                            id="nameWithTitle"
-                                                            class="form-control"
-                                                            placeholder="Enter Name"
-                                                            width="30px"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div class="row g-2">
-                                                <div class="col mb-0">
-                                                    <label for="emailWithTitle" class="form-label">Email</label>
-                                                    <input
-                                                            type="text"
-                                                            name="emailWithTitle"
-                                                            id="emailWithTitle"
-                                                            class="form-control"
-                                                            placeholder="xxxx@xxx.xx"
-                                                    />
-                                                </div>
-                                                <div class="col mb-0">
-                                                    <label for="dobWithTitle" class="form-label">DOB</label>
-                                                    <input
-                                                            type="text"
-                                                            name="dobWithTitle"
-                                                            id="dobWithTitle"
-                                                            class="form-control"
-                                                            placeholder="DD / MM / YY"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                                Close
-                                            </button>
-                                            <button type="submit" name="updatedata" class="btn btn-primary" href="">
-                                                Save changes</button>
-                                        </div>
-
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Delete Modal -->
-                            <div class="modal fade" id="modalDelete" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-
-                                        <form action="deletetemplate.php" method="POST">
-
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="modalCenterTitle">Modal title</h5>
                                                 <button
@@ -197,18 +117,18 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             </div>
                                             <div class="modal-body">
                                                 <div class="row">
-                                                    <div class="col mb-1" >
-                                                        <label for="idWithTitle" class="form-label">ID</label>
+                                                    <div class="col mb-3">
+                                                        <label for="idWithTitle" class="form-label">Name</label>
                                                         <input
                                                                 type="text"
-                                                                name="delete-id"
-                                                                id="delete-id"
+                                                                name="idWithTitle"
+                                                                id="idWithTitle"
                                                                 class="form-control"
                                                                 placeholder="Enter Name"
                                                                 width="30px"
                                                         />
                                                     </div>
-                                                    <div class="col mb-3" >
+                                                    <div class="col mb-3">
                                                         <label for="nameWithTitle" class="form-label">Name</label>
                                                         <input
                                                                 type="text"
@@ -244,11 +164,93 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                        data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" name="updatedata" class="btn btn-primary" href="">
+                                                    Save changes
+                                                </button>
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Delete Modal -->
+                            <div class="modal fade" id="modalDelete" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+
+                                        <form action="deletetemplate.php" method="POST">
+
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalCenterTitle">Modal title</h5>
+                                                <button
+                                                        type="button"
+                                                        class="btn-close"
+                                                        data-bs-dismiss="modal"
+                                                        aria-label="Close"
+                                                ></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col mb-1">
+                                                        <label for="idWithTitle" class="form-label">ID</label>
+                                                        <input
+                                                                type="text"
+                                                                name="delete-id"
+                                                                id="delete-id"
+                                                                class="form-control"
+                                                                placeholder="Enter Name"
+                                                                width="30px"
+                                                        />
+                                                    </div>
+                                                    <div class="col mb-3">
+                                                        <label for="nameWithTitle" class="form-label">Name</label>
+                                                        <input
+                                                                type="text"
+                                                                name="nameWithTitle"
+                                                                id="nameWithTitle"
+                                                                class="form-control"
+                                                                placeholder="Enter Name"
+                                                                width="30px"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2">
+                                                    <div class="col mb-0">
+                                                        <label for="emailWithTitle" class="form-label">Email</label>
+                                                        <input
+                                                                type="text"
+                                                                name="emailWithTitle"
+                                                                id="emailWithTitle"
+                                                                class="form-control"
+                                                                placeholder="xxxx@xxx.xx"
+                                                        />
+                                                    </div>
+                                                    <div class="col mb-0">
+                                                        <label for="dobWithTitle" class="form-label">DOB</label>
+                                                        <input
+                                                                type="text"
+                                                                name="dobWithTitle"
+                                                                id="dobWithTitle"
+                                                                class="form-control"
+                                                                placeholder="DD / MM / YY"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                        data-bs-dismiss="modal">
                                                     Close
                                                 </button>
                                                 <button type="submit" name="deletedata" class="btn btn-warning">
-                                                    Yes, delete entry</button>
+                                                    Yes, delete entry
+                                                </button>
                                             </div>
 
                                         </form>
@@ -265,57 +267,60 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                         <form action="inserttemplate.php" method="POST">
 
                                             <div class="modal-header">
-                                            <h5 class="modal-title" id="modalCenterTitle">Insert Data</h5>
-                                            <button
-                                                    type="button"
-                                                    class="btn-close"
-                                                    data-bs-dismiss="modal"
-                                                    aria-label="Close"
-                                            ></button>
-                                        </div>
+                                                <h5 class="modal-title" id="modalCenterTitle">Insert Data</h5>
+                                                <button
+                                                        type="button"
+                                                        class="btn-close"
+                                                        data-bs-dismiss="modal"
+                                                        aria-label="Close"
+                                                ></button>
+                                            </div>
                                             <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col mb-3">
-                                                    <label for="insertName" class="form-label">Name</label>
-                                                    <input
-                                                            type="text"
-                                                            id="insertName"
-                                                            name="insertName"
-                                                            class="form-control"
-                                                            placeholder="Enter Name"
-                                                    />
+                                                <div class="row">
+                                                    <div class="col mb-3">
+                                                        <label for="insertName" class="form-label">Name</label>
+                                                        <input
+                                                                type="text"
+                                                                id="insertName"
+                                                                name="insertName"
+                                                                class="form-control"
+                                                                placeholder="Enter Name"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2">
+                                                    <div class="col mb-0">
+                                                        <label for="insertEmail" class="form-label">Email</label>
+                                                        <input
+                                                                type="text"
+                                                                id="insertEmail"
+                                                                name="insertEmail"
+                                                                class="form-control"
+                                                                placeholder="xxxx@xxx.xx"
+                                                        />
+                                                    </div>
+                                                    <div class="col mb-0">
+                                                        <label for="insertDate" class="form-label">Date Verified</label>
+                                                        <input
+                                                                type="text"
+                                                                id="insertDate"
+                                                                name="insertDate"
+                                                                class="form-control"
+                                                                placeholder="<?php echo date('d-m-y h:i:s') ?>"
+                                                                readonly
+                                                        />
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="row g-2">
-                                                <div class="col mb-0">
-                                                    <label for="insertEmail" class="form-label">Email</label>
-                                                    <input
-                                                            type="text"
-                                                            id="insertEmail"
-                                                            name="insertEmail"
-                                                            class="form-control"
-                                                            placeholder="xxxx@xxx.xx"
-                                                    />
-                                                </div>
-                                                <div class="col mb-0">
-                                                    <label for="insertDate" class="form-label">Date Verified</label>
-                                                    <input
-                                                            type="text"
-                                                            id="insertDate"
-                                                            name="insertDate"
-                                                            class="form-control"
-                                                            placeholder="<?php echo date('d-m-y h:i:s') ?>"
-                                                            readonly
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
                                             <div class="modal-footer">
-                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                                Close
-                                            </button>
-                                            <button type="submit" name="insertdata" class="btn btn-primary">Save changes</button>
-                                        </div>
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                        data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" name="insertdata" class="btn btn-primary">Save
+                                                    changes
+                                                </button>
+                                            </div>
 
                                         </form>
                                     </div>
@@ -326,25 +331,24 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     </div>
 
 
-
                     <!-- Basic Bootstrap Table -->
                     <div class="card">
 
                         <!--/ Insert Data Button -->
-                            <div class="card-body">
-                                <div class="row demo-vertical-spacing">
-                                    <div class="col"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#modalInsert">
-                                        <button type="button" class="btn btn-outline-primary text-nowrap">
-                                            <span class="tf-icons bx bx-add-to-queue"></span>&nbsp; Add Data
-                                        </button>
-                                    </div>
+                        <div class="card-body">
+                            <div class="row demo-vertical-spacing">
+                                <div class="col"
+                                     data-bs-toggle="modal"
+                                     data-bs-target="#modalInsert">
+                                    <button type="button" class="btn btn-outline-primary text-nowrap">
+                                        <span class="tf-icons bx bx-add-to-queue"></span>&nbsp; Add Data
+                                    </button>
                                 </div>
                             </div>
+                        </div>
                         <!--/ Insert Data Button -->
 
-                        <hr class="my-3" />
+                        <hr class="my-3"/>
 
                         <div class="table-responsive text-nowrap">
                             <table id="datatableid" class="table">
@@ -356,7 +360,8 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                 <tr>
                                     <th><i class="fab fa-angular fa-lg text-danger me-3"></i>
-                                        ID</th>
+                                        ID
+                                    </th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Email Verified At</th>
@@ -404,7 +409,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     </div>
                     <!--/ Basic Bootstrap Table -->
 
-                    <hr class="my-5" />
+                    <hr class="my-5"/>
 
                     <!-- Basic Bootstrap Table -->
                     <div class="card">
@@ -422,7 +427,8 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 </thead>
                                 <tbody class="table-border-bottom-0">
                                 <tr>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
+                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular
+                                            Project</strong></td>
                                     <td>Albert Cook</td>
                                     <td>
                                         <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
@@ -433,7 +439,8 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     class="avatar avatar-xs pull-up"
                                                     title="Lilian Fuller"
                                             >
-                                                <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                                                <img src="../../assets/img/avatars/5.png" alt="Avatar"
+                                                     class="rounded-circle"/>
                                             </li>
                                             <li
                                                     data-bs-toggle="tooltip"
@@ -442,7 +449,8 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     class="avatar avatar-xs pull-up"
                                                     title="Sophia Wilkerson"
                                             >
-                                                <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
+                                                <img src="../../assets/img/avatars/6.png" alt="Avatar"
+                                                     class="rounded-circle"/>
                                             </li>
                                             <li
                                                     data-bs-toggle="tooltip"
@@ -451,7 +459,8 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     class="avatar avatar-xs pull-up"
                                                     title="Christina Parker"
                                             >
-                                                <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                                                <img src="../../assets/img/avatars/7.png" alt="Avatar"
+                                                     class="rounded-circle"/>
                                             </li>
                                         </ul>
                                     </td>

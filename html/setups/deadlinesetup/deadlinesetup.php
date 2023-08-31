@@ -1,7 +1,5 @@
 <?php
 
-$countryID = "";
-$countryDescription = "";
 
 // Connect to the database
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
@@ -169,7 +167,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                         <div class="modal-body">
                             <div class="row g-2 mb-3">
                                 <div class="col mb-0">
-                                    <label for="updateID" class="form-label">Course Code</label>
+                                    <label for="updateID" class="form-label">ID</label>
                                     <input
                                             type="text"
                                             name="updateID"
@@ -179,7 +177,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                     />
                                 </div>
                                 <div class="col mb-0">
-                                    <label for="updateDescription" class="form-label">Course Name</label>
+                                    <label for="updateDescription" class="form-label">Description</label>
                                     <input
                                             type="text"
                                             name="updateDescription"
@@ -191,7 +189,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <div class="row g-2 mb-3">
                                 <div class="col mb-0">
-                                    <label for="updateDeadlineDate" class="form-label">DeadlineDate</label>
+                                    <label for="updateDeadlineDate" class="form-label">Deadline Date</label>
                                     <input
                                             type="text"
                                             name="updateDeadlineDate"
@@ -201,7 +199,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                     />
                                 </div>
                                 <div class="col mb-0">
-                                    <label for="updateResultsDeadline" class="form-label">Certificate Type</label>
+                                    <label for="updateResultsDeadline" class="form-label">Results Deadline</label>
                                     <input
                                             type="text"
                                             name="updateResultsDeadline"
@@ -248,17 +246,17 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                         <div class="modal-body">
                             <div class="row g-2 mb-3">
                                 <div class="col mb-0">
-                                    <label for="deleteID" class="form-label">Course Code</label>
+                                    <label for="deleteID" class="form-label">ID</label>
                                     <input
                                             type="text"
                                             name="deleteID"
                                             id="deleteID"
-                                            class="form-control"
+                                            class="form-control text-center"
                                             placeholder="A"
                                     />
                                 </div>
                                 <div class="col mb-0">
-                                    <label for="deleteDescription" class="form-label">Course Name</label>
+                                    <label for="deleteDescription" class="form-label">Description</label>
                                     <input
                                             type="text"
                                             name="deleteDescription"
@@ -270,7 +268,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <div class="row g-2 mb-3">
                                 <div class="col mb-0">
-                                    <label for="deleteDeadlineDate" class="form-label">DeadlineDate</label>
+                                    <label for="deleteDeadlineDate" class="form-label">Deadline Date</label>
                                     <input
                                             type="text"
                                             name="deleteDeadlineDate"
@@ -280,7 +278,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                     />
                                 </div>
                                 <div class="col mb-0">
-                                    <label for="deleteResultsDeadline" class="form-label">Certificate Type</label>
+                                    <label for="deleteResultsDeadline" class="form-label">Results Deadline</label>
                                     <input
                                             type="text"
                                             name="deleteResultsDeadline"
@@ -334,7 +332,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
         <!-- Beginning of Internal Content -->
         <div class="layout-page">
             <!-- Navbar -->
-            <?php include_once '../../modals/navigationbar.php' ?>
+            <?php include_once '../../modals/navigationbar.html' ?>
             <!-- / Navbar -->
 
             <!-- Content wrapper -->
@@ -360,8 +358,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                 <tbody class="table-border-bottom-0">
                                 <?php foreach ($rows as $row) { ?>
                                     <tr>
-                                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
-                                                <?php echo $row['ID']; ?></strong></td>
+                                        <td><strong><?php echo $row['ID']; ?></strong></td>
                                         <td><?php echo $row['Description']; ?></td>
                                         <td><?php echo $row['DeadlineDate']; ?></td>
                                         <td><?php echo $row['ResultsDeadline']; ?></td>

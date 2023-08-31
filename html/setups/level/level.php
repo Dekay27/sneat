@@ -1,13 +1,11 @@
 <?php
 
-$countryID = "";
-$countryDescription = "";
 
 // Connect to the database
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
 // Query the database
-$result = $db->query('SELECT * FROM title');
+$result = $db->query('SELECT * FROM level');
 
 // Fetch the data as an associative array
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -29,7 +27,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Template | ISMS - Integrated School Management System</title>
+    <title>Level Setup | ISMS - Integrated School Management System</title>
 
     <meta name="description" content=""/>
 
@@ -67,6 +65,190 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 
 <body>
+<!-- Vertically Centered Modals -->
+<div class="col-lg-4 col-md-6">
+    <div class="mt-3">
+
+        <!-- Insert Modal -->
+        <div class="modal fade" id="modalInsert" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="level_code_insert.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalInsertTitle">Insert Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2">
+                                <div class="col-3 mb-3">
+                                    <label for="insertLevelID" class="form-label">Level ID</label>
+                                    <input
+                                            type="text"
+                                            id="insertLevelID"
+                                            name="insertLevelID"
+                                            class="form-control"
+                                            placeholder="Enter Level ID"
+                                    />
+                                </div>
+
+                                <div class="col mb-3">
+                                    <label for="insertLevelDescription" class="form-label">Level Description</label>
+                                    <input
+                                            type="text"
+                                            id="insertLevelDescription"
+                                            name="insertLevelDescription"
+                                            class="form-control"
+                                            placeholder="Enter Level Description"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="insertdata" class="btn btn-dark">Save
+                                data
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div class="modal fade" id="modalUpdate" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="level_code_update.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalUpdate">Update Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2 mb-3">
+                                <div class="col-3 mb-0">
+                                    <label for="updateLevelID" class="form-label">Level ID</label>
+                                    <input
+                                            type="text"
+                                            name="updateLevelID"
+                                            id="updateLevelID"
+                                            class="form-control"
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="updateLevelDescription" class="form-label">Level Description</label>
+                                    <input
+                                            type="text"
+                                            name="updateLevelDescription"
+                                            id="updateLevelDescription"
+                                            class="form-control"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="updatedata" class="btn btn-primary" href="">
+                                Save changes
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Modal -->
+        <div class="modal fade" id="modalDelete" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="level_code_delete.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalDelete">Delete Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2 mb-3">
+                                <div class="col-3 mb-0">
+                                    <label for="deleteLevelID" class="form-label">Level ID</label>
+                                    <input
+                                            type="text"
+                                            name="deleteLevelID"
+                                            id="deleteLevelID"
+                                            class="form-control text-center"
+                                            readonly
+                                    />
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="deleteLevelDescription" class="form-label">Level Description</label>
+                                    <input
+                                            type="text"
+                                            name="deleteLevelDescription"
+                                            id="deleteLevelDescription"
+                                            class="form-control"
+                                    />
+                                </div>
+                            </div>
+
+                            <hr class="my-3"/>
+
+                            <div class="row align-content-center">
+                                <div class="col align-content-center">
+                                    <h6>Are you sure you want to delete
+                                        all data related to this
+                                        ID?</h6>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="deletedata" class="btn btn-danger">
+                                Yes, delete entry
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 
 <!-- Beginning of Body Content -->
@@ -80,7 +262,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
         <!-- Beginning of Internal Content -->
         <div class="layout-page">
             <!-- Navbar -->
-            <?php include_once '../../modals/navigationbar.php' ?>
+            <?php include_once '../../modals/navigationbar.html' ?>
             <!-- / Navbar -->
 
             <!-- Content wrapper -->
@@ -88,24 +270,24 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                 <!-- Content -->
 
                 <div class="container-xxl flex-grow-1 container-p-y">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> Title</h4>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> Level Setup</h4>
 
                     <div class="card">
-                        <h5 class="card-header">List of Titles</h5>
+                        <h5 class="card-header">List of Levels</h5>
                         <div class="table-responsive text-nowrap">
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Title ID</th>
-                                    <th>Title</th>
+                                    <th>Level ID</th>
+                                    <th>Level Description</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
                                 <?php foreach ($rows as $row) { ?>
                                     <tr>
-                                        <td><strong><?php echo $row['TitleID']; ?></strong></td>
-                                        <td><?php echo $row['Title']; ?></td>
+                                        <td><strong><?php echo $row['LevelID']; ?></strong></td>
+                                        <td><?php echo $row['LevelDescription']; ?></td>
                                         <td>
                                             <svg class="edit-icon" id="editIcon" xmlns="http://www.w3.org/2000/svg"
                                                  width="24" height="24"
@@ -163,42 +345,43 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Page JS -->
 <script>
-    $(document).ready(function () {
-        $('.edit-button').on('click', function () {
+    document.querySelectorAll(".edit-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            let row = icon.closest("tr");
 
-            $('#editmodal').modal('show');
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            let updateLevelID = row.cells[0].textContent; // Replace with the appropriate index
+            let updateLevelDescription = row.cells[1].textContent; // Replace with the appropriate index
 
-            $tr = $(this).closest('tr');
+            // Populate the form fields in the modal with extracted data
+            document.getElementById("updateLevelID").value = updateLevelID;
+            document.getElementById("updateLevelDescription").value = updateLevelDescription;
 
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title_id').val(data[0]);
-            $('#title').val(data[1]);
+            // Show the modal
+            let editModal = new bootstrap.Modal(document.getElementById("modalUpdate"));
+            editModal.show();
         });
     });
 </script>
 
 <script>
-    $(document).ready(function () {
+    document.querySelectorAll(".delete-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            let row = icon.closest("tr");
 
-        $('.delete-button').on('click', function () {
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            let deleteLevelID = row.cells[0].textContent; // Replace with the appropriate index
+            let deleteLevelDescription = row.cells[1].textContent; // Replace with the appropriate index
 
-            $('#deletemodal').modal('show');
+            // Populate the form fields in the modal with extracted data
+            document.getElementById("deleteLevelID").value = deleteLevelID;
+            document.getElementById("deleteLevelDescription").value = deleteLevelDescription;
 
-            $tr = $(this).closest('tr');
-
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title').val(data[0]);
-
+            // Show the modal
+            let deleteModal = new bootstrap.Modal(document.getElementById("modalDelete"));
+            deleteModal.show();
         });
     });
 </script>

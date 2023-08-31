@@ -1,13 +1,11 @@
 <?php
 
-$countryID = "";
-$countryDescription = "";
 
 // Connect to the database
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
 // Query the database
-$result = $db->query('SELECT * FROM title');
+$result = $db->query('SELECT * FROM regionstate');
 
 // Fetch the data as an associative array
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -29,7 +27,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Template | ISMS - Integrated School Management System</title>
+    <title>Region & State | ISMS - Integrated School Management System</title>
 
     <meta name="description" content=""/>
 
@@ -67,7 +65,261 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 
 <body>
+<!-- Vertically Centered Modals -->
+<div class="col-lg-4 col-md-6">
+    <div class="mt-3">
 
+        <!-- Insert Modal -->
+        <div class="modal fade" id="modalInsert" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="regionstate_code_insert.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalInsertTitle">Insert Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2">
+                                <div class="col mb-3">
+                                    <label for="insertRegionID" class="form-label">Region ID</label>
+                                    <input
+                                            type="text"
+                                            id="insertRegionID"
+                                            name="insertRegionID"
+                                            class="form-control"
+                                            placeholder="Enter Region ID"
+                                    />
+                                </div>
+
+                                <div class="col mb-3">
+                                    <label for="insertRegionCode" class="form-label">Region Code</label>
+                                    <input
+                                            type="text"
+                                            id="insertRegionCode"
+                                            name="insertRegionCode"
+                                            class="form-control"
+                                            placeholder="Enter Region Code"
+                                    />
+                                </div>
+                                <div class="col mb-3">
+                                    <label for="insertCountryID" class="form-label">Country ID</label>
+                                    <input
+                                            type="text"
+                                            id="insertCountryID"
+                                            name="insertCountryID"
+                                            class="form-control"
+                                            placeholder="Enter Country ID"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row g-2">
+
+                                <div class="col mb-3">
+                                    <label for="insertRegionDescription" class="form-label">Region Description</label>
+                                    <input
+                                            type="text"
+                                            id="insertRegionDescription"
+                                            name="insertRegionDescription"
+                                            class="form-control"
+                                            placeholder="Enter Region Description"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="insertdata" class="btn btn-dark">Save
+                                data
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div class="modal fade" id="modalUpdate" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="regionstate_code_update.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalUpdate">Update Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2">
+                                <div class="col mb-3">
+                                    <label for="updateRegionID" class="form-label">Region ID</label>
+                                    <input
+                                            type="text"
+                                            id="updateRegionID"
+                                            name="updateRegionID"
+                                            class="form-control"
+                                            placeholder="Enter Region ID"
+                                    />
+                                </div>
+
+                                <div class="col mb-3">
+                                    <label for="updateRegionCode" class="form-label">Region Code</label>
+                                    <input
+                                            type="text"
+                                            id="updateRegionCode"
+                                            name="updateRegionCode"
+                                            class="form-control"
+                                            placeholder="Enter Region Code"
+                                    />
+                                </div>
+                                <div class="col mb-3">
+                                    <label for="updateCountryID" class="form-label">Country ID</label>
+                                    <input
+                                            type="text"
+                                            id="updateCountryID"
+                                            name="updateCountryID"
+                                            class="form-control"
+                                            placeholder="Enter Country ID"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row g-2">
+
+                                <div class="col mb-3">
+                                    <label for="updateRegionDescription" class="form-label">Region Description</label>
+                                    <input
+                                            type="text"
+                                            id="updateRegionDescription"
+                                            name="updateRegionDescription"
+                                            class="form-control"
+                                            placeholder="Enter Region Description"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="updatedata" class="btn btn-primary" href="">
+                                Save changes
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Modal -->
+        <div class="modal fade" id="modalDelete" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                    <form action="regionstate_code_delete.php" method="POST">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalDelete">Delete Data</h5>
+                            <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2">
+                                <div class="col mb-3">
+                                    <label for="deleteRegionID" class="form-label">Region ID</label>
+                                    <input
+                                            type="text"
+                                            id="deleteRegionID"
+                                            name="deleteRegionID"
+                                            class="form-control"
+                                    />
+                                </div>
+
+                                <div class="col mb-3">
+                                    <label for="deleteRegionCode" class="form-label">Region Code</label>
+                                    <input
+                                            type="text"
+                                            id="deleteRegionCode"
+                                            name="deleteRegionCode"
+                                            class="form-control"
+                                    />
+                                </div>
+                                <div class="col mb-3">
+                                    <label for="deleteCountryID" class="form-label">Country ID</label>
+                                    <input
+                                            type="text"
+                                            id="deleteCountryID"
+                                            name="deleteCountryID"
+                                            class="form-control"
+                                            placeholder="Enter Country ID"
+                                    />
+                                </div>
+                            </div>
+                            <div class="row g-2">
+
+                                <div class="col mb-3">
+                                    <label for="deleteRegionDescription" class="form-label">Region Description</label>
+                                    <input
+                                            type="text"
+                                            id="deleteRegionDescription"
+                                            name="deleteRegionDescription"
+                                            class="form-control"
+                                    />
+                                </div>
+                            </div>
+
+                            <hr class="my-3"/>
+
+                            <div class="row align-content-center">
+                                <div class="col align-content-center">
+                                    <h6>Are you sure you want to delete
+                                        all data related to this
+                                        ID?</h6>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="submit" name="deletedata" class="btn btn-danger">
+                                Yes, delete entry
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 <!-- Beginning of Body Content -->
 <div class="layout-wrapper layout-content-navbar">
@@ -80,7 +332,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
         <!-- Beginning of Internal Content -->
         <div class="layout-page">
             <!-- Navbar -->
-            <?php include_once '../../modals/navigationbar.php' ?>
+            <?php include_once '../../modals/navigationbar.html' ?>
             <!-- / Navbar -->
 
             <!-- Content wrapper -->
@@ -88,24 +340,28 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                 <!-- Content -->
 
                 <div class="container-xxl flex-grow-1 container-p-y">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> Title</h4>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> Region & State</h4>
 
                     <div class="card">
-                        <h5 class="card-header">List of Titles</h5>
+                        <h5 class="card-header">List of Regions</h5>
                         <div class="table-responsive text-nowrap">
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Title ID</th>
-                                    <th>Title</th>
+                                    <th>Region ID</th>
+                                    <th>Region Code</th>
+                                    <th>Region Description</th>
+                                    <th>Country ID</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
                                 <?php foreach ($rows as $row) { ?>
                                     <tr>
-                                        <td><strong><?php echo $row['TitleID']; ?></strong></td>
-                                        <td><?php echo $row['Title']; ?></td>
+                                        <td><strong><?php echo $row['RegionID']; ?></strong></td>
+                                        <td><?php echo $row['RegionCode']; ?></td>
+                                        <td><?php echo $row['RegionDescription']; ?></td>
+                                        <td><?php echo $row['CountryID']; ?></td>
                                         <td>
                                             <svg class="edit-icon" id="editIcon" xmlns="http://www.w3.org/2000/svg"
                                                  width="24" height="24"
@@ -163,42 +419,51 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Page JS -->
 <script>
-    $(document).ready(function () {
-        $('.edit-button').on('click', function () {
+    document.querySelectorAll(".edit-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            let row = icon.closest("tr");
 
-            $('#editmodal').modal('show');
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            let updateRegionID = row.cells[0].textContent; // Replace with the appropriate index
+            let updateRegionCode = row.cells[1].textContent; // Replace with the appropriate index
+            let updateRegionDescription = row.cells[2].textContent; // Replace with the appropriate index
+            let updateCountryID = row.cells[3].textContent; // Replace with the appropriate index
 
-            $tr = $(this).closest('tr');
+            // Populate the form fields in the modal with extracted data
+            document.getElementById("updateRegionID").value = updateRegionID;
+            document.getElementById("updateRegionCode").value = updateRegionCode;
+            document.getElementById("updateRegionDescription").value = updateRegionDescription;
+            document.getElementById("updateCountryID").value = updateCountryID;
 
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title_id').val(data[0]);
-            $('#title').val(data[1]);
+            // Show the modal
+            let editModal = new bootstrap.Modal(document.getElementById("modalUpdate"));
+            editModal.show();
         });
     });
 </script>
 
 <script>
-    $(document).ready(function () {
+    document.querySelectorAll(".delete-icon").forEach(function (icon) {
+        icon.addEventListener("click", function () {
+            // Get the parent table row
+            let row = icon.closest("tr");
 
-        $('.delete-button').on('click', function () {
+            // Extract data from the row (adjust these lines based on your actual table structure)
+            let deleteRegionID = row.cells[0].textContent; // Replace with the appropriate index
+            let deleteRegionCode = row.cells[1].textContent; // Replace with the appropriate index
+            let deleteRegionDescription = row.cells[2].textContent; // Replace with the appropriate index
+            let deleteCountryID = row.cells[3].textContent; // Replace with the appropriate index
 
-            $('#deletemodal').modal('show');
+            // Populate the form fields in the modal with extracted data
+            document.getElementById("deleteRegionID").value = deleteRegionID;
+            document.getElementById("deleteRegionCode").value = deleteRegionCode;
+            document.getElementById("deleteRegionDescription").value = deleteRegionDescription;
+            document.getElementById("deleteCountryID").value = deleteCountryID;
 
-            $tr = $(this).closest('tr');
-
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title').val(data[0]);
-
+            // Show the modal
+            let deleteModal = new bootstrap.Modal(document.getElementById("modalDelete"));
+            deleteModal.show();
         });
     });
 </script>

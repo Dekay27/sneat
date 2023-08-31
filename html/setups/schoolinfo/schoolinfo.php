@@ -17,7 +17,7 @@ $location = "";
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
 // Query the database
-$result = $db->query('SELECT * FROM schoolinfo');
+$result = $db->query('SELECT * FROM schoolinfo LIMIT 1');
 
 // Fetch the data as an associative array
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -105,7 +105,7 @@ foreach ($rows as $row) {
         <!-- Beginning of Internal Content -->
         <div class="layout-page">
             <!-- Navbar -->
-            <?php include_once '../../modals/navigationbar.php' ?>
+            <?php include_once '../../modals/navigationbar.html' ?>
             <!-- / Navbar -->
 
             <!-- Content wrapper -->
@@ -155,7 +155,8 @@ foreach ($rows as $row) {
                                 </div>
                                 <hr class="my-0"/>
                                 <div class="card-body">
-                                    <form id="formAccountSettings" method="POST" onsubmit="return false">
+                                    <form action="schoolinfo_code_update.php" id="formAccountSettings" method="POST"
+                                          onsubmit="return false">
                                         <div class="row">
                                             <div class="mb-3 col-md-6">
                                                 <label for="firstName" class="form-label">School Name</label>
@@ -314,46 +315,6 @@ foreach ($rows as $row) {
 <script src="../../../assets/js/main.js"></script>
 
 <!-- Page JS -->
-<script>
-    $(document).ready(function () {
-        $('.edit-button').on('click', function () {
-
-            $('#editmodal').modal('show');
-
-            $tr = $(this).closest('tr');
-
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title_id').val(data[0]);
-            $('#title').val(data[1]);
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function () {
-
-        $('.delete-button').on('click', function () {
-
-            $('#deletemodal').modal('show');
-
-            $tr = $(this).closest('tr');
-
-            var data = $tr.children("td").map(function () {
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-
-            $('#title').val(data[0]);
-
-        });
-    });
-</script>
 
 
 <!-- Place this tag in your head or just before your close body tag. -->

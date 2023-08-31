@@ -1,7 +1,5 @@
 <?php
 
-$countryID = "";
-$countryDescription = "";
 
 // Connect to the database
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
@@ -338,7 +336,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
         <!-- Beginning of Internal Content -->
         <div class="layout-page">
             <!-- Navbar -->
-            <?php include_once '../../modals/navigationbar.php' ?>
+            <?php include_once '../../modals/navigationbar.html' ?>
             <!-- / Navbar -->
 
             <!-- Content wrapper -->

@@ -18,7 +18,7 @@
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Tables - Basic Tables | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>System Setup | ISMS - Integrated School Management System</title>
 
     <meta name="description" content=""/>
 
@@ -542,21 +542,35 @@
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="exam_malpractice.html">1. Exam
+                                                <li class="list-group-item"><a
+                                                            href="exammalpractice/exammalpractice.php">1. Exam
                                                         Malpractice</a></li>
-                                                <li class="list-group-item"><a href="upsa_grading_setup.html">2. UPSA
+                                                <li class="list-group-item"><a
+                                                            href="gradingsystempu/gradingsystempu.php">2. PU
                                                         Grading Setup</a></li>
-                                                <li class="list-group-item"><a href="knust_grading_system.html">3. KNUST
+                                                <li class="list-group-item"><a
+                                                            href="gradingsystemknust/gradingsystemknust.php">3.
+                                                        KNUST
                                                         Grading System</a></li>
-                                                <li class="list-group-item"><a href="gimpa_grading_system.html">4. GIMPA
+                                                <li class="list-group-item"><a
+                                                            href="gradingsystemgimpa/gradingsystemgimpa.php">4.
+                                                        GIMPA
                                                         Grading System</a></li>
-                                                <li class="list-group-item"><a href="uds_bns_grading_system.html">5.
+                                                <li class="list-group-item"><a
+                                                            href="gradingsystemudsbns/gradingsystemudsbns.php">5.
                                                         UDS-BNS Grading System</a></li>
-                                                <li class="list-group-item"><a href="uds_grading_system.html">6. UDS
+                                                <li class="list-group-item"><a
+                                                            href="gradingsystemuds/gradingsystemuds.php">6.
+                                                        UDS
                                                         Grading System</a></li>
-                                                <li class="list-group-item"><a href="uhas_grading_system.html">7. UHAS
+                                                <li class="list-group-item"><a
+                                                            href="gradingsystemuhas/gradingsystemuhas.php">7.
+                                                        UHAS
                                                         Grading System</a></li>
-                                                <li class="list-group-item"><a href="graduation_class_setup.html">8.
+                                                <li class="list-group-item"><a
+                                                            href="gradingsystemug/gradingsystemug.php">8. UG
+                                                        Grading System</a></li>
+                                                <li class="list-group-item"><a href="graduation_class_setup.html">9.
                                                         Graduation Class Setup</a></li>
                                             </ul>
                                         </div>
@@ -583,23 +597,25 @@
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="abe_subject_setup.html">1. ABE
+                                                <li class="list-group-item"><a
+                                                            href="abesubjectssetup/abesubjectssetup.php">1. ABE
                                                         Subject Setup</a></li>
-                                                <li class="list-group-item"><a href="wassce_subject_table.html">2.
+                                                <li class="list-group-item"><a href="shssubjects/shssubjects.php">2.
                                                         WASSCE/SSSCE Subject Table</a></li>
-                                                <li class="list-group-item"><a href="gbce_subjects_table.html">3. GBCE
+                                                <li class="list-group-item"><a href="gbcesubjects/gbcesubjects.php">3.
+                                                        GBCE
                                                         Subjects</a></li>
-                                                <li class="list-group-item"><a href="olevels_subjects_table.html">4.
+                                                <li class="list-group-item"><a href="olevelsubjects/olevelsubjects.php">4.
                                                         O-Levels Subjects</a></li>
-                                                <li class="list-group-item"><a href="dbs_subjects_table.html">5. DBS
+                                                <li class="list-group-item"><a href="dbssubjects/dbssubjects.php">5. DBS
                                                         Subjects</a></li>
-                                                <li class="list-group-item"><a href="other_certificates_table.html">6.
-                                                        Other Certificates</a></li>
-                                                <li class="list-group-item"><a href="hnd_subjects_table.html">7. HND
+                                                <li class="list-group-item"><a href="othersubjects/othersubjects.php">6.
+                                                        Other Certificates/Subjects</a></li>
+                                                <li class="list-group-item"><a href="hndsubjects/hndsubjects.php">7. HND
                                                         Subjects</a></li>
-                                                <li class="list-group-item"><a href="abcesubjects/abcesubjects.php">8. ABCE
-                                                        Subjects</a></li>
-                                                <li class="list-group-item"><a href="alevels_subjects_table.html">9.
+                                                <li class="list-group-item"><a href="abcesubjects/abcesubjects.php">8.
+                                                        ABCE Subjects</a></li>
+                                                <li class="list-group-item"><a href="alevelsubjects/alevelsubjects.php">9.
                                                         A-Levels Subjects</a></li>
                                             </ul>
                                         </div>
@@ -632,19 +648,22 @@
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="country_table.html">1. Country
+                                                <li class="list-group-item"><a href="country/country.php">1. Country
                                                         Table</a></li>
-                                                <li class="list-group-item"><a href="region_table.html">2. Region/State
+                                                <li class="list-group-item"><a href="regionstate/regionstate.php">2.
+                                                        Region/State
                                                         Table</a></li>
-                                                <li class="list-group-item"><a href="title_table.html">3. Title
+                                                <li class="list-group-item"><a href="title/title.php">3. Title
                                                         Table</a></li>
-                                                <li class="list-group-item"><a href="employment_nature_table.html">4.
+                                                <li class="list-group-item"><a
+                                                            href="natureofemployment/natureofemployment.php">4.
                                                         Nature of Employment</a></li>
-                                                <li class="list-group-item"><a href="application_mode_table.html">5.
+                                                <li class="list-group-item"><a
+                                                            href="modeofapplication/modeofapplication.php">5.
                                                         Mode of Application</a></li>
-                                                <li class="list-group-item"><a href="result_deadline_table.html">6.
+                                                <li class="list-group-item"><a href="deadlinesetup/deadlinesetup.php">6.
                                                         Result Deadline</a></li>
-                                                <li class="list-group-item"><a href="medical_setup_table.html">7.
+                                                <li class="list-group-item"><a href="medicalsetup/medicalsetup.php">7.
                                                         Medical Setup</a></li>
                                             </ul>
                                         </div>
@@ -671,25 +690,28 @@
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="school_table.html">1. School
+                                                <li class="list-group-item"><a href="schoolinfo/schoolinfo.php">1.
+                                                        School
+                                                        Info</a></li>
+                                                <li class="list-group-item"><a href="faculty/faculty.php">2. Faculty
                                                         Table</a></li>
-                                                <li class="list-group-item"><a href="faculty_table.html">2. Faculty
-                                                        Table</a></li>
-                                                <li class="list-group-item"><a href="department_table.html">3.
+                                                <li class="list-group-item"><a href="department/department.php">3.
                                                         Department Table</a></li>
-                                                <li class="list-group-item"><a href="quality_assurance_setup.html">Quality
+                                                <li class="list-group-item"><a href="###">Quality
                                                         Assurance Setup</a></li>
-                                                <li class="list-group-item"><a href="programme_table.html">4. Programme
+                                                <li class="list-group-item"><a href="programme/programme.php">4.
+                                                        Programme
                                                         Table</a></li>
-                                                <li class="list-group-item"><a href="level_table.html">5. Level
+                                                <li class="list-group-item"><a href="level/level.php">5. Level
                                                         Table</a></li>
-                                                <li class="list-group-item"><a href="session_table.html">6. Session
+                                                <li class="list-group-item"><a href="session/session.php">6. Session
                                                         Table</a></li>
-                                                <li class="list-group-item"><a href="course_setup.html">7. Course
+                                                <li class="list-group-item"><a href="coursesetup/coursesetup.php">7.
+                                                        Course
                                                         Setup</a></li>
-                                                <li class="list-group-item"><a href="course_assignment.html">8. Course
+                                                <li class="list-group-item"><a href="###">8. Course
                                                         Assignment</a></li>
-                                                <li class="list-group-item"><a href="academic_year_table.html">9.
+                                                <li class="list-group-item"><a href="academicyear/academicyear.php">9.
                                                         Academic Year Table</a></li>
                                             </ul>
                                         </div>
@@ -722,19 +744,26 @@
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="abcegradingsystem/abcegradingsystem.php">1. ABCE
+                                                <li class="list-group-item"><a
+                                                            href="abcegradingsystem/abcegradingsystem.php">1. ABCE
                                                         Grading System</a></li>
-                                                <li class="list-group-item"><a href="o_levels_grading_system.html">2.
+                                                <li class="list-group-item"><a
+                                                            href="olevelgradingsystem/olevelgradingsystem.php">2.
                                                         O-Levels Grading System</a></li>
-                                                <li class="list-group-item"><a href="a_levels_grading_system.html">3.
+                                                <li class="list-group-item"><a
+                                                            href="alevelgradingsystem/alevelgradingsystem.php">3.
                                                         A-Levels Grading System</a></li>
-                                                <li class="list-group-item"><a href="hnd_grading_system.html">4. HND
+                                                <li class="list-group-item"><a
+                                                            href="hndgradingsystem/hndgradingsystem.php">4. HND
                                                         Grading System</a></li>
-                                                <li class="list-group-item"><a href="dbs_grading_system.html">5. DBS
+                                                <li class="list-group-item"><a
+                                                            href="dbsgradingsystem/dbsgradingsystem.php">5. DBS
                                                         Grading System</a></li>
-                                                <li class="list-group-item"><a href="gbce_grading_system.html">6. GBCE
+                                                <li class="list-group-item"><a
+                                                            href="gbcegradingsystem/gbcegradingsystem.php">6. GBCE
                                                         Grading System</a></li>
-                                                <li class="list-group-item"><a href="wassce_sssce_grading_system.html">7.
+                                                <li class="list-group-item"><a
+                                                            href="shsgradingsystem/shsgradingsystem.php">7.
                                                         WASSCE/SSSCE Grading System</a></li>
                                             </ul>
                                         </div>
@@ -761,9 +790,10 @@
                                     >
                                         <div class="accordion-body">
                                             <ul class="list-group">
-                                                <li class="list-group-item"><a href="user_setup.html">1. User Setup</a>
+                                                <li class="list-group-item"><a href="usersetup/usersetup.php">1. User
+                                                        Setup</a>
                                                 </li>
-                                                <li class="list-group-item"><a href="system_setup.html">2. System
+                                                <li class="list-group-item"><a href="setup.php">2. System
                                                         Setup</a></li>
                                             </ul>
                                         </div>

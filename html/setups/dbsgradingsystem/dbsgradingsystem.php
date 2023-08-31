@@ -1,7 +1,5 @@
 <?php
 
-$countryID = "";
-$countryDescription = "";
 
 // Connect to the database
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
@@ -90,24 +88,24 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                         <div class="modal-body">
                             <div class="row g-2">
                                 <div class="col mb-3">
-                                    <label for="insertRecordKey" class="form-label">Course Code</label>
+                                    <label for="insertRecordKey" class="form-label">Record Key</label>
                                     <input
                                             type="text"
                                             id="insertRecordKey"
                                             name="insertRecordKey"
                                             class="form-control"
-                                            placeholder="Enter Course Code"
+                                            placeholder="Enter Record Key"
                                     />
                                 </div>
 
                                 <div class="col mb-3">
-                                    <label for="insertResultType" class="form-label">Course Name</label>
+                                    <label for="insertResultType" class="form-label">Result Type</label>
                                     <input
                                             type="text"
                                             id="insertResultType"
                                             name="insertResultType"
                                             class="form-control"
-                                            placeholder="Enter Course Name"
+                                            placeholder="Enter Result Type"
                                     />
                                 </div>
                             </div>
@@ -124,13 +122,13 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                 </div>
 
                                 <div class="col mb-3">
-                                    <label for="insertNumericGrade" class="form-label">Certificate type</label>
+                                    <label for="insertNumericGrade" class="form-label">Numeric Grade</label>
                                     <input
                                             type="text"
                                             id="insertNumericGrade"
                                             name="insertNumericGrade"
                                             class="form-control"
-                                            placeholder="Enter Certificate Type"
+                                            placeholder="Enter Numeric Grade"
                                     />
                                 </div>
                             </div>
@@ -169,7 +167,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                         <div class="modal-body">
                             <div class="row g-2 mb-3">
                                 <div class="col mb-0">
-                                    <label for="updateRecordKey" class="form-label">Course Code</label>
+                                    <label for="updateRecordKey" class="form-label">Record Key</label>
                                     <input
                                             type="text"
                                             name="updateRecordKey"
@@ -179,7 +177,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                     />
                                 </div>
                                 <div class="col mb-0">
-                                    <label for="updateResultType" class="form-label">Course Name</label>
+                                    <label for="updateResultType" class="form-label">Result Type</label>
                                     <input
                                             type="text"
                                             name="updateResultType"
@@ -201,7 +199,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                     />
                                 </div>
                                 <div class="col mb-0">
-                                    <label for="updateNumericGrade" class="form-label">Certificate Type</label>
+                                    <label for="updateNumericGrade" class="form-label">Numeric Grade</label>
                                     <input
                                             type="text"
                                             name="updateNumericGrade"
@@ -248,7 +246,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                         <div class="modal-body">
                             <div class="row g-2 mb-3">
                                 <div class="col mb-0">
-                                    <label for="deleteRecordKey" class="form-label">Course Code</label>
+                                    <label for="deleteRecordKey" class="form-label">Record Key</label>
                                     <input
                                             type="text"
                                             name="deleteRecordKey"
@@ -258,7 +256,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                     />
                                 </div>
                                 <div class="col mb-0">
-                                    <label for="deleteResultType" class="form-label">Course Name</label>
+                                    <label for="deleteResultType" class="form-label">Result Type</label>
                                     <input
                                             type="text"
                                             name="deleteResultType"
@@ -280,7 +278,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                                     />
                                 </div>
                                 <div class="col mb-0">
-                                    <label for="deleteNumericGrade" class="form-label">Certificate Type</label>
+                                    <label for="deleteNumericGrade" class="form-label">Numeric Grade</label>
                                     <input
                                             type="text"
                                             name="deleteNumericGrade"
@@ -334,7 +332,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
         <!-- Beginning of Internal Content -->
         <div class="layout-page">
             <!-- Navbar -->
-            <?php include_once '../../modals/navigationbar.php' ?>
+            <?php include_once '../../modals/navigationbar.html' ?>
             <!-- / Navbar -->
 
             <!-- Content wrapper -->

@@ -1,14 +1,12 @@
 <?php
 
-$countryID = "";
-$countryDescription = "";
 
 // Connect to the database
 //$db = new PDO('mysql:host=localhost;dbname=kuceportalonline', 'root', '');
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
 // Query the database
-$result = $db->query('SELECT * FROM abcesubjects');
+$result = $db->query('SELECT * FROM alevelsubjects');
 
 // Fetch the data as an associative array
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -77,7 +75,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
 
-                    <form action="abcesubjects_code_insert.php" method="POST">
+                    <form action="alevelsubjects_code_insert.php" method="POST">
 
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalInsertTitle">Insert Data</h5>
@@ -156,7 +154,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
 
-                    <form action="abcesubjects_code_update.php" method="POST">
+                    <form action="alevelsubjects_code_update.php" method="POST">
 
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalUpdate">Update Data</h5>
@@ -235,7 +233,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
 
-                    <form action="abcesubjects_code_delete.php" method="POST">
+                    <form action="alevelsubjects_code_delete.php" method="POST">
 
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalDelete">Delete Data</h5>
@@ -335,7 +333,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
         <!-- Beginning of Internal Content -->
         <div class="layout-page">
             <!-- Navbar -->
-            <?php include_once '../../modals/navigationbar.php' ?>
+            <?php include_once '../../modals/navigationbar.html' ?>
             <!-- / Navbar -->
 
             <!-- Content wrapper -->
@@ -429,13 +427,11 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             let updateCourseCode = row.cells[0].textContent; // Replace with the appropriate index
             let updateCourseName = row.cells[1].textContent; // Replace with the appropriate index
             let updateOption = row.cells[2].textContent; // Replace with the appropriate index
-            let updateCertificateType = row.cells[3].textContent; // Replace with the appropriate index
 
             // Populate the form fields in the modal with extracted data
             document.getElementById("updateCourseCode").value = updateCourseCode;
             document.getElementById("updateCourseName").value = updateCourseName;
             document.getElementById("updateOption").value = updateOption;
-            document.getElementById("updateCertificateType").value = updateCertificateType;
 
             // Show the modal
             let editModal = new bootstrap.Modal(document.getElementById("modalUpdate"));
@@ -454,13 +450,11 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             let deleteCourseCode = row.cells[0].textContent; // Replace with the appropriate index
             let deleteCourseName = row.cells[1].textContent; // Replace with the appropriate index
             let deleteOption = row.cells[2].textContent; // Replace with the appropriate index
-            let deleteCertificateType = row.cells[3].textContent; // Replace with the appropriate index
 
             // Populate the form fields in the modal with extracted data
             document.getElementById("deleteCourseCode").value = deleteCourseCode;
             document.getElementById("deleteCourseName").value = deleteCourseName;
             document.getElementById("deleteOption").value = deleteOption;
-            document.getElementById("deleteCertificateType").value = deleteCertificateType;
 
             // Show the modal
             let deleteModal = new bootstrap.Modal(document.getElementById("modalDelete"));
