@@ -40,20 +40,18 @@
                 document.write(new Date().getFullYear());
             </script>
             , made with ❤️ by
-            <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Hightel Consults</a>
+            <a href="https://home.hightelconsult.com" target="_blank" class="footer-link fw-bolder">Hightel Consults</a>
         </div>
         <div>
-            <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-
             <a
-                    href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
+                    href="https://home.hightelconsult.com/documentation/"
                     target="_blank"
                     class="footer-link me-4"
             >Documentation</a
             >
 
             <a
-                    href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
+                    href="https://home.hightelconsult.com/support"
                     target="_blank"
                     class="footer-link me-4"
             >Support</a
@@ -61,8 +59,6 @@
         </div>
     </div>
 </footer>
-
-
 
 
 <!-- Place this tag in your head or just before your close body tag. -->

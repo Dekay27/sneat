@@ -34,7 +34,7 @@
     <div class="app-brand demo">
         <a href="../index.html" class="app-brand-link">
               <span class="app-brand-logo demo">
-                  <img src="https://img.icons8.com/sf-black-filled/64/7950F2/wi-fi-connected.png" alt="Girl in a jacket"
+                  <img src="https://img.icons8.com/sf-black-filled/64/7950F2/wi-fi-connected.png" alt="wifi connected"
                        width="32" height="32"/>
               </span>
             <span class=" demo menu-text fw-bolder ms-2">ISMS</span>
@@ -55,7 +55,7 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="application-form.html" class="menu-link">
+                    <a href="../pages/personaldetails.php" class="menu-link">
                         <div data-i18n="Application Form">Application Form</div>
                     </a>
                 </li>
@@ -299,7 +299,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../setup.php" class="menu-link">
+                    <a href="../setups/setup.php" class="menu-link">
                         <div data-i18n="Setup Tables">Setup Tables</div>
                     </a>
                 </li>
