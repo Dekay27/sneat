@@ -47,15 +47,13 @@
                     href="https://home.hightelconsult.com/documentation/"
                     target="_blank"
                     class="footer-link me-4"
-            >Documentation</a
-            >
+            >Documentation</a>
 
             <a
                     href="https://home.hightelconsult.com/support"
                     target="_blank"
                     class="footer-link me-4"
-            >Support</a
-            >
+            >Support</a>
         </div>
     </div>
 </footer>
