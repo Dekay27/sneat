@@ -283,6 +283,44 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
                     <div class="card">
 
+                        <!--/ Insert Data Button -->
+                        <div class="card-body">
+                            <div class="row demo-vertical-spacing">
+                                <div class="mb-3"
+                                     data-bs-toggle="modal"
+                                     data-bs-target="#modalInsert">
+                                    <button type="button" class="btn btn-outline-primary text-nowrap">
+                                        <span class="tf-icons bx bx-add-to-queue"></span>&nbsp; Add Data
+                                    </button>
+                                </div>
+
+                                <div class="mb-3">
+                                    <small class="form-label fw-bold d-block">Add Bulk Data</small>
+                                    <div class="input-group">
+                                        <input
+                                                type="file"
+                                                class="form-control"
+                                                id="inputGroupFile04"
+                                                aria-describedby="inputGroupFileAddon04"
+                                                aria-label="Upload"
+                                        />
+                                        <button class="btn btn-outline-primary" type="button"
+                                                id="inputGroupFileAddon04">
+                                            Download Sample Excel
+                                        </button>
+                                        <button class="btn btn-outline-primary" type="button"
+                                                id="inputGroupFileAddon04">
+                                            Upload
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--/ Insert Data Button -->
+
+                        <hr class="my-3"/>
+
                         <h5 class="card-header">List of ABCE Grading</h5>
                         <div class="col">
                             <div class="table-responsive text-nowrap px-12 py-8">
