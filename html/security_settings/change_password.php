@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirmNewPassword = $_POST['confirmNewPassword'];
 
     // Placeholder user ID - replace with actual user session or identification mechanism
-    $userId = $_SESSION['userId'];
+    $userId = $_SESSION['username'];
 
     // Validate current password
     $sql = "SELECT password FROM users WHERE id = ?";
