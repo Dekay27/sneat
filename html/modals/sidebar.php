@@ -278,8 +278,8 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="pin-management.html" class="menu-link">
-                        <div data-i18n="Pin Management">Pin Management</div>
+                    <a href="../generate_ids.php" class="menu-link">
+                        <div data-i18n="Pin Management">PIN Management</div>
                     </a>
                 </li>
             </ul>

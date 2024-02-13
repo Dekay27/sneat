@@ -77,7 +77,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         <!-- Beginning of Internal Content -->
         <div class="layout-page">
             <!-- Navbar -->
-            <?php include_once '../modals/navigationbar.html' ?>
+            <?php include_once '../modals/navigationbar.php' ?>
             <!-- / Navbar -->
 
             <!-- Content wrapper -->

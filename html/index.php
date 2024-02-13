@@ -1,8 +1,9 @@
 <?php
 // Start the session at the beginning of the file
 session_start();
-// require 'credentials.php';
 
+
+// Check for logged-in user from session
 if(!isset($_SESSION["username"])){
     header("Location: auth-login-basic.php");
     exit;
@@ -12,39 +13,12 @@ if(!isset($_SESSION["username"])){
 }
 
 
-
-//if (!isset($_SESSION['username']) !== true) {
-//    // If the user is not authenticated, redirect them to the login page or any other page
-//    header("Location: authenticate.php");
-//    exit();
-//}
-
-// Check if the user is authenticated (based on your authentication logic)
-// For example, you can have a $_SESSION['authenticated'] flag set upon successful login
-/*
-if (!isset($_SESSION['username']) || $_SESSION['password'] !== true) {
-    // If the user is not authenticated, redirect them to the login page or any other page
-    header("Location: index.php");
-    exit();
-}
-*/
 ?>
 
 
 <!DOCTYPE html>
 
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
 
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
-
-=========================================================
- -->
-<!-- beautify ignore:start -->
 <html
         lang="en"
         class="light-style layout-menu-fixed"
@@ -60,7 +34,7 @@ if (!isset($_SESSION['username']) || $_SESSION['password'] !== true) {
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard - Admin | ISMS </title>
+    <title>Dashboard | ISMS </title>
 
     <meta name="description" content=""/>
 
