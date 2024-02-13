@@ -299,7 +299,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../setups/setup.php" class="menu-link">
+                    <a href="setups/setup.php" class="menu-link">
                         <div data-i18n="Setup Tables">Setup Tables</div>
                     </a>
                 </li>
@@ -313,7 +313,7 @@
 
         <!-- Logout -->
         <li class="menu-item">
-            <a href="logout.html" class="menu-link">
+            <a href="./logout.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-log-out"></i>
                 <div data-i18n="Logout">Logout</div>
             </a>

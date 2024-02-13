@@ -7,30 +7,32 @@ $name = ucfirst($name);
 
 ?>
 
+
 <!DOCTYPE html>
 
 <html
-    lang="en"
-    class="light-style layout-menu-fixed"
-    dir="ltr"
-    data-theme="theme-default"
-    data-assets-path="../assets/"
-    data-template="vertical-menu-template-free"
+        lang="en"
+        class="light-style layout-menu-fixed"
+        dir="ltr"
+        data-theme="theme-default"
+        data-assets-path="../assets/"
+        data-template="vertical-menu-template-free"
 >
 <head>
     <meta charset="utf-8"/>
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
+    <title></title>
 
 </head>
 
 <body>
 
 <nav
-    class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-    id="layout-navbar"
+        class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+        id="layout-navbar"
 >
     <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
         <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
@@ -43,12 +45,8 @@ $name = ucfirst($name);
         <div class="navbar-nav align-items-center">
             <div class="nav-item d-flex align-items-center">
                 <i class="bx bx-search fs-4 lh-0"></i>
-                <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                />
+                <h5 class="card-title text-primary">Congratulations <?php echo $name ?>!
+                    🎉</h5>
             </div>
         </div>
         <!-- /Search -->
@@ -61,7 +59,7 @@ $name = ucfirst($name);
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                    data-bs-toggle="dropdown" data-bs-target="#userDropdown">
                     <div class="avatar avatar-online">
-                        <img src="https://api.hightelconsult.com/isms/html/modals/5.png" alt
+                        <img src="5.png" alt
                              class="w-px-40 h-auto rounded-circle"/>
                     </div>
                 </a>
@@ -72,7 +70,7 @@ $name = ucfirst($name);
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
-                                        <img src="https://api.hightelconsult.com/isms/html/modals/5.png" alt
+                                        <img src="5.png" alt
                                              class="w-px-40 h-auto rounded-circle"/>
                                     </div>
                                 </div>

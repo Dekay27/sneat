@@ -74,7 +74,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
 
-                    <form action="abcesubjects_code_insert.php" method="POST">
+                    <form action="abesubjectssetup_crud.php" method="POST">
 
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalInsertTitle">Insert Data</h5>
@@ -153,7 +153,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
 
-                    <form action="abcesubjects_code_update.php" method="POST">
+                    <form action="abesubjectssetup_crud.php" method="POST">
 
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalUpdate">Update Data</h5>
@@ -232,7 +232,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
 
-                    <form action="abcesubjects_code_delete.php" method="POST">
+                    <form action="abesubjectssetup_crud.php" method="POST">
 
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalDelete">Delete Data</h5>
