@@ -76,7 +76,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
         <!-- Beginning of Internal Content -->
         <div class="layout-page">
             <!-- Navbar -->
-            <?php include_once '../modals/navigationbar.php' ?>
+            <?php include_once '../modals/navigationbarOLD.php' ?>
             <!-- / Navbar -->
 
             <!-- Content wrapper -->

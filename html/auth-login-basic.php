@@ -1,36 +1,36 @@
 <?php
 ob_start();
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-include("logon.php");
 
-// it will never let you open index(login) page if session is set
-//if (isset($_SESSION['loggedin'])!="" ) {
-if (isset($_SESSION['userid'])) {
-    header("Location: users.php");
+// include("../logon.php");
+//$conn = mysqli_connect('mysql.hightelconsult.com', 'hightelconsult', 'Zozo_999_Kwame', 'sneat');
+$conn = mysqli_connect('localhost', 'root', '', 'sneat');
+
+
+if (isset($_SESSION['username'])) {
+    header("Location: index.php");
     exit;
 }
 
 $error = false;
 
 if (isset($_POST['login'])) {
-
-    // prevent sql injections/ clear user invalid inputs
-    $username = trim($_POST['username']);
+    $username = trim($_POST['email-username']); // Ensure the 'name' attribute in HTML matches
     $username = strip_tags($username);
     $username = htmlspecialchars($username);
+    echo $username;
 
     $password = trim($_POST['password']);
     $password = strip_tags($password);
     $password = htmlspecialchars($password);
-    // prevent sql injections / clear user invalid inputs
+
 
     if (empty($username)) {
         $error = true;
-        $usernameError = "Please enter your username address.";
-    } else if (!filter_var($username, FILTER_VALIDATE_username)) {
-        $error = false;
-        //$usernameError = "Please enter valid username address.";
+        $usernameError = "Please enter your username or email.";
     }
 
     if (empty($password)) {
@@ -38,29 +38,22 @@ if (isset($_POST['login'])) {
         $passError = "Please enter your password.";
     }
 
-    // if there's no error, continue to login
     if (!$error) {
-        $password = md5($password);
-        $sqll = "SELECT * FROM logins WHERE email='$username' AND password='$password'";
-        $res = mysqli_query($conn, $sqll);
+        // Use a prepared statement
+        $sql = "SELECT * FROM users_apply WHERE username = ?"; // Assuming 'email' is the correct column. Adjust if it's actually 'username'
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
 
-        $row = mysqli_fetch_array($res);
-        $count = mysqli_num_rows($res);
-
-        if ($count == 1 && $row['password'] == $password) {
-            $_SESSION['userid'] = $row['userid'];
+        if ($row['password'] == $password) { // Assuming the password in the database is hashed
             $_SESSION['username'] = $row['username'];
-            $_SESSION['userright'] = $row['rights'];
-            $_SESSION['loggedin'] = $row['username'];
-            $_SESSION['fullname'] = $row['fullname'];
-            //echo 123;
+            echo $row['username'];
 
-            //$_SESSION['access'] = "yes";
-
-            header("Location: switchmenu.php");
-
-            ///header("Location: personaldetails.php");
-
+            // Redirect
+            header("Location: index.php");
+            exit;
         } else {
             $errMSG = "Incorrect Credentials, Try again...";
         }
@@ -263,21 +256,20 @@ if (isset($_POST['login'])) {
                         </a>
                     </div>
                     <!-- /Logo -->
-                    <h4 class="mb-2">Welcome to ISMS Online ePortal</h4>
-                    <p class="mb-4">Please sign-in with your institutional account</p>
+                    <h4 class="mb-2 text-center">Welcome to ISMS Online ePortal</h4>
+                    <p class="mb-4 text-center">Please sign-in with your institutional account</p>
 
                     <!-- <form id="formAuthentication" class="mb-3" action="auth-login-basic.php" method="POST">  -->
                     <form id="formAuthentication" class="mb-3"
                           action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email or Username</label>
-                            <input
-                                    type="text"
-                                    class="form-control"
-                                    id="email"
-                                    name="email-username"
-                                    placeholder="Enter your email or username"
-                                    autofocus
+                            <label for="email-username" class="form-label">Email or Username</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="email-username"
+                                   name="email-username"
+                                   placeholder="Enter your email or username"
+                                   autofocus
                             />
                         </div>
                         <div class="mb-3 form-password-toggle">
@@ -288,13 +280,12 @@ if (isset($_POST['login'])) {
                                 </a>
                             </div>
                             <div class="input-group input-group-merge">
-                                <input
-                                        type="password"
-                                        id="password"
-                                        class="form-control"
-                                        name="password"
-                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password"
+                                <input type="password"
+                                       id="password"
+                                       class="form-control"
+                                       name="password"
+                                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                       aria-describedby="password"
                                 />
                                 <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                             </div>
@@ -306,16 +297,14 @@ if (isset($_POST['login'])) {
                             </div>
                         </div>
                         <div class="mb-3">
-                            <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
-                            <input name="save" type="submit" id="save" value=" Submit "
-                                   class="btn btn-primary d-grid w-100"/>
+                            <input name="login" type="submit" value="Sign in" class="btn btn-primary d-grid w-100">
                         </div>
                     </form>
 
                     <p class="text-center">
-                        <span>New on our platform?</span>
-                        <a href="auth-register-basic.html">
-                            <span>Create an account</span>
+                        <span>Not a student?</span>
+                        <a href="auth-register-basic.php">
+                            <span>Start your application</span>
                         </a>
                     </p>
                 </div>

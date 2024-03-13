@@ -5,7 +5,7 @@
 $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
 
 // Query the database
-$result = $db->query('SELECT * FROM abesubjects');
+$result = $db->query('SELECT * FROM abcegradingsystem');
 
 // Fetch the data as an associative array
 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -27,7 +27,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>ABE Subjects Setup | ISMS - Integrated School Management System</title>
+    <title>ABCE Grading Setup | ISMS - Integrated School Management System</title>
 
     <meta name="description" content=""/>
 
@@ -52,6 +52,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css"/>
 
     <!-- Page CSS -->
 
@@ -74,7 +75,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
 
-                    <form action="abesubjectssetup_crud.php" method="POST">
+                    <form action="abcegradingsystem_crud.php" method="POST">
 
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalInsertTitle">Insert Data</h5>
@@ -88,47 +89,25 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                         <div class="modal-body">
                             <div class="row g-2">
                                 <div class="col mb-3">
-                                    <label for="insertCourseCode" class="form-label">Course Code</label>
+                                    <label for="insertGrade" class="form-label">Grade</label>
                                     <input
                                             type="text"
-                                            id="insertCourseCode"
-                                            name="insertCourseCode"
+                                            id="insertGrade"
+                                            name="insertGrade"
                                             class="form-control"
-                                            placeholder="Enter Course Code"
+                                            placeholder="Enter Grade"
                                     />
                                 </div>
 
                                 <div class="col mb-3">
-                                    <label for="insertCourseName" class="form-label">Course Name</label>
+                                    <label for="insertNumericGrade" class="form-label">Numeric
+                                        Grade</label>
                                     <input
                                             type="text"
-                                            id="insertCourseName"
-                                            name="insertCourseName"
+                                            id="insertNumericGrade"
+                                            name="insertNumericGrade"
                                             class="form-control"
-                                            placeholder="Enter Course Name"
-                                    />
-                                </div>
-                            </div>
-                            <div class="row g-2">
-                                <div class="col mb-3">
-                                    <label for="insertOption" class="form-label">Option</label>
-                                    <input
-                                            type="text"
-                                            id="insertOption"
-                                            name="insertOption"
-                                            class="form-control"
-                                            placeholder="Enter Option"
-                                    />
-                                </div>
-
-                                <div class="col mb-3">
-                                    <label for="insertCertificateType" class="form-label">Certificate type</label>
-                                    <input
-                                            type="text"
-                                            id="insertCertificateType"
-                                            name="insertCertificateType"
-                                            class="form-control"
-                                            placeholder="Enter Certificate Type"
+                                            placeholder="Enter Numeric Grade"
                                     />
                                 </div>
                             </div>
@@ -153,10 +132,10 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
 
-                    <form action="abesubjectssetup_crud.php" method="POST">
+                    <form action="abcegradingsystem_crud.php" method="POST">
 
                         <div class="modal-header">
-                            <h5 class="modal-title" id="modalUpdate">Update Data</h5>
+                            <h5 class="modal-title" id="modalUpdateTitle">Update Data</h5>
                             <button
                                     type="button"
                                     class="btn-close"
@@ -165,53 +144,42 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                             ></button>
                         </div>
                         <div class="modal-body">
-                            <div class="row g-2 mb-3">
-                                <div class="col mb-0">
-                                    <label for="updateCourseCode" class="form-label">Course Code</label>
+                            <div class="row">
+                                <div class="col mb-3">
+                                    <label for="updateID" class="form-label">ID</label>
                                     <input
                                             type="text"
-                                            name="updateCourseCode"
-                                            id="updateCourseCode"
-                                            class="form-control"
-                                            placeholder="A"
-                                    />
-                                </div>
-                                <div class="col mb-0">
-                                    <label for="updateCourseName" class="form-label">Course Name</label>
-                                    <input
-                                            type="text"
-                                            name="updateCourseName"
-                                            id="updateCourseName"
-                                            class="form-control"
-                                            placeholder="1"
+                                            name="updateID"
+                                            id="updateID"
+                                            class="form-control text-center"
+                                            readonly
                                     />
                                 </div>
                             </div>
-                            <div class="row g-2 mb-3">
+                            <div class="row g-2">
                                 <div class="col mb-0">
-                                    <label for="updateOption" class="form-label">Option</label>
+                                    <label for="updateGrade" class="form-label">Grade</label>
                                     <input
                                             type="text"
-                                            name="updateOption"
-                                            id="updateOption"
+                                            name="updateGrade"
+                                            id="updateGrade"
                                             class="form-control"
                                             placeholder="A"
                                     />
                                 </div>
                                 <div class="col mb-0">
-                                    <label for="updateCertificateType" class="form-label">Certificate Type</label>
+                                    <label for="updateNumericGrade" class="form-label">Numeric
+                                        Grade</label>
                                     <input
                                             type="text"
-                                            name="updateCertificateType"
-                                            id="updateCertificateType"
+                                            name="updateNumericGrade"
+                                            id="updateNumericGrade"
                                             class="form-control"
                                             placeholder="1"
                                     />
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary"
                                     data-bs-dismiss="modal">
@@ -223,6 +191,7 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                         </div>
 
                     </form>
+
                 </div>
             </div>
         </div>
@@ -232,10 +201,10 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
 
-                    <form action="abesubjectssetup_crud.php" method="POST">
+                    <form action="abcegradingsystem_crud.php" method="POST">
 
                         <div class="modal-header">
-                            <h5 class="modal-title" id="modalDelete">Delete Data</h5>
+                            <h5 class="modal-title" id="modalDeleteTitle">Delete Data</h5>
                             <button
                                     type="button"
                                     class="btn-close"
@@ -244,55 +213,24 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                             ></button>
                         </div>
                         <div class="modal-body">
-                            <div class="row g-2 mb-3">
-                                <div class="col mb-0">
-                                    <label for="deleteCourseCode" class="form-label">Course Code</label>
+                            <div class="row">
+                                <div class="col mb-1">
+                                    <label for="deleteID" class="form-label">ID</label>
                                     <input
                                             type="text"
-                                            name="deleteCourseCode"
-                                            id="deleteCourseCode"
-                                            class="form-control"
-                                            placeholder="A"
+                                            name="deleteID"
+                                            id="deleteID"
+                                            class="form-control text-center"
+                                            width="30px"
                                     />
                                 </div>
-                                <div class="col mb-0">
-                                    <label for="deleteCourseName" class="form-label">Course Name</label>
-                                    <input
-                                            type="text"
-                                            name="deleteCourseName"
-                                            id="deleteCourseName"
-                                            class="form-control"
-                                            placeholder="1"
-                                    />
-                                </div>
-                            </div>
-                            <div class="row g-2 mb-3">
-                                <div class="col mb-0">
-                                    <label for="deleteOption" class="form-label">Option</label>
-                                    <input
-                                            type="text"
-                                            name="deleteOption"
-                                            id="deleteOption"
-                                            class="form-control"
-                                            placeholder="A"
-                                    />
-                                </div>
-                                <div class="col mb-0">
-                                    <label for="deleteCertificateType" class="form-label">Certificate Type</label>
-                                    <input
-                                            type="text"
-                                            name="deleteCertificateType"
-                                            id="deleteCertificateType"
-                                            class="form-control"
-                                            placeholder="1"
-                                    />
-                                </div>
+
                             </div>
 
                             <hr class="my-3"/>
 
                             <div class="row align-content-center">
-                                <div class="col align-content-center">
+                                <div class="col mb-6 align-content-center">
                                     <h6>Are you sure you want to delete
                                         all data related to this
                                         ID?</h6>
@@ -317,15 +255,15 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
     </div>
-
 </div>
+
 
 <!-- Beginning of Body Content -->
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
 
         <!-- Beginning of Sidebar Content -->
-        <?php include_once '../../modals/sidebar.php' ?>
+        <?php include_once '../../modals/sidebar_isms.php' ?>
         <!-- / End of Sidebar Content -->
 
         <!-- Beginning of Internal Content -->
@@ -339,46 +277,88 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
                 <!-- Content -->
 
                 <div class="container-xxl flex-grow-1 container-p-y">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> ABE Subjects</h4>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> ABCE Grading System
+                    </h4>
+
 
                     <div class="card">
-                        <h5 class="card-header">List of ABE Subjects</h5>
-                        <div class="table-responsive text-nowrap">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Course Code</th>
-                                    <th>Course Name</th>
-                                    <th>Option</th>
-                                    <th>Certificate Type</th>
-                                    <th>Actions</th>
-                                </tr>
-                                </thead>
-                                <tbody class="table-border-bottom-0">
-                                <?php foreach ($rows as $row) { ?>
+
+                        <!--/ Insert Data Button -->
+                        <div class="card-body">
+                            <div class="row demo-vertical-spacing">
+                                <div class="mb-3"
+                                     data-bs-toggle="modal"
+                                     data-bs-target="#modalInsert">
+                                    <button type="button" class="btn btn-outline-primary text-nowrap">
+                                        <span class="tf-icons bx bx-add-to-queue"></span>&nbsp; Add Data
+                                    </button>
+                                </div>
+
+                                <div class="mb-3">
+                                    <small class="form-label fw-bold d-block">Add Bulk Data</small>
+                                    <div class="input-group">
+                                        <input
+                                                type="file"
+                                                class="form-control"
+                                                id="inputGroupFile04"
+                                                aria-describedby="inputGroupFileAddon04"
+                                                aria-label="Upload"
+                                        />
+                                        <button class="btn btn-outline-primary" type="button"
+                                                id="inputGroupFileAddon04">
+                                            Download Sample Excel
+                                        </button>
+                                        <button class="btn btn-outline-primary" type="button"
+                                                id="inputGroupFileAddon04">
+                                            Upload
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--/ Insert Data Button -->
+
+                        <hr class="my-3"/>
+
+                        <h5 class="card-header">List of ABCE Grading</h5>
+                        <div class="col">
+                            <div class="table-responsive text-nowrap px-12 py-8">
+                                <table id="datatableid" class="table">
+                                    <thead>
                                     <tr>
-                                        <td><strong><?php echo $row['CourseCode']; ?></strong></td>
-                                        <td><?php echo $row['CourseName']; ?></td>
-                                        <td><?php echo $row['Optional']; ?></td>
-                                        <td><?php echo $row['CertificateType']; ?></td>
-                                        <td>
-                                            <svg class="edit-icon" id="editIcon" xmlns="http://www.w3.org/2000/svg"
-                                                 width="24" height="24"
-                                                 viewBox="0 0 24 24"
-                                                 style="fill: rgb(85,166,63);transform: ;msFilter:;">
-                                                <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zM8.999 14.999H7V13l5.53-5.522 1.998 1.999-5.529 5.522zm6.472-6.464-1.999-1.999 1.524-1.523 1.999 1.999-1.524 1.523z"></path>
-                                            </svg>
-                                            <svg class="delete-icon" id="deleteIcon" xmlns="http://www.w3.org/2000/svg"
-                                                 width="24" height="24"
-                                                 viewBox="0 0 24 24"
-                                                 style="fill: rgb(211,62,62);transform: ;msFilter:;">
-                                                <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zm-3.293 11.293-1.414 1.414L12 11.414l-3.293 3.293-1.414-1.414L10.586 10 7.293 6.707l1.414-1.414L12 8.586l3.293-3.293 1.414 1.414L13.414 10l3.293 3.293z"></path>
-                                            </svg>
-                                        </td>
+                                        <th>ID</th>
+                                        <th>Grade</th>
+                                        <th>Numeric Grade</th>
+                                        <th>Actions</th>
                                     </tr>
-                                <?php } ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0">
+                                    <?php foreach ($rows as $row) { ?>
+                                        <tr>
+                                            <td><strong><?php echo $row['RecordKey']; ?></strong></td>
+                                            <td><?php echo $row['Grade']; ?></td>
+                                            <td><?php echo $row['NumericGrade']; ?></td>
+                                            <td>
+                                                <svg class="edit-icon" id="editIcon" xmlns="http://www.w3.org/2000/svg"
+                                                     width="24" height="24"
+                                                     viewBox="0 0 24 24"
+                                                     style="fill: rgb(85,166,63);transform: ;msFilter:;">
+                                                    <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zM8.999 14.999H7V13l5.53-5.522 1.998 1.999-5.529 5.522zm6.472-6.464-1.999-1.999 1.524-1.523 1.999 1.999-1.524 1.523z"></path>
+                                                </svg>
+                                                <svg class="delete-icon" id="deleteIcon"
+                                                     xmlns="http://www.w3.org/2000/svg"
+                                                     width="24" height="24"
+                                                     viewBox="0 0 24 24"
+                                                     style="fill: rgb(211,62,62);transform: ;msFilter:;">
+                                                    <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zm-3.293 11.293-1.414 1.414L12 11.414l-3.293 3.293-1.414-1.414L10.586 10 7.293 6.707l1.414-1.414L12 8.586l3.293-3.293 1.414 1.414L13.414 10l3.293 3.293z"></path>
+                                                </svg>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
@@ -412,6 +392,8 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 <!-- endbuild -->
 
 <!-- Vendors JS -->
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 
 <!-- Main JS -->
 <script src="../../../assets/js/main.js"></script>
@@ -424,16 +406,14 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             let row = icon.closest("tr");
 
             // Extract data from the row (adjust these lines based on your actual table structure)
-            let updateCourseCode = row.cells[0].textContent; // Replace with the appropriate index
-            let updateCourseName = row.cells[1].textContent; // Replace with the appropriate index
-            let updateOption = row.cells[2].textContent; // Replace with the appropriate index
-            let updateCertificateType = row.cells[3].textContent; // Replace with the appropriate index
+            let updateID = row.cells[0].textContent; // Replace with the appropriate index
+            let updateGrade = row.cells[1].textContent; // Replace with the appropriate index
+            let updateNumericGrade = row.cells[2].textContent; // Replace with the appropriate index
 
             // Populate the form fields in the modal with extracted data
-            document.getElementById("updateCourseCode").value = updateCourseCode;
-            document.getElementById("updateCourseName").value = updateCourseName;
-            document.getElementById("updateOption").value = updateOption;
-            document.getElementById("updateCertificateType").value = updateCertificateType;
+            document.getElementById("updateID").value = updateID;
+            document.getElementById("updateGrade").value = updateGrade;
+            document.getElementById("updateNumericGrade").value = updateNumericGrade;
 
             // Show the modal
             let editModal = new bootstrap.Modal(document.getElementById("modalUpdate"));
@@ -449,16 +429,10 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
             let row = icon.closest("tr");
 
             // Extract data from the row (adjust these lines based on your actual table structure)
-            let deleteCourseCode = row.cells[0].textContent; // Replace with the appropriate index
-            let deleteCourseName = row.cells[1].textContent; // Replace with the appropriate index
-            let deleteOption = row.cells[2].textContent; // Replace with the appropriate index
-            let deleteCertificateType = row.cells[3].textContent; // Replace with the appropriate index
+            let deleteID = row.cells[0].textContent; // Replace with the appropriate index
 
             // Populate the form fields in the modal with extracted data
-            document.getElementById("deleteCourseCode").value = deleteCourseCode;
-            document.getElementById("deleteCourseName").value = deleteCourseName;
-            document.getElementById("deleteOption").value = deleteOption;
-            document.getElementById("deleteCertificateType").value = deleteCertificateType;
+            document.getElementById("deleteID").value = deleteID;
 
             // Show the modal
             let deleteModal = new bootstrap.Modal(document.getElementById("modalDelete"));
@@ -468,7 +442,15 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 </script>
 
 
+<script>
+    $(document).ready(function () {
+        $('#datatableid').DataTable();
+    });
+</script>
+
+
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
+
 </html>
