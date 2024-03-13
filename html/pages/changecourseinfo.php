@@ -9,6 +9,21 @@ $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hi
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
+if (isset($_POST['login'])) {
+
+    $programme = trim($_POST['getProgrammeID']);
+    $session = trim($_POST['getLevel']);
+    $mode_of_application = trim($_POST['getCID']);
+    $title = trim($_POST['getSession']);
+    $surname = trim($_POST['getSessionID']);
+    $academic_year = trim($_POST['getAcademicYear']);
+    $title = trim($_POST['updateTitle']);
+    $course_name = trim($_POST['updateCourseName']);
+    $semester = trim($_POST['updateSemester']);
+    $new_semester = trim($_POST['updateNewSemester']);
+
+}
+
 ?>
 
 <html
@@ -168,7 +183,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                             <input
                                                 type="text"
                                                 class="form-control"
-                                                id="defaultFormControlInput"
+                                                id="updateTitle"
                                                 placeholder="Course X"
                                                 readonly
                                             />
@@ -182,7 +197,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                             />
                                         </div>
                                         <div class="col-lg-3 mb-3">
-                                            <label for="semester" class="form-label">Semester</label>
+                                            <label for="updateSemester" class="form-label">Semester</label>
                                             <input
                                                 type="text"
                                                 class="form-control"
@@ -192,8 +207,8 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                             />
                                         </div>
                                         <div class="col-lg-3 mb-3">
-                                            <label for="updateSemester" class="form-label">Change Semester Name To</label>
-                                            <select id="updateSemester" name="updateSemester" class="form-select">
+                                            <label for="updateNewSemester" class="form-label">Change Semester Name To</label>
+                                            <select id="updateNewSemester" name="updateNewSemester" class="form-select">
                                                 <option selected></option>
                                                 <?php
                                                 // SQL query to fetch options from the 'title' table

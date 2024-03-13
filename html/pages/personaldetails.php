@@ -3,11 +3,35 @@
 
 // Connect to the database
 // Establish a database connection using PDO
-$db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
+$db = new PDO('mysql:host=localhost;dbname=kuceportalonline', 'root', '');
 
 // Set PDO to throw exceptions on errors
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+if (isset($_POST['login'])) {
+    // $username = trim($_POST['email-username']); // Ensure the 'name' attribute in HTML matches
+    // $username = strip_tags($username);
+    // $username = htmlspecialchars($username);
+
+    $programme = trim($_POST['updateProgramme']);
+    $session = trim($_POST['updateSession']);
+    $modeofapplication = trim($_POST['updateModeofApplication']);
+    $title = trim($_POST['updateTitle']);
+    $surname = trim($_POST['updateSurname']);
+    $firstname = trim($_POST['updateFirstName']);
+    $othernames = trim($_POST['updateOtherNames']);
+    $gender = trim($_POST['updateGender']);
+    $dateofbirth = trim($_POST['updateDateofBirth']);
+    $placeofbirth = trim($_POST['updatePlaceofBirth']);
+    $hometown = trim($_POST['updateHometown']);
+    $region = trim($_POST['updateRegion']);
+    $country = trim($_POST['updateCountry']);
+    $religion = trim($_POST['updateReligion']);
+    $maritalstatus = trim($_POST['updateMaritalStatus']);
+    $touchpoint = trim($_POST['updateTouchpoint']);
+    $recommender = trim($_POST['updateRecommender']);
+
+}
 
 ?>
 
@@ -94,12 +118,12 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                             <div class="modal-body">
                                 <div class="row g-2">
                                     <div class="col-lg-6 mb-3">
-                                        <label for="updateGrade" class="form-label">Programme</label>
-                                        <select id="updateDescription" name="updateDescription" class="form-select">
+                                        <label for="updateProgramme" class="form-label">Programme</label>
+                                        <select id="updateProgramme" name="updateProgramme" class="form-select">
                                             <option selected></option>
                                             <?php
                                             // SQL query to fetch options from the 'title' table
-                                            $query = 'SELECT distinct programmes.ProgrammeDescription FROM programmes ORDER BY ProgrammeDescription ASC';
+                                            $query = 'SELECT distinct programmes.ProgrammeDescription FROM programmes ORDER BY ProgrammeDescription';
                                             $result = $db->query($query);
                                             $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -112,8 +136,8 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                 </div>
                                 <div class="row g-2">
                                     <div class="col mb-3">
-                                        <label for="updateLowerMark" class="form-label">Session</label>
-                                        <select id="updateDescription" name="updateDescription" class="form-select">
+                                        <label for="updateSession" class="form-label">Session</label>
+                                        <select id="updateSession" name="updateSession" class="form-select">
                                             <option selected></option>
                                             <?php
                                             // SQL query to fetch options from the 'title' table
@@ -129,8 +153,8 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                     </div>
 
                                     <div class="col mb-3">
-                                        <label for="updateUpperMark" class="form-label">Mode of Application</label>
-                                        <select id="updateDescription" name="updateDescription" class="form-select">
+                                        <label for="updateModeofApplication" class="form-label">Mode of Application</label>
+                                        <select id="updateModeofApplication" name="updateModeofApplication" class="form-select">
                                             <option selected></option>
                                             <?php
                                             // SQL query to fetch options from the 'title' table
@@ -151,7 +175,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                 <div class="row g-2">
                                     <div class="col-lg-3 mb-3">
                                         <label for="updateTitle" class="form-label">Title</label>
-                                        <select id="updateDescription" name="updateDescription" class="form-select">
+                                        <select id="updateTitle" name="updateTitle" class="form-select">
                                             <option selected>Select a title..</option>
                                             <?php
                                             // SQL query to fetch options from the 'title' table
@@ -170,31 +194,31 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                 <!-- names -->
                                 <div class="row g-2">
                                     <div class="col-lg-4 mb-3">
-                                        <label for="updateDescription" class="form-label">Surname</label>
+                                        <label for="updateSurname" class="form-label">Surname</label>
                                         <input
                                                 type="text"
-                                                id="updateDescription"
-                                                name="updateDescription"
+                                                id="updateSurname"
+                                                name="updateSurname"
                                                 class="form-control"
                                         />
                                     </div>
 
                                     <div class="col-lg-4 mb-3">
-                                        <label for="updateGradePoint" class="form-label">First Name</label>
+                                        <label for="updateFirstName" class="form-label">First Name</label>
                                         <input
                                                 type="text"
-                                                id="updateGradePoint"
-                                                name="updateGradePoint"
+                                                id="updateFirstName"
+                                                name="updateFirstName"
                                                 class="form-control"
                                         />
                                     </div>
 
                                     <div class="col-lg-4 mb-3">
-                                        <label for="updateGradePoint" class="form-label">Other Names</label>
+                                        <label for="updateOtherNames" class="form-label">Other Names</label>
                                         <input
                                                 type="text"
-                                                id="updateGradePoint"
-                                                name="updateGradePoint"
+                                                id="updateOtherNames"
+                                                name="updateOtherNames"
                                                 class="form-control"
                                         />
                                     </div>
@@ -203,26 +227,26 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                 <!-- gender -->
                                 <div class="row g-2">
                                     <div class="col-lg-4 mb-3">
-                                        <label for="updateDescription" class="form-label">Gender</label>
+                                        <label for="updateGender" class="form-label">Gender</label>
                                         <input
                                                 type="text"
-                                                id="updateDescription"
-                                                name="updateDescription"
+                                                id="updateGender"
+                                                name="updateGender"
                                                 class="form-control"
                                         />
                                     </div>
 
                                     <div class="col-lg-4 mb-3">
-                                        <label for="html5-date-input" class="form-label">Date of Birth</label>
+                                        <label for="updateDateofBirth" class="form-label">Date of Birth</label>
                                         <input class="form-control" type="date" value="2005-06-18"
-                                               id="html5-date-input"/>
+                                               id="updateDateofBirth"/>
                                     </div>
                                     <div class="col-lg-4 mb-3">
-                                        <label for="updateDescription" class="form-label">Place of Birth</label>
+                                        <label for="updatePlaceofBirth" class="form-label">Place of Birth</label>
                                         <input
                                                 type="text"
-                                                id="updateDescription"
-                                                name="updateDescription"
+                                                id="updatePlaceofBirth"
+                                                name="updatePlaceofBirth"
                                                 class="form-control"
                                         />
                                     </div>
@@ -231,30 +255,29 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                 <!-- others -->
                                 <div class="row g-2">
                                     <div class="col-lg-4 mb-3">
-                                        <label for="updateDescription" class="form-label">Hometown</label>
+                                        <label for="updateHometown" class="form-label">Hometown</label>
                                         <input
                                                 type="text"
-                                                id="updateDescription"
-                                                name="updateDescription"
+                                                id="updateHometown"
+                                                name="updateHometown"
                                                 class="form-control"
                                         />
                                     </div>
 
                                     <div class="col-lg-4 mb-3">
-                                        <label for="updateGradePoint" class="form-label">Region of Hometown</label>
+                                        <label for="updateRegion" class="form-label">Region of Hometown</label>
                                         <input
                                                 type="text"
-                                                id="updateGradePoint"
-                                                name="updateGradePoint"
+                                                id="updateRegion"
+                                                name="updateRegion"
                                                 class="form-control"
                                         />
                                     </div>
                                     <div class="col-lg-4 mb-3">
-                                        <label for="updateDescription" class="form-label">Country of Origin</label>
-                                        <select id="updateDescription" name="updateDescription" class="form-select">
+                                        <label for="updateCountry" class="form-label">Country of Origin</label>
+                                        <select id="updateCountry" name="updateCountry" class="form-select">
                                             <option selected></option>
                                             <?php
-                                            // SQL query to fetch options from the 'title' table
                                             $query = 'SELECT * FROM country';
                                             $result = $db->query($query);
                                             $rows = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -269,18 +292,18 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                                 <div class="row g-2">
                                     <div class="col-lg-4 mb-3">
-                                        <label for="updateDescription" class="form-label">Religious Background</label>
+                                        <label for="updateReligion" class="form-label">Religious Background</label>
                                         <input
                                                 type="text"
-                                                id="updateDescription"
-                                                name="updateDescription"
+                                                id="updateReligion"
+                                                name="updateReligion"
                                                 class="form-control"
                                         />
                                     </div>
 
                                     <div class="col-lg-4 mb-3">
-                                        <label for="updateGradePoint" class="form-label">Marital Status</label>
-                                        <select id="updateDescription" name="updateDescription" class="form-select">
+                                        <label for="updateMaritalStatus" class="form-label">Marital Status</label>
+                                        <select id="updateMaritalStatus" name="updateMaritalStatus" class="form-select">
                                             <option selected></option>
                                             <?php
                                             // SQL query to fetch options from the 'title' table
@@ -295,9 +318,9 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                         </select>
                                     </div>
                                     <div class="col-lg-4 mb-3">
-                                        <label for="updateDescription" class="form-label">How did you hear about the
+                                        <label for="updateTouchpoint" class="form-label">How did you hear about the
                                             school?</label>
-                                        <select class="form-select" id="exampleFormControlSelect1">
+                                        <select class="form-select" id="updateTouchpoint">
                                             <option selected></option>
                                             <option value="1">Social Media</option>
                                             <option value="2">Bill Board</option>
@@ -312,12 +335,12 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                                 <div class="row g-2">
                                     <div class="col mb-3">
-                                        <label for="updateDescription" class="form-label">If recommended by Staff or
+                                        <label for="updateRecommender" class="form-label">If recommended by Staff or
                                             Student, indicate the Name:</label>
                                         <input
                                                 type="text"
-                                                id="updateDescription"
-                                                name="updateDescription"
+                                                id="updateRecommender"
+                                                name="updateRecommender"
                                                 class="form-control"
                                         />
                                     </div>
@@ -327,7 +350,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
                             <div class="modal-footer">
-                                <button type="submit" name="updatedata" class="btn btn-primary" href="">
+                                <button type="submit" name="saveData" class="btn btn-primary" href="">
                                     Save changes
                                 </button>
                             </div>

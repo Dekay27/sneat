@@ -8,6 +8,15 @@ $db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hi
 // Set PDO to throw exceptions on errors
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+if (isset($_POST['login'])) {
+
+    $pin = trim($_POST['updatePIN']);
+    $faculty = trim($_POST['updateFaculty']);
+    $semester_year = trim($_POST['updateSemesterYear']);
+    $school = trim($_POST['updateSchool']);
+    $date = trim($_POST['updateDate']);
+
+}
 
 ?>
 
@@ -94,11 +103,11 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                     <div class="col-lg-9 mb-3">
                                         <div class="row g-2">
                                             <div class="col-md-4 mb-3">
-                                                <label for="updateTitle" class="form-label">PIN Number</label>
+                                                <label for="updatePIN" class="form-label">PIN Number</label>
                                                 <input
                                                     type="text"
                                                     class="form-control"
-                                                    id="defaultFormControlInput"
+                                                    id="updatePIN"
                                                     placeholder="ISMS10902839"
                                                     readonly
                                                 />
@@ -106,21 +115,21 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                         </div>
                                         <div class="row g-2">
                                             <div class="col-6 mb-3">
-                                                <label for="updateTitle" class="form-label">Faculty Information</label>
+                                                <label for="updateFaculty" class="form-label">Faculty Information</label>
                                                 <input
                                                     type="text"
                                                     class="form-control"
-                                                    id="defaultFormControlInput"
+                                                    id="updateFaculty"
                                                     placeholder="College of Excellence"
                                                     readonly
                                                 />
                                             </div>
                                             <div class="col-6 mb-3">
-                                                <label for="updateTitle" class="form-label">Semester / Year</label>
+                                                <label for="updateSemesterYear" class="form-label">Semester / Year</label>
                                                 <input
                                                     type="text"
                                                     class="form-control"
-                                                    id="defaultFormControlInput"
+                                                    id="updateSemesterYear"
                                                     placeholder="2nd Semester | 2023"
                                                     readonly
                                                 />
@@ -128,21 +137,21 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                         </div>
                                         <div class="row g-2">
                                             <div class="col-6 mb-3">
-                                                <label for="updateTitle" class="form-label">School Information</label>
+                                                <label for="updateSchool" class="form-label">School Information</label>
                                                 <input
                                                     type="text"
                                                     class="form-control"
-                                                    id="defaultFormControlInput"
+                                                    id="updateSchool"
                                                     placeholder="ISMS University College"
                                                     readonly
                                                 />
                                             </div>
                                             <div class="col-6 mb-3">
-                                                <label for="updateTitle" class="form-label">Date</label>
+                                                <label for="updateDate" class="form-label">Date</label>
                                                 <input
                                                     type="text"
                                                     class="form-control"
-                                                    id="defaultFormControlInput"
+                                                    id="updateDate"
                                                     placeholder="September 6, 2023"
                                                     readonly
                                                 />
