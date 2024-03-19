@@ -3,7 +3,7 @@
 
 // Connect to the database
 // Establish a database connection using PDO
-$db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
+$db = new PDO('mysql:host=localhost;dbname=kuceportalonline', 'root', '');
 
 // Set PDO to throw exceptions on errors
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -12,18 +12,18 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>
 
 <html
-    lang="en"
-    class="light-style layout-menu-fixed"
-    dir="ltr"
-    data-theme="theme-default"
-    data-assets-path="../assets/"
-    data-template="vertical-menu-template-free"
+        lang="en"
+        class="light-style layout-menu-fixed"
+        dir="ltr"
+        data-theme="theme-default"
+        data-assets-path="../assets/"
+        data-template="vertical-menu-template-free"
 >
 <head>
     <meta charset="utf-8"/>
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
     <title>Resit Scores Dashboard | ISMS - Integrated School Management System</title>
@@ -37,8 +37,8 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet"
     />
 
     <!-- Icons. Uncomment required icon fonts -->
@@ -118,13 +118,15 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                                 <td><?php echo 'Weekend'; ?></td>
                                                 <td><?php echo 'LLM'; ?></td>
                                                 <td>
-                                                    <svg class="edit-icon" id="editIcon" xmlns="http://www.w3.org/2000/svg"
+                                                    <svg class="edit-icon" id="editIcon"
+                                                         xmlns="http://www.w3.org/2000/svg"
                                                          width="24" height="24"
                                                          viewBox="0 0 24 24"
                                                          style="fill: rgb(85,166,63);transform: ;msFilter:;">
                                                         <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zM8.999 14.999H7V13l5.53-5.522 1.998 1.999-5.529 5.522zm6.472-6.464-1.999-1.999 1.524-1.523 1.999 1.999-1.524 1.523z"></path>
                                                     </svg>
-                                                    <svg class="delete-icon" id="deleteIcon" xmlns="http://www.w3.org/2000/svg"
+                                                    <svg class="delete-icon" id="deleteIcon"
+                                                         xmlns="http://www.w3.org/2000/svg"
                                                          width="24" height="24"
                                                          viewBox="0 0 24 24"
                                                          style="fill: rgb(211,62,62);transform: ;msFilter:;">

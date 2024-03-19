@@ -3,7 +3,7 @@
 
 // Connect to the database
 // Establish a database connection using PDO
-$db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
+$db = new PDO('mysql:host=localhost;dbname=kuceportalonline', 'root', '');
 
 // Set PDO to throw exceptions on errors
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -12,18 +12,18 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>
 
 <html
-    lang="en"
-    class="light-style layout-menu-fixed"
-    dir="ltr"
-    data-theme="theme-default"
-    data-assets-path="../assets/"
-    data-template="vertical-menu-template-free"
+        lang="en"
+        class="light-style layout-menu-fixed"
+        dir="ltr"
+        data-theme="theme-default"
+        data-assets-path="../assets/"
+        data-template="vertical-menu-template-free"
 >
 <head>
     <meta charset="utf-8"/>
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
     <title>Examination Results | ISMS - Integrated School Management System</title>
@@ -37,8 +37,8 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet"
     />
 
     <!-- Icons. Uncomment required icon fonts -->
@@ -155,10 +155,10 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                         <div class="col-lg-4 mb-3">
                                             <label for="getStudentName" class="form-label">Student Name</label>
                                             <input
-                                                type="text"
-                                                id="getStudentName"
-                                                name="getStudentName"
-                                                class="form-control"
+                                                    type="text"
+                                                    id="getStudentName"
+                                                    name="getStudentName"
+                                                    class="form-control"
                                             />
                                         </div>
                                     </div>
@@ -166,20 +166,20 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                         <div class="col-lg-4 mb-3">
                                             <label for="getStudentID" class="form-label">Student ID</label>
                                             <input
-                                                type="text"
-                                                id="getStudentID"
-                                                name="getStudentID"
-                                                class="form-control"
+                                                    type="text"
+                                                    id="getStudentID"
+                                                    name="getStudentID"
+                                                    class="form-control"
                                             />
                                         </div>
 
                                         <div class="col-lg-4 mb-3">
                                             <label for="getSession" class="form-label">Session</label>
                                             <input
-                                                type="text"
-                                                id="getSession"
-                                                name="getSession"
-                                                class="form-control"
+                                                    type="text"
+                                                    id="getSession"
+                                                    name="getSession"
+                                                    class="form-control"
                                             />
                                         </div>
 
@@ -193,11 +193,11 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                             $currentDate = date('F j, Y');
                                             ?>
                                             <input
-                                                type="text"
-                                                id="getDate"
-                                                name="getDate"
-                                                class="form-control"
-                                                placeholder="<?php echo $currentDate; ?>"
+                                                    type="text"
+                                                    id="getDate"
+                                                    name="getDate"
+                                                    class="form-control"
+                                                    placeholder="<?php echo $currentDate; ?>"
                                             />
                                         </div>
                                     </div>
@@ -205,30 +205,30 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                         <div class="col-lg-4 mb-3">
                                             <label for="getLevel" class="form-label">Level</label>
                                             <input
-                                                type="text"
-                                                id="updateDescription"
-                                                name="updateDescription"
-                                                class="form-control"
+                                                    type="text"
+                                                    id="updateDescription"
+                                                    name="updateDescription"
+                                                    class="form-control"
                                             />
                                         </div>
 
                                         <div class="col-lg-4 mb-3">
                                             <label for="getAcademicYear" class="form-label">Academic Year</label>
                                             <input
-                                                type="text"
-                                                id="getAcademicYear"
-                                                name="getAcademicYear"
-                                                class="form-control"
+                                                    type="text"
+                                                    id="getAcademicYear"
+                                                    name="getAcademicYear"
+                                                    class="form-control"
                                             />
                                         </div>
 
                                         <div class="col-lg-4 mb-3">
                                             <label for="getSemester" class="form-label">Semester</label>
                                             <input
-                                                type="text"
-                                                id="getSemester"
-                                                name="getSemester"
-                                                class="form-control"
+                                                    type="text"
+                                                    id="getSemester"
+                                                    name="getSemester"
+                                                    class="form-control"
                                             />
                                         </div>
                                     </div>

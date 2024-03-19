@@ -14,7 +14,7 @@ $website = "";
 $location = "";
 
 // Connect to the database
-$db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
+$db = new PDO('mysql:host=localhost;dbname=kuceportalonline', 'root', '');
 
 // Query the database
 $result = $db->query('SELECT * FROM schoolinfo LIMIT 1');

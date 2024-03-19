@@ -3,7 +3,7 @@
 
 // Connect to the database
 // Establish a database connection using PDO
-$db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
+$db = new PDO('mysql:host=localhost;dbname=kuceportalonline', 'root', '');
 
 // Set PDO to throw exceptions on errors
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -85,7 +85,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 <!-- Content -->
 
                 <div class="container-xxl flex-grow-1 container-p-y">
-                    
+
                     <div class="table-responsive text-nowrap">
                         <table class="table">
                             <thead>

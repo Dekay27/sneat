@@ -3,7 +3,7 @@
 
 // Connect to the database
 // Establish a database connection using PDO
-$db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
+$db = new PDO('mysql:host=localhost;dbname=kuceportalonline', 'root', '');
 
 // Set PDO to throw exceptions on errors
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -27,18 +27,18 @@ if (isset($_POST['login'])) {
 ?>
 
 <html
-    lang="en"
-    class="light-style layout-menu-fixed"
-    dir="ltr"
-    data-theme="theme-default"
-    data-assets-path="../assets/"
-    data-template="vertical-menu-template-free"
+        lang="en"
+        class="light-style layout-menu-fixed"
+        dir="ltr"
+        data-theme="theme-default"
+        data-assets-path="../assets/"
+        data-template="vertical-menu-template-free"
 >
 <head>
     <meta charset="utf-8"/>
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
     <title>Change Course Info | ISMS - Integrated School Management System</title>
@@ -52,8 +52,8 @@ if (isset($_POST['login'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet"
     />
 
     <!-- Icons. Uncomment required icon fonts -->
@@ -109,41 +109,41 @@ if (isset($_POST['login'])) {
                                     <div class="col-lg-3 mb-3">
                                         <label for="getProgrammeID" class="form-label">Programme ID</label>
                                         <input
-                                            type="text"
-                                            class="form-control"
-                                            id="getProgrammeID"
-                                            placeholder="College of Excellence"
-                                            readonly
+                                                type="text"
+                                                class="form-control"
+                                                id="getProgrammeID"
+                                                placeholder="College of Excellence"
+                                                readonly
                                         />
                                     </div>
                                     <div class="col-lg-3 mb-3">
                                         <label for="getLevel" class="form-label">Level</label>
                                         <input
-                                            type="text"
-                                            class="form-control"
-                                            id="getLevel"
-                                            placeholder="2nd Semester | 2023"
-                                            readonly
+                                                type="text"
+                                                class="form-control"
+                                                id="getLevel"
+                                                placeholder="2nd Semester | 2023"
+                                                readonly
                                         />
                                     </div>
                                     <div class="col-lg-3 mb-3">
                                         <label for="getCID" class="form-label">CID</label>
                                         <input
-                                            type="text"
-                                            class="form-control"
-                                            id="getCID"
-                                            placeholder="College of Excellence"
-                                            readonly
+                                                type="text"
+                                                class="form-control"
+                                                id="getCID"
+                                                placeholder="College of Excellence"
+                                                readonly
                                         />
                                     </div>
                                     <div class="col-lg-3 mb-3">
                                         <label for="getSession" class="form-label">Session</label>
                                         <input
-                                            type="text"
-                                            class="form-control"
-                                            id="getSession"
-                                            placeholder="2nd Semester | 2023"
-                                            readonly
+                                                type="text"
+                                                class="form-control"
+                                                id="getSession"
+                                                placeholder="2nd Semester | 2023"
+                                                readonly
                                         />
                                     </div>
                                 </div>
@@ -151,21 +151,21 @@ if (isset($_POST['login'])) {
                                     <div class="col-lg-3 mb-3">
                                         <label for="getSessionID" class="form-label">Semester ID</label>
                                         <input
-                                            type="text"
-                                            class="form-control"
-                                            id="getSessionID"
-                                            placeholder="ISMS University College"
-                                            readonly
+                                                type="text"
+                                                class="form-control"
+                                                id="getSessionID"
+                                                placeholder="ISMS University College"
+                                                readonly
                                         />
                                     </div>
                                     <div class="col-lg-3 mb-3">
                                         <label for="getAcademicYear" class="form-label">Academic Year</label>
                                         <input
-                                            type="text"
-                                            class="form-control"
-                                            id="getAcademicYear"
-                                            placeholder="September 6, 2023"
-                                            readonly
+                                                type="text"
+                                                class="form-control"
+                                                id="getAcademicYear"
+                                                placeholder="September 6, 2023"
+                                                readonly
                                         />
                                     </div>
                                     <div class="container">
@@ -181,33 +181,35 @@ if (isset($_POST['login'])) {
                                         <div class="col-lg-3 mb-3">
                                             <label for="updateTitle" class="form-label">Course Name</label>
                                             <input
-                                                type="text"
-                                                class="form-control"
-                                                id="updateTitle"
-                                                placeholder="Course X"
-                                                readonly
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="updateTitle"
+                                                    placeholder="Course X"
+                                                    readonly
                                             />
                                         </div>
                                         <div class="col-lg-3 mb-3">
-                                            <label for="updateCourseName" class="form-label">Change Course Name To</label>
+                                            <label for="updateCourseName" class="form-label">Change Course Name
+                                                To</label>
                                             <input
-                                                type="text"
-                                                class="form-control"
-                                                id="updateCourseName"
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="updateCourseName"
                                             />
                                         </div>
                                         <div class="col-lg-3 mb-3">
                                             <label for="updateSemester" class="form-label">Semester</label>
                                             <input
-                                                type="text"
-                                                class="form-control"
-                                                id="semester"
-                                                placeholder="Semester Y"
-                                                readonly
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="semester"
+                                                    placeholder="Semester Y"
+                                                    readonly
                                             />
                                         </div>
                                         <div class="col-lg-3 mb-3">
-                                            <label for="updateNewSemester" class="form-label">Change Semester Name To</label>
+                                            <label for="updateNewSemester" class="form-label">Change Semester Name
+                                                To</label>
                                             <select id="updateNewSemester" name="updateNewSemester" class="form-select">
                                                 <option selected></option>
                                                 <?php
@@ -235,30 +237,30 @@ if (isset($_POST['login'])) {
                         </form>
                         <div class="container">
                             <div class="table-responsive text-nowrap mb-3">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Admission Number</th>
-                                    <th>Student Name</th>
-                                    <th>Class Score (30)</th>
-                                    <th>Exam Score (70)</th>
-                                    <th>Total Score (100)</th>
-                                    <th>Grade</th>
-                                </tr>
-                                </thead>
-                                <tbody class="table-border-bottom-0">
-                                <tr>
-                                    <td><strong><?php echo 'Hey'; ?></strong></td>
-                                    <td><?php echo 'Great'; ?></td>
-                                    <td><?php echo 'Code'; ?></td>
-                                    <td><?php echo '2023'; ?></td>
-                                    <td><?php echo '2nd Semester'; ?></td>
-                                    <td><?php echo '100'; ?></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Admission Number</th>
+                                        <th>Student Name</th>
+                                        <th>Class Score (30)</th>
+                                        <th>Exam Score (70)</th>
+                                        <th>Total Score (100)</th>
+                                        <th>Grade</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0">
+                                    <tr>
+                                        <td><strong><?php echo 'Hey'; ?></strong></td>
+                                        <td><?php echo 'Great'; ?></td>
+                                        <td><?php echo 'Code'; ?></td>
+                                        <td><?php echo '2023'; ?></td>
+                                        <td><?php echo '2nd Semester'; ?></td>
+                                        <td><?php echo '100'; ?></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 

@@ -2,7 +2,7 @@
 
 
 // Connect to the database
-$db = new PDO('mysql:host=mysql.hightelconsult.com;dbname=kuceportalonline', 'hightelconsult', 'Zozo_999_Kwame');
+$db = new PDO('mysql:host=localhost;dbname=puconline', 'root', '');
 
 // Query the database
 $result = $db->query('SELECT * FROM programmes');
@@ -51,7 +51,11 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="../../../assets/css/demo.css"/>
 
     <!-- Vendors CSS -->
+    <link rel="stylesheet" type="text/css" href="../../../assets/vendor/css/material-vendors.min.css">
     <link rel="stylesheet" href="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../assets/vendor/css/tables/datatable/datatables.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="../../../assets/vendor/css/tables/extensions/responsive.dataTables.min.css">
 
     <!-- Page CSS -->
 
@@ -417,53 +421,101 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Setup /</span> Programme Setup</h4>
-
-                    <div class="card">
-                        <h5 class="card-header">List of Programmes</h5>
-                        <div class="table-responsive text-nowrap">
-                            <table class="table">
+                    <section id="search-api">
+                        <div class="card">
+                            <table class="table table-striped table-bordered mb-3">
                                 <thead>
                                 <tr>
-
-                                    <th>Programme ID</th>
-                                    <th>Programme Description</th>
-                                    <th>Affiliation</th>
-                                    <th>Min Credit Hours</th>
-                                    <th>Min Grading System Type</th>
-                                    <th>No of Years</th>
-                                    <th>Actions</th>
+                                    <th>Target</th>
+                                    <th>Search text</th>
                                 </tr>
                                 </thead>
-                                <tbody class="table-border-bottom-0">
-                                <?php foreach ($rows as $row) { ?>
-                                    <tr>
-                                        <td><strong><?php echo $row['ProgrammeID']; ?></strong></td>
-                                        <td><?php echo $row['ProgrammeDescription']; ?></td>
-                                        <td><?php echo $row['Affiliation']; ?></td>
-                                        <td><?php echo $row['MinCreditHrs']; ?></td>
-                                        <td><?php echo $row['MinGradingSystemType']; ?></td>
-                                        <td><?php echo $row['NoofYears']; ?></td>
-                                        <td>
-                                            <svg class="edit-icon" id="editIcon" xmlns="http://www.w3.org/2000/svg"
-                                                 width="24" height="24"
-                                                 viewBox="0 0 24 24"
-                                                 style="fill: rgb(85,166,63);transform: ;msFilter:;">
-                                                <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zM8.999 14.999H7V13l5.53-5.522 1.998 1.999-5.529 5.522zm6.472-6.464-1.999-1.999 1.524-1.523 1.999 1.999-1.524 1.523z"></path>
-                                            </svg>
-                                            <svg class="delete-icon" id="deleteIcon" xmlns="http://www.w3.org/2000/svg"
-                                                 width="24" height="24"
-                                                 viewBox="0 0 24 24"
-                                                 style="fill: rgb(211,62,62);transform: ;msFilter:;">
-                                                <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zm-3.293 11.293-1.414 1.414L12 11.414l-3.293 3.293-1.414-1.414L10.586 10 7.293 6.707l1.414-1.414L12 8.586l3.293-3.293 1.414 1.414L13.414 10l3.293 3.293z"></path>
-                                            </svg>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
+                                <tbody>
+                                <tr id="filter_global">
+                                    <td>Global search</td>
+                                    <td><input type="text" class="global_filter" id="global_filter"></td>
+                                </tr>
+                                </tr>
+                                <tr id="filter_col1" data-column="0">
+                                    <td>Column - Programme ID</td>
+                                    <td><input type="text" class="column_filter" id="col0_filter"></td>
+                                </tr>
+                                <tr id="filter_col2" data-column="1">
+                                    <td>Column - Programme Description</td>
+                                    <td><input type="text" class="column_filter" id="col1_filter"></td>
+                                </tr>
+                                <tr id="filter_col3" data-column="2">
+                                    <td>Column - Affiliation</td>
+                                    <td><input type="text" class="column_filter" id="col2_filter"></td>
+                                </tr>
+                                <tr id="filter_col4" data-column="3">
+                                    <td>Column - Minimum Credit Hours</td>
+                                    <td><input type="text" class="column_filter" id="col3_filter"></td>
+                                </tr>
+                                <tr id="filter_col5" data-column="4">
+                                    <td>Column - Minimum Grading System Type</td>
+                                    <td><input type="text" class="column_filter" id="col4_filter"></td>
+                                </tr>
+                                <tr id="filter_col6" data-column="5">
+                                    <td>Column - Number of Years</td>
+                                    <td><input type="text" class="column_filter" id="col5_filter"></td>
+                                </tr>
+                                <tr id="filter_col7" data-column="5">
+                                    <td>Column - Site</td>
+                                    <td><input type="text" class="column_filter" id="col6_filter"></td>
+                                </tr>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
 
+                            <h5 class="card-header">List of Programmes</h5>
+
+                            <div class="table-responsive ">
+                                <table class="display table-borderless search-api">
+                                    <thead>
+                                    <tr>
+
+                                        <th>Programme ID</th>
+                                        <th>Programme Description</th>
+                                        <th>Affiliation</th>
+                                        <th>Min Credit Hours</th>
+                                        <th>Min Grading System Type</th>
+                                        <th>No of Years</th>
+                                        <th>Site</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0">
+                                    <?php foreach ($rows as $row) { ?>
+                                        <tr>
+                                            <td><strong><?php echo $row['ProgrammeID']; ?></strong></td>
+                                            <td><?php echo $row['ProgrammeDescription']; ?></td>
+                                            <td><?php echo $row['Affiliation']; ?></td>
+                                            <td><?php echo $row['MinCreditHrs']; ?></td>
+                                            <td><?php echo $row['MinGradingSystemType']; ?></td>
+                                            <td><?php echo $row['NoofYears']; ?></td>
+                                            <td><?php echo $row['Site']; ?></td>
+                                            <td>
+                                                <svg class="edit-icon" id="editIcon" xmlns="http://www.w3.org/2000/svg"
+                                                     width="24" height="24"
+                                                     viewBox="0 0 24 24"
+                                                     style="fill: rgb(85,166,63);transform: ;msFilter:;">
+                                                    <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zM8.999 14.999H7V13l5.53-5.522 1.998 1.999-5.529 5.522zm6.472-6.464-1.999-1.999 1.524-1.523 1.999 1.999-1.524 1.523z"></path>
+                                                </svg>
+                                                <svg class="delete-icon" id="deleteIcon"
+                                                     xmlns="http://www.w3.org/2000/svg"
+                                                     width="24" height="24"
+                                                     viewBox="0 0 24 24"
+                                                     style="fill: rgb(211,62,62);transform: ;msFilter:;">
+                                                    <path d="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zm-3.293 11.293-1.414 1.414L12 11.414l-3.293 3.293-1.414-1.414L10.586 10 7.293 6.707l1.414-1.414L12 8.586l3.293-3.293 1.414 1.414L13.414 10l3.293 3.293z"></path>
+                                                </svg>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
 
                 </div>
                 <!-- / Content -->
@@ -494,6 +546,9 @@ $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 <!-- endbuild -->
 
 <!-- Vendors JS -->
+<script src="../../../assets/vendor/js/tables/datatable/datatables.min.js"></script>
+<script src="../../../assets/vendor/js/tables/datatable/dataTables.responsive.min.js"></script>
+<script src="../../../assets/js/tables/datatables/datatable-api.js"></script>
 
 <!-- Main JS -->
 <script src="../../../assets/js/main.js"></script>

@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="sneat-database" uuid="e5857ed2-dc40-42a1-895e-f2c611af6ca0">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://tuholski.iad1-mysql-e2-1a.dreamhost.com:3306/sneat</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
     <data-source source="LOCAL" name="kuceportalonline@mysql.hightelconsult.com" uuid="c0ce25c1-54c5-4b78-924b-01a40b62b8e1">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
@@ -15,11 +8,11 @@
       <jdbc-url>jdbc:mysql://mysql.hightelconsult.com:3306/kuceportalonline</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="sneat@localhost" uuid="0138b8db-c1fc-4437-96a8-28e83c0a1c08">
+    <data-source source="LOCAL" name="root@localhost" uuid="61fff8be-4994-451c-ba09-7b900e28aab0">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://localhost:3306/sneat</jdbc-url>
+      <jdbc-url>jdbc:mariadb://localhost:3306</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
